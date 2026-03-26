@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل هناده دكسن</title>
+    <title>دليل هيا اسكندراني</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,13 +23,9 @@
         .border-brand-green { border-color: #556B2F; }
         
         .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
+            opacity: 1; /* جعلتها ظاهرة مباشرة لضمان العمل */
             transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
     </style>
 </head>
@@ -38,21 +34,7 @@
     <!-- Header -->
     <header class="bg-white shadow-md">
         <div class="max-w-5xl mx-auto py-6 px-4 text-center relative">
-            <div class="absolute top-1/2 -translate-y-1/2 left-4 flex gap-2">
-                <!-- Share Button -->
-                <button id="share-button" class="p-2 rounded-full text-gray-600 hover:bg-gray-200 transition" title="مشاركة التطبيق">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
-                    </svg>
-                </button>
-                <!-- Install App Button (Hidden by default) -->
-                <button id="install-button" class="hidden p-2 rounded-full text-gray-600 hover:bg-gray-200 transition" title="تثبيت التطبيق">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                </button>
-            </div>
-            <h1 class="text-4xl font-bold text-brand-green font-title">هناده دكسن</h1>
+            <h1 class="text-4xl font-bold text-brand-green font-title">هيا اسكندراني</h1>
             <p class="mt-2 text-lg text-gray-600">دليلك لاستكشاف عالم الصحة والفرص مع دكسن</p>
         </div>
     </header>
@@ -61,12 +43,12 @@
     <main class="mt-10">
         <!-- Hero Section -->
         <section id="home" class="max-w-5xl mx-auto px-4 py-16 text-center fade-in-section">
-            <h2 class="text-3xl font-bold md:text-4xl font-title text-brand-dark">تطبيق هناده ديكسن</h2>
-            <p class="mt-4 text-xl text-gray-700">معاكي من  اول خطوة تعالي معايا في رحلة التغيير</p>
+            <h2 class="text-3xl font-bold md:text-4xl font-title text-brand-dark">تطبيق هيا اسكندراني</h2>
+            <p class="mt-4 text-xl text-gray-700">معاكي من أول خطوة تعالي معايا في رحلة التغيير</p>
             <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a href="https://morad1971.github.io/HANADA-DXN-intro/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition duration-300 shadow-lg w-full sm:w-auto">اسمحيلي اشرحلك</a>
                 <a href="https://morad1971.github.io/hanada-budget-planner/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition duration-300 shadow-lg w-full sm:w-auto">بعد الشرح</a>
-                <a href="https://morad1971.github.io/ask/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition duration-300 shadow-lg w-full sm:w-auto">اسأل هناده</a>
+                <a href="https://morad1971.github.io/ask/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition duration-300 shadow-lg w-full sm:w-auto">اسأل هيا</a>
             </div>
         </section>
 
@@ -78,14 +60,16 @@
                     <p class="mt-2 text-gray-600">أدوات تفاعلية صممتها لمساعدتك في رحلتك مع دكسن.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- كرت الكتالوج - تم تعديل الرابط لكتالوج هيا الجديد -->
                     <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
                         <div class="flex justify-center mb-4">
                             <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/download.png" alt="أيقونة كتالوج المنتجات" class="w-20 h-20 object-cover rounded-full">
                         </div>
                         <h3 class="text-2xl font-bold text-brand-green font-title">كتالوج المنتجات</h3>
                         <p class="mt-4 text-gray-700">استكشفي كتالوج المنتجات الكامل، واعرفي كل تفاصيله وفوائده الصحية.</p>
-                        <a href="https://morad1971.github.io/hanada-product-catalog/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">استكشفي الآن &rarr;</a>
+                        <a href="https://morad1971.github.io" class="mt-6 inline-block font-semibold text-brand-green hover:underline">استكشفي الآن &rarr;</a>
                     </div>
+                    
                     <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
                         <div class="flex justify-center mb-4">
                             <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/health.png" alt="أيقونة دليل الفوائد الصحية" class="w-20 h-20 object-cover rounded-full">
@@ -94,6 +78,7 @@
                         <p class="mt-4 text-gray-700">تعمقي في فهم القوة الحقيقية لمنتجات دكسن وفوائدها لصحتك وحيويتك.</p>
                          <a href="https://morad1971.github.io/hanada-health-guide/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">اعرفي المزيد &rarr;</a>
                     </div>
+
                     <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
                         <div class="flex justify-center mb-4">
                             <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/value.png" alt="أيقونة المقارنة المالية" class="w-20 h-20 object-cover rounded-full">
@@ -102,128 +87,14 @@
                         <p class="mt-4 text-gray-700">هل منتجات دكسن أوفر؟ قارني مصاريفك الحالية مع منتجات دكسن وشوفي الفرق.</p>
                          <a href="https://morad1971.github.io/hanada-comparison-tool/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">ابدأي المقارنة &rarr;</a>
                     </div>
-                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/project.png" alt="أيقونة دكسن كمشروع" class="w-20 h-20 object-cover rounded-full">
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-green font-title">دكسن كمشروع</h3>
-                        <p class="mt-4 text-gray-700">افهمي الخطة المالية بالأمثلة وكيف يمكن لمشترياتك أن تصبح مصدر دخل.</p>
-                         <a href="https://morad1971.github.io/DXN-AS-BUSINESS/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">اكتشفي المشروع &rarr;</a>
-                    </div>
-                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/training.png" alt="أيقونة مركز التدريب" class="w-20 h-20 object-cover rounded-full">
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-green font-title">مركز التدريب</h3>
-                        <p class="mt-4 text-gray-700">هون بتبلش رحلتك لتطوير حالك وبناء عقلية النجاح لتكوني قائدة مستقلة.</p>
-                         <a href="https://morad1971.github.io/hanada-training-center/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">ابدأي التدريب &rarr;</a>
-                    </div>
-                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/ask.png" alt="أيقونة اسأل هناده" class="w-20 h-20 object-cover rounded-full">
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-green font-title">اسأل هناده</h3>
-                        <p class="mt-4 text-gray-700">عندك سؤال سريع؟ هون بتلاقي جواب فوري لكل إشي بخص الشغل والمنتجات.</p>
-                         <a href="https://morad1971.github.io/ask/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">اسألي الآن &rarr;</a>
-                    </div>
-                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/join.png" alt="أيقونة انضمي لفريقنا" class="w-20 h-20 object-cover rounded-full">
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-green font-title">انضمي لفريقنا</h3>
-                        <p class="mt-4 text-gray-700">جاهزة لتبدئي رحلتك؟ قدمي طلب الانضمام الآن وكوني جزءًا من قصة نجاحنا.</p>
-                         <a href="https://morad1971.github.io/hanada-public-form/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">سجلي الآن &rarr;</a>
-                    </div>
-                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                        <div class="flex justify-center mb-4">
-                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/whats.png" alt="أيقونة تواصلي معي" class="w-20 h-20 object-cover rounded-full">
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-green font-title">تواصلي معي مباشرة</h3>
-                        <p class="mt-4 text-gray-700">عندك أي استفسار أو حابة تحكي معي؟ اكبسي هون واحكي معي مباشرة على الواتساب.</p>
-                         <a href="https://wa.me/message/4KM3HRA62B3BK1" class="mt-6 inline-block font-semibold text-brand-green hover:underline">احكي مع هناده &rarr;</a>
-                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center p-6 bg-gray-800 text-white mt-10">
-        <p>&copy; 2025 دليل هناده دكسن. جميع الحقوق محفوظة.</p>
+    <footer class="py-10 bg-brand-green text-white text-center">
+        <p>© 2024 هيا اسكندراني - جميع الحقوق محفوظة</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const shareButton = document.getElementById('share-button');
-            const installButton = document.getElementById('install-button');
-            
-            // --- Share Functionality ---
-            shareButton.addEventListener('click', async () => {
-                const shareData = {
-                    title: 'دليل هناده دكسن',
-                    text: 'اكتشفي عالم الصحة والفرص مع دكسن من خلال هذا الدليل الشامل!',
-                    url: window.location.href
-                };
-                try {
-                    await navigator.share(shareData);
-                } catch (err) {
-                    console.log('فشلت واجهة المشاركة، سيتم اللجوء لنسخ الرابط:', err);
-                    const textArea = document.createElement('textarea');
-                    textArea.value = window.location.href;
-                    textArea.style.position = 'fixed';
-                    textArea.style.top = '-9999px';
-                    textArea.style.left = '-9999px';
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        alert('تم نسخ رابط التطبيق إلى الحافظة!');
-                    } catch (copyErr) {
-                        alert('عفواً، لم نتمكن من نسخ الرابط. الرجاء نسخه يدوياً.');
-                    }
-                    document.body.removeChild(textArea);
-                }
-            });
-
-            // --- PWA Install Functionality ---
-            let deferredPrompt;
-            window.addEventListener('beforeinstallprompt', (e) => {
-                // منع المتصفح من إظهار رسالة التثبيت التلقائية
-                e.preventDefault();
-                // حفظ الحدث لاستخدامه لاحقًا
-                deferredPrompt = e;
-                // إظهار زر التثبيت الخاص بنا
-                installButton.classList.remove('hidden');
-            });
-
-            installButton.addEventListener('click', async () => {
-                if (deferredPrompt) {
-                    // إظهار رسالة التثبيت
-                    deferredPrompt.prompt();
-                    // انتظار المستخدم لاتخاذ قرار
-                    const { outcome } = await deferredPrompt.userChoice;
-                    console.log(`User response to the install prompt: ${outcome}`);
-                    // لم يعد بإمكاننا استخدام نفس الحدث مرة أخرى
-                    deferredPrompt = null;
-                    // إخفاء الزر بعد اتخاذ القرار
-                    installButton.classList.add('hidden');
-                }
-            });
-
-            // --- Fade-in Sections ---
-            const fadeInSections = document.querySelectorAll('.fade-in-section');
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            fadeInSections.forEach(section => observer.observe(section));
-        });
-    </script>
 </body>
 </html>
