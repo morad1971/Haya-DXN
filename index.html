@@ -9,82 +9,66 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Almarai:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Cairo', sans-serif; 
-            scroll-behavior: smooth;
-        }
-        .font-title {
-            font-family: 'Almarai', sans-serif;
-        }
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        .font-title { font-family: 'Almarai', sans-serif; }
         .bg-brand-beige { background-color: #F5F5DC; }
         .bg-brand-green { background-color: #556B2F; }
         .text-brand-green { color: #556B2F; }
         .text-brand-dark { color: #3D405B; }
-        .border-brand-green { border-color: #556B2F; }
-        
-        .fade-in-section {
-            opacity: 1; /* جعلتها ظاهرة مباشرة لضمان العمل */
-            transform: translateY(0);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
+        .fade-in-section { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     </style>
 </head>
 <body class="bg-brand-beige text-brand-dark">
 
-    <!-- Header -->
     <header class="bg-white shadow-md">
-        <div class="max-w-5xl mx-auto py-6 px-4 text-center relative">
+        <div class="max-w-5xl mx-auto py-6 px-4 text-center">
             <h1 class="text-4xl font-bold text-brand-green font-title">هيا اسكندراني</h1>
             <p class="mt-2 text-lg text-gray-600">دليلك لاستكشاف عالم الصحة والفرص مع دكسن</p>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="mt-10">
-        <!-- Hero Section -->
         <section id="home" class="max-w-5xl mx-auto px-4 py-16 text-center fade-in-section">
             <h2 class="text-3xl font-bold md:text-4xl font-title text-brand-dark">تطبيق هيا اسكندراني</h2>
             <p class="mt-4 text-xl text-gray-700">معاكي من أول خطوة تعالي معايا في رحلة التغيير</p>
             <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="https://morad1971.github.io/HANADA-DXN-intro/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition duration-300 shadow-lg w-full sm:w-auto">اسمحيلي اشرحلك</a>
-                <a href="https://morad1971.github.io/hanada-budget-planner/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition duration-300 shadow-lg w-full sm:w-auto">بعد الشرح</a>
-                <a href="https://morad1971.github.io/ask/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition duration-300 shadow-lg w-full sm:w-auto">اسأل هيا</a>
+                <a href="https://morad1971.github.io/HANADA-DXN-intro/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition shadow-lg w-full sm:w-auto">اسمحيلي اشرحلك</a>
+                <a href="https://morad1971.github.io/hanada-budget-planner/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition shadow-lg w-full sm:w-auto">بعد الشرح</a>
+                <a href="https://morad1971.github.io/ask/" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-opacity-90 transition shadow-lg w-full sm:w-auto">اسأل هيا</a>
             </div>
         </section>
 
-        <!-- Tools Section -->
         <section id="tools" class="py-20 bg-white fade-in-section">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-brand-dark font-title">أدوات عملية لنجاحك</h2>
-                    <p class="mt-2 text-gray-600">أدوات تفاعلية صممتها لمساعدتك في رحلتك مع دكسن.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- كرت الكتالوج - تم تعديل الرابط لكتالوج هيا الجديد -->
-                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
+                    <!-- كرت الكتالوج - تم ربطه بمستودع هيا الجديد -->
+                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl text-center">
                         <div class="flex justify-center mb-4">
-                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/download.png" alt="أيقونة كتالوج المنتجات" class="w-20 h-20 object-cover rounded-full">
+                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/download.png" alt="أيقونة" class="w-20 h-20 rounded-full">
                         </div>
                         <h3 class="text-2xl font-bold text-brand-green font-title">كتالوج المنتجات</h3>
-                        <p class="mt-4 text-gray-700">استكشفي كتالوج المنتجات الكامل، واعرفي كل تفاصيله وفوائده الصحية.</p>
+                        <p class="mt-4 text-gray-700">استكشفي كتالوج المنتجات الكامل.</p>
                         <a href="https://morad1971.github.io" class="mt-6 inline-block font-semibold text-brand-green hover:underline">استكشفي الآن &rarr;</a>
                     </div>
                     
-                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl text-center">
                         <div class="flex justify-center mb-4">
-                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/health.png" alt="أيقونة دليل الفوائد الصحية" class="w-20 h-20 object-cover rounded-full">
+                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/health.png" alt="أيقونة" class="w-20 h-20 rounded-full">
                         </div>
                         <h3 class="text-2xl font-bold text-brand-green font-title">دليل الفوائد الصحية</h3>
-                        <p class="mt-4 text-gray-700">تعمقي في فهم القوة الحقيقية لمنتجات دكسن وفوائدها لصحتك وحيويتك.</p>
+                        <p class="mt-4 text-gray-700">تعمقي في فهم فوائد المنتجات.</p>
                          <a href="https://morad1971.github.io/hanada-health-guide/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">اعرفي المزيد &rarr;</a>
                     </div>
 
-                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
+                    <div class="bg-brand-beige p-8 rounded-lg shadow-md hover:shadow-xl text-center">
                         <div class="flex justify-center mb-4">
-                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/value.png" alt="أيقونة المقارنة المالية" class="w-20 h-20 object-cover rounded-full">
+                            <img src="https://raw.githubusercontent.com/morad1971/hanada-product-catalog/main/images/value.png" alt="أيقونة" class="w-20 h-20 rounded-full">
                         </div>
                         <h3 class="text-2xl font-bold text-brand-green font-title">المقارنة المالية</h3>
-                        <p class="mt-4 text-gray-700">هل منتجات دكسن أوفر؟ قارني مصاريفك الحالية مع منتجات دكسن وشوفي الفرق.</p>
+                        <p class="mt-4 text-gray-700">قارني مصاريفك وشوفي الفرق.</p>
                          <a href="https://morad1971.github.io/hanada-comparison-tool/" class="mt-6 inline-block font-semibold text-brand-green hover:underline">ابدأي المقارنة &rarr;</a>
                     </div>
                 </div>
@@ -95,6 +79,5 @@
     <footer class="py-10 bg-brand-green text-white text-center">
         <p>© 2024 هيا اسكندراني - جميع الحقوق محفوظة</p>
     </footer>
-
 </body>
 </html>
