@@ -1,20 +1,12 @@
 {
-  "name": "HANADA DXN",
-  "short_name": "HANADA",
-  "start_url": "./index.html",
+  "name": "تطبيق هيا اسكندراني",
+  "short_name": "هيا دكسن",
+  "description": "دليلك لاستكشاف عالم الصحة والفرص مع دكسن - هيا اسكندراني",
+  "start_url": "/Haya-DXN/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0055aa",
-  "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "background_color": "#F5F5DC",
+  "theme_color": "#556B2F",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons":
 }
