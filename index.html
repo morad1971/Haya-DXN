@@ -3,123 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة هيا اسكندراني | عالم دكسن المتكامل</title>
+    <title>منصة القائدة هيا اسكندراني | عالم دكسن</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #fdfdfb; scroll-behavior: smooth; }
-        .bg-dxn-green { background-color: #1b4d3e; }
-        .text-dxn-green { color: #1b4d3e; }
+        body { font-family: 'Cairo', sans-serif; background-color: #000; color: #fff; scroll-behavior: smooth; }
+        .dxn-green { color: #556B2F; }
         .bg-dxn-red { background-color: #c8102e; }
-        .gold-border { border: 2px solid #d4af37; }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-right: 8px solid #d4af37; }
-        .gradient-text { background: linear-gradient(to right, #1b4d3e, #c8102e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url('رابط_صورتك_هنا');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+        }
+        .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(255,255,255,0.1); }
     </style>
 </head>
-<body class="text-gray-900">
+<body>
 
-    <!-- 1. الهيدر المشوق (البصمة الأولى) -->
-    <header class="relative bg-dxn-green text-white py-20 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
-            <div class="md:w-1/2 text-center md:text-right">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight font-title">قهوتكِ الصباحية.. هل هي مصروف أم استثمار؟</h1>
-                <p class="text-xl md:text-2xl mb-8 opacity-90 font-light italic">أنا هيا اسكندراني، سأعلمكِ كيف تحولين روتينكِ اليومي إلى رحلة ثراء وصحة.</p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="https://morad1971.github.io" class="bg-dxn-red text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition shadow-2xl">اسمحيلي أشرح لكِ الحكاية..</a>
-                    <a href="#tools" class="border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-dxn-green transition">اكتشفي الأدوات</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
-                    <div class="absolute -inset-4 bg-yellow-500 rounded-full blur opacity-20 animate-pulse"></div>
-                    <img src="images/haya-personal.jpg" alt="هيا اسكندراني" class="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-full border-8 border-white shadow-2xl">
-                </div>
+    <!-- الهيدر: بصمة القائدة هيا على المسرح -->
+    <header class="hero-section flex items-center justify-center px-6 text-center">
+        <div class="max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight font-title text-white">
+                منصة القائدة هيا اسكندراني
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 font-light italic text-yellow-500">
+                "النجاح ليس صدفة، بل هو قرار وتكريم لرحلة التغيير"
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://morad1971.github.io" class="bg-dxn-red text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition transform">اسمحيلي أشرح لكِ السر..</a>
             </div>
         </div>
     </header>
 
-    <!-- 2. قسم الفلسفة (إثارة الرغبة) -->
-    <section class="max-w-4xl mx-auto py-20 px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">نحن لا نبيع منتجات.. نحن نصنع نمط حياة!</h2>
-        <p class="text-xl text-gray-600 leading-relaxed mb-12">
-            أغلب العائلات تهدر ميزانياتها على منتجات استهلاكية ضارة. في منصتي، سأريكِ "البوابة" التي تحول هذا الهدر إلى **استثمار ذكي**. الأمر يبدأ بتبديل بقالتكِ، وينتهي بامتلاك مشروعكِ العالمي.
+    <!-- المحطة الثانية: إثارة الفضول -->
+    <section class="max-w-5xl mx-auto py-20 px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-yellow-500">مشروع ذكي لسيدات العالم</h2>
+        <p class="text-xl leading-relaxed text-gray-300 mb-12">
+            بصفتي رائدة أعمال بخبرة سنوات وتكريمات دولية، صممتُ لكِ هذه المنصة لتكون دليلكِ الشامل لتحويل استهلاككِ اليومي إلى استثمار صحي ومالي حقيقي.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <a href="https://morad1971.github.io" class="p-6 bg-white rounded-2xl shadow-lg border-r-8 border-green-600 flex items-center justify-between group hover:bg-green-50 transition">
-                <span class="text-xl font-bold text-green-800">📊 مخطط الميزانية الذكية</span>
-                <span class="group-hover:translate-x-2 transition">⬅️</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
+            <a href="https://morad1971.github.io" class="p-6 bg-zinc-900 rounded-2xl border-r-8 border-green-600 hover:bg-zinc-800 transition">
+                <h4 class="font-bold text-green-500">📊 مخطط الميزانية</h4>
+                <p class="text-gray-400">حسبي ميزانيتكِ بطريقة ذكية</p>
             </a>
-            <a href="https://morad1971.github.io" class="p-6 bg-white rounded-2xl shadow-lg border-r-8 border-red-600 flex items-center justify-between group hover:bg-red-50 transition">
-                <span class="text-xl font-bold text-red-800">⚖️ المقارنة المالية الصادمة</span>
-                <span class="group-hover:translate-x-2 transition">⬅️</span>
+            <a href="https://morad1971.github.io" class="p-6 bg-zinc-900 rounded-2xl border-r-8 border-red-600 hover:bg-zinc-800 transition">
+                <h4 class="font-bold text-red-500">⚖️ أداة المقارنة المالية</h4>
+                <p class="text-gray-400">شوفي الفرق الحقيقي بين بقالتكِ ودكسن</p>
             </a>
         </div>
     </section>
 
-    <!-- 3. شبكة الأدوات الـ 15 (المنصة المتكاملة) -->
-    <main id="tools" class="bg-gray-50 py-20 px-6">
-        <div class="max-w-6xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold dxn-green mb-4">أدوات نجاحكِ في مكان واحد</h2>
-            <p class="text-gray-500 text-lg">لقد صممتُ لكِ كل هذه المسارات لتكون دليلكِ الشامل</p>
-        </div>
-
+    <!-- شبكة الحلول: الـ 15 مستودع -->
+    <main class="py-20 px-6 bg-zinc-950">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- الكرت 1: المنتجات -->
-            <a href="https://morad1971.github.io" class="card-hover bg-white p-8 rounded-2xl shadow-sm transition group border-t-4 border-green-700">
-                <h3 class="text-2xl font-bold text-green-800 mb-4 group-hover:text-red-700 transition">📦 الكتالوج الذكي</h3>
-                <p class="text-gray-500 leading-relaxed">استبدلي بقالتكِ ببدائل ذهبية صحية تمنحكِ النشاط والجمال.</p>
+            <a href="https://morad1971.github.io" class="card-hover p-8 rounded-3xl bg-zinc-900 border border-zinc-800 transition text-center">
+                <h3 class="text-2xl font-bold text-green-500 mb-4 font-title">الكتالوج الذكي</h3>
+                <p class="text-gray-400">استبدلي بقالتكِ ببدائل ذهبية صحية.</p>
             </a>
-
-            <!-- الكرت 2: الصحة -->
-            <a href="https://morad1971.github.io" class="card-hover bg-white p-8 rounded-2xl shadow-sm transition group border-t-4 border-green-700">
-                <h3 class="text-2xl font-bold text-green-800 mb-4 group-hover:text-red-700 transition">🌿 دستور العافية</h3>
-                <p class="text-gray-500 leading-relaxed">اكتشفي القوة الحقيقية للفطر الريشي والمكملات التي يجهلها الكثيرون.</p>
+            <a href="https://morad1971.github.io" class="card-hover p-8 rounded-3xl bg-zinc-900 border border-zinc-800 transition text-center">
+                <h3 class="text-2xl font-bold text-green-500 mb-4 font-title">مشروعكِ الخاص</h3>
+                <p class="text-gray-400">سأعلمكِ كيف تبنين فريقاً عالمياً وأنتِ في منزلكِ.</p>
             </a>
-
-            <!-- الكرت 3: المشروع -->
-            <a href="https://morad1971.github.io" class="card-hover bg-white p-8 rounded-2xl shadow-sm transition group border-t-4 border-green-700">
-                <h3 class="text-2xl font-bold text-green-800 mb-4 group-hover:text-red-700 transition">💼 مشروعكِ الخاص</h3>
-                <p class="text-gray-500 leading-relaxed">سأعلمكِ كيف تبنين فريقاً عالمياً من غرفتكِ وبجهاز جوالكِ فقط.</p>
+            <a href="https://morad1971.github.io" class="card-hover p-8 rounded-3xl bg-dxn-red/20 border-2 border-dxn-red transition text-center">
+                <h3 class="text-2xl font-bold text-red-500 mb-4 font-title text-red-500">سجلي عضويتكِ</h3>
+                <p class="text-gray-200 font-bold">ابدأي الرحلة الآن مجاناً.</p>
             </a>
-
-            <!-- الكرت 4: قصص النجاح -->
-            <a href="https://morad1971.github.io" class="card-hover bg-white p-8 rounded-2xl shadow-sm transition group border-t-4 border-green-700">
-                <h3 class="text-2xl font-bold text-green-800 mb-4 group-hover:text-red-700 transition">⭐ قصص ملهمة</h3>
-                <p class="text-gray-500 leading-relaxed">لستِ وحدكِ.. شوفي تجارب حقيقية لسيدات حققن أحلامهن معنا.</p>
-            </a>
-
-            <!-- الكرت 5: مركز التدريب -->
-            <a href="https://morad1971.github.io" class="card-hover bg-white p-8 rounded-2xl shadow-sm transition group border-t-4 border-green-700">
-                <h3 class="text-2xl font-bold text-green-800 mb-4 group-hover:text-red-700 transition">🎓 أكاديمية هيا</h3>
-                <p class="text-gray-500 leading-relaxed">دروس حصرية وتدريبات عملية لأعضاء فريقي الطموحين.</p>
-            </a>
-
-            <!-- الكرت 6: تسجيل العضوية -->
-            <a href="https://morad1971.github.io" class="card-hover bg-white p-8 rounded-2xl shadow-sm transition group border-t-4 border-red-700">
-                <h3 class="text-2xl font-bold text-red-700 mb-4">📝 انضمي لفريقي</h3>
-                <p class="text-gray-500 leading-relaxed">سجلي عضويتكِ الآن مجاناً وابدأي رحلة الألف ميل تحت إشرافي.</p>
-            </a>
-
-            <!-- بقية الكروت تتبع نفس النمط لضمان غنى الصفحة -->
         </div>
     </main>
 
-    <!-- 4. قسم الدعم والأسئلة (تفاعل مباشر) -->
-    <section class="py-20 px-6 bg-white text-center">
-        <h2 class="text-3xl font-bold mb-6 italic">"رحلة النجاح تبدأ بقرار.. وأنا هنا لأجيب على كل تساؤلاتكِ"</h2>
-        <div class="flex justify-center gap-6 mt-10">
-            <a href="https://morad1971.github.io" class="bg-dxn-green text-white px-10 py-3 rounded-full font-bold shadow-xl hover:bg-green-900 transition">اسألي هيا</a>
-            <a href="https://morad1971.github.io" class="border-2 border-dxn-green text-dxn-green px-10 py-3 rounded-full font-bold hover:bg-green-50 transition">مركز الدعم</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dxn-green text-white py-12 px-6 text-center">
-        <p class="text-2xl font-bold mb-2">هيا اسكندراني</p>
-        <p class="opacity-60 mb-8 italic italic font-light">بصمتي في عالم الصحة والنجاح</p>
-        <div class="text-xs opacity-30 border-t border-white/10 pt-8">
-            © 2024 جميع الحقوق محفوظة - منصة دكسن التعليمية
+    <footer class="bg-black py-12 text-center border-t border-zinc-800">
+        <p class="text-2xl font-bold mb-2 text-yellow-500">هيا اسكندراني</p>
+        <p class="opacity-60 italic mb-4">قائدة ملهمة في عالم دكسن</p>
+        <div class="text-xs opacity-30 pt-8 border-t border-zinc-900">
+            © 2024 جميع الحقوق محفوظة - منصة القائدة هيا اسكندراني
         </div>
     </footer>
 
