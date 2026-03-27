@@ -1,16 +1,22 @@
-// This is a basic service worker file.
+const cacheName = 'haya-dxn-v1';
+const assets = [
+  '/Haya-DXN/',
+  '/Haya-DXN/index.html',
+  '/Haya-DXN/manifest.json'
+];
 
-self.addEventListener('install', event => {
-  console.log('Service worker installing...');
-  // Add a call to skipWaiting here
-  self.skipWaiting();
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(cacheName).then(cache => {
+      return cache.addAll(assets);
+    })
+  );
 });
 
-self.addEventListener('activate', event => {
-  console.log('Service worker activating...');
-});
-
-self.addEventListener('fetch', event => {
-  // We are not caching anything in this basic example
-  event.respondWith(fetch(event.request));
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(response => {
+      return response || fetch(e.request);
+    })
+  );
 });
