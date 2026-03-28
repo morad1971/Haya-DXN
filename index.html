@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- استيراد خطوط فاخرة -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-    <!-- مكتبة الأيقونات Lucide لتظهر بوضوح في المعاينة -->
+    <!-- مكتبة الأيقونات Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
@@ -16,7 +16,6 @@
             --gold: #d4af37;
         }
 
-        /* توحيد الخطوط */
         * {
             font-family: 'Vazirmatn', sans-serif;
         }
@@ -31,11 +30,7 @@
             scroll-behavior: smooth; 
         }
 
-        .bg-dxn-green { background-color: var(--dxn-green); }
-        .text-dxn-green { color: var(--dxn-green); }
-        .bg-dxn-red { background-color: var(--dxn-red); }
-        
-        /* الهيدر مع صورتكِhaya-award.jpg */
+        /* الهيدر مع معالجة فشل تحميل الصورة */
         .hero-section {
             position: relative;
             height: 85vh;
@@ -43,7 +38,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #000;
+            background-color: #0a1f19; /* لون خلفية احتياطي داكن جداً */
         }
 
         .hero-image {
@@ -55,6 +50,7 @@
             object-fit: cover;
             opacity: 0.55; 
             filter: brightness(0.9) contrast(1.1);
+            z-index: 1;
         }
 
         .hero-overlay {
@@ -62,15 +58,16 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 30%;
+            height: 35%;
             background: linear-gradient(transparent, #fdfdfb);
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
             z-index: 10;
             max-width: 950px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
 
         .gold-text { color: var(--gold); }
@@ -113,10 +110,13 @@
 </head>
 <body class="text-gray-900">
 
-    <!-- 1. الهيدر بصورتكِ على المسرح -->
+    <!-- 1. الهيدر بصورتكِ -->
     <header class="hero-section text-white border-b-4 border-yellow-600">
-        <!-- استخدام الوصلة المباشرة للصورة المرفوعة -->
-        <img src="haya-award.jpg" alt="هيا اسكندراني" class="hero-image">
+        <!-- استخدام المسار النسبي المباشر -->
+        <img src="./haya-award.jpg" 
+             alt="هيا اسكندراني" 
+             class="hero-image" 
+             onerror="this.style.display='none';">
         
         <div class="hero-content px-6 text-center">
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
@@ -134,7 +134,7 @@
         <div class="hero-overlay"></div>
     </header>
 
-    <!-- 2. قسم الفلسفة الاستثمارية -->
+    <!-- 2. قسم الفلسفة -->
     <section class="max-w-6xl mx-auto py-24 px-6 text-center">
         <h2 class="text-4xl md:text-6xl font-bold mb-8 text-dxn-green">نحن لا نبيع منتجات.. نحن نصنع نمط حياة!</h2>
         <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-16 max-w-4xl mx-auto">
@@ -166,7 +166,7 @@
         </div>
     </section>
 
-    <!-- 3. المنظومة الرقمية الشاملة -->
+    <!-- 3. المنظومة الرقمية -->
     <main class="bg-gray-50 py-24 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
@@ -182,73 +182,47 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 1. الكتالوج -->
+                <!-- الروابط المتعددة -->
                 <a href="https://morad1971.github.io/Haya-product-catalog/" class="card-hover p-10 rounded-3xl">
                     <div class="icon-container"><i data-lucide="shopping-bag" class="w-8 h-8"></i></div>
                     <h3 class="text-2xl font-bold text-dxn-green mb-3">الكتالوج الذكي</h3>
                     <p class="text-gray-500 text-lg leading-relaxed">دليلك الكامل لمنتجات العناية والصحة الطبيعية والبدائل الذكية.</p>
                 </a>
 
-                <!-- 2. دليل العافية -->
                 <a href="https://morad1971.github.io/Haya-Health-Guide/" class="card-hover p-10 rounded-3xl">
                     <div class="icon-container"><i data-lucide="leaf" class="w-8 h-8"></i></div>
                     <h3 class="text-2xl font-bold text-dxn-green mb-3">دليل العافية</h3>
                     <p class="text-gray-500 text-lg leading-relaxed">استشارات هناده الصحية: كيف تعيدين التوازن لجسمكِ طبيعياً.</p>
                 </a>
 
-                <!-- 3. المشروع -->
                 <a href="https://morad1971.github.io/Haya-Business/" class="card-hover p-10 rounded-3xl">
                     <div class="icon-container"><i data-lucide="briefcase" class="w-8 h-8"></i></div>
                     <h3 class="text-2xl font-bold text-dxn-green mb-3">مشروعكِ الخاص</h3>
                     <p class="text-gray-500 text-lg leading-relaxed">خطوات مدروسة لبناء بيزنس عالمي من منزلكِ وبأقل الإمكانيات.</p>
                 </a>
 
-                <!-- 4. قصص النجاح -->
                 <a href="https://morad1971.github.io/Haya-Stories/" class="card-hover p-10 rounded-3xl">
                     <div class="icon-container"><i data-lucide="trophy" class="w-8 h-8"></i></div>
                     <h3 class="text-2xl font-bold text-dxn-green mb-3">قصص نجاح</h3>
                     <p class="text-gray-500 text-lg leading-relaxed">نماذج ملهمة لسيدات حققن الحرية المالية والصحية معنا.</p>
                 </a>
 
-                <!-- 5. مركز التدريب -->
                 <a href="https://morad1971.github.io/Haya-Training/" class="card-hover p-10 rounded-3xl">
                     <div class="icon-container"><i data-lucide="graduation-cap" class="w-8 h-8"></i></div>
                     <h3 class="text-2xl font-bold text-dxn-green mb-3">مركز التدريب</h3>
                     <p class="text-gray-500 text-lg leading-relaxed">أكاديمية هيا: تدريبات حصرية لتطوير مهارات القيادة والبيع الذكي.</p>
                 </a>
 
-                <!-- 6. التسجيل -->
                 <a href="https://morad1971.github.io/Haya-Register/" class="card-hover p-10 rounded-3xl !border-dxn-red/20">
                     <div class="icon-container !text-dxn-red !bg-red-50"><i data-lucide="user-plus" class="w-8 h-8"></i></div>
                     <h3 class="text-2xl font-bold text-dxn-red mb-3">انضمي لفريقي</h3>
                     <p class="text-gray-500 text-lg leading-relaxed">ابدأي رحلتكِ الآن واحصلِي على رقم عضويتكِ العالمي مجاناً.</p>
                 </a>
-
-                <!-- 7. اسألي هناده -->
-                <a href="https://morad1971.github.io/Haya-Ask/" class="card-hover p-10 rounded-3xl">
-                    <div class="icon-container"><i data-lucide="messages-square" class="w-8 h-8"></i></div>
-                    <h3 class="text-2xl font-bold text-dxn-green mb-3">اسألي هناده</h3>
-                    <p class="text-gray-500 text-lg leading-relaxed">محرك الإجابات الذكي لكل ما يخص الصحة والمنتجات.</p>
-                </a>
-
-                <!-- 8. المشتريات -->
-                <a href="https://morad1971.github.io/Haya-Tools/" class="card-hover p-10 rounded-3xl">
-                    <div class="icon-container"><i data-lucide="list-checks" class="w-8 h-8"></i></div>
-                    <h3 class="text-2xl font-bold text-dxn-green mb-3">لائحة المشتريات</h3>
-                    <p class="text-gray-500 text-lg leading-relaxed">نظمي طلبيتكِ الشهرية بذكاء وتابعي نقاطكِ المحققة.</p>
-                </a>
-
-                <!-- 9. الإدارة -->
-                <a href="https://morad1971.github.io/Haya-Admin/" class="card-hover p-10 rounded-3xl !border-yellow-600/20">
-                    <div class="icon-container !text-yellow-700 !bg-yellow-50"><i data-lucide="settings" class="w-8 h-8"></i></div>
-                    <h3 class="text-2xl font-bold text-yellow-800 mb-3">نظام الإدارة</h3>
-                    <p class="text-gray-500 text-lg leading-relaxed">لوحة تحكم القادة لمتابعة أداء الفريق والنمو العالمي.</p>
-                </a>
             </div>
         </div>
     </main>
 
-    <!-- 4. التذييل الفخم -->
+    <!-- 4. التذييل -->
     <footer class="bg-dxn-green text-white py-20 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <p class="brand-name text-5xl font-bold mb-4 tracking-wider gold-text">هيا اسكندراني</p>
@@ -265,7 +239,6 @@
     </footer>
 
     <script>
-        // تشغيل مكتبة الأيقونات
         lucide.createIcons();
     </script>
 </body>
