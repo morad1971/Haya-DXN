@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة هيا اسكندراني | عالم دكسن</title>
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1b4d3e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -12,17 +20,29 @@
             --dxn-green: #1b4d3e;
             --dxn-red: #c8102e;
             --gold: #d4af37;
+            --soft-white: #fdfdfb;
         }
 
-        * { font-family: 'Vazirmatn', sans-serif; }
-        h1, h2, h3, .brand-name { font-family: 'Amiri', serif !important; }
+        * { 
+            font-family: 'Vazirmatn', sans-serif; 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        h1, h2, h3, .brand-name { 
+            font-family: 'Amiri', serif !important; 
+        }
 
-        body { background-color: #fdfdfb; scroll-behavior: smooth; }
+        body { 
+            background-color: var(--soft-white); 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
 
-        /* الهيدر الجديد: تركيز على النص والوضوح */
         .hero-section {
             background: linear-gradient(135deg, #1b4d3e 0%, #0a1f19 100%);
-            min-height: 60vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -32,176 +52,251 @@
 
         .gold-text { color: var(--gold); }
 
-        /* قسم الصورة الشخصية */
         .profile-section {
-            margin-top: -100px; /* تداخل بسيط مع الهيدر */
+            margin-top: -120px;
             position: relative;
             z-index: 20;
         }
 
         .profile-card {
             background: white;
-            border-radius: 40px;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 1000px;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.12);
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .image-container {
             width: 100%;
-            height: 500px;
+            height: 600px;
             overflow: hidden;
+            background-color: #000;
         }
 
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%;
+            object-position: center 30%;
+            transition: transform 0.7s ease;
+        }
+        
+        .profile-card:hover .image-container img {
+            transform: scale(1.05);
         }
 
-        .card-hover { 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        .card-link { 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             background: white;
+            border: 1px solid #f0f0f0;
         }
 
-        .card-hover:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(27, 77, 62, 0.1);
-            border-right: 6px solid var(--dxn-green);
+        .card-link:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px rgba(27, 77, 62, 0.1);
+            border-color: var(--gold);
         }
 
         .cta-button {
             background: var(--dxn-red);
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(200, 16, 46, 0.3);
+            box-shadow: 0 10px 25px rgba(200, 16, 46, 0.4);
         }
 
         .cta-button:hover {
             transform: scale(1.05);
-            background: #e60000;
+            background: #a50d26;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
         }
     </style>
 </head>
 <body class="text-gray-900">
 
-    <!-- 1. الهيدر النصي الفخم -->
-    <header class="hero-section text-white px-6 pb-32">
+    <!-- الواجهة الرئيسية -->
+    <header class="hero-section text-white px-6 pb-40">
         <div class="max-w-4xl mx-auto">
+            <span class="inline-block px-4 py-1 border border-gold/30 rounded-full text-sm mb-6 gold-text tracking-widest uppercase">مرحباً بكِ في عالم الريادة</span>
             <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                حولِي استهلاككِ إلى <span class="gold-text">استثمار</span>
+                حوّلي استهلاككِ إلى <span class="gold-text underline decoration-gold/30 underline-offset-8">استثمار</span>
             </h1>
-            <p class="text-xl md:text-2xl opacity-80 mb-8 font-light italic">
-                منصة رائدة الأعمال هيا اسكندراني - رفيقكِ للحرية الصحية والمالية
+            <p class="text-xl md:text-2xl opacity-90 mb-10 font-light italic">
+                منصة رائدة الأعمال هيا اسكندراني - شريكتكِ في رحلة الحرية الصحية والمالية
             </p>
-            <a href="https://morad1971.github.io/HAYA-DXN-intro/" class="cta-button text-white px-10 py-4 rounded-full font-bold text-xl inline-block">
-                اكتشفي القصة كاملة
+            <a href="https://morad1971.github.io/HAYA-DXN-intro/" class="cta-button text-white px-12 py-5 rounded-full font-bold text-xl inline-block">
+                اسمح لي أشرح لكِ
             </a>
         </div>
     </header>
 
-    <!-- 2. قسم الصورة التعريفية (المكان الجديد والمناسب) -->
+    <!-- قسم التعريف بالصورة -->
     <section class="profile-section px-6 mb-24">
         <div class="profile-card md:flex-row flex-col flex">
-            <!-- الصورة على اليمين في الشاشات الكبيرة -->
             <div class="md:w-1/2 image-container">
-                <img src="./haya-award.jpg" alt="هيا اسكندراني" onerror="this.src='https://via.placeholder.com/800x1000?text=Haya+Iskandarani'">
+            <img src="haya-award.jpg" alt="القائدة هيا اسكندراني حفل 2025" loading="lazy">
             </div>
-            <!-- النص التعريفي على اليسار -->
-            <div class="md:w-1/2 p-12 flex flex-col justify-center text-right">
-                <h2 class="text-4xl font-bold text-dxn-green mb-6">رحلة النجاح تبدأ بخطوة..</h2>
-                <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                    بصفتي قائدة في عالم دكسن، أؤمن أن كل سيدة تمتلك القوة لتغيير واقعها المالي والصحي. هذه الصورة ليست مجرد تكريم، بل هي وعد لكل امرأة تنضم لفريقي بأننا سنصل إلى القمة معاً.
+            <div class="md:w-1/2 p-10 md:p-16 flex flex-col justify-center text-right bg-white">
+                <div class="mb-4 text-gold flex items-center gap-2">
+                    <span class="w-12 h-[2px] bg-gold"></span>
+                    <span class="text-sm font-bold tracking-widest uppercase">رؤيتنا</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-8 leading-snug">رحلة النجاح تبدأ <br><span class="text-[var(--dxn-green)]">بقرار شجاع..</span></h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                    بصفتي قائدة في عالم دكسن، أهدي هذه المنصة لكل سيدة تطمح للتميز. هنا تجدين خلاصة تجربتي وأدواتي الرقمية التي صممتها خصيصاً لتكون دليلكِ نحو النجاح.
                 </p>
-                <div class="border-r-4 border-gold pr-6 py-2 italic text-gray-500 font-medium">
-                    "أنا هنا لأدعمكِ بأدوات رقمية متطورة وخبرة سنوات في هذا المشروع العالمي."
+                <div class="border-r-4 border-gold pr-6 py-3 italic text-gray-700 bg-gray-50 rounded-l-xl font-medium">
+                    "نحن لا نبيع منتجات، نحن نبني منظومة حياة صحية ومالية مستدامة."
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. أدوات التحليل المالي السريع -->
+    <!-- أدوات التخطيط والمقارنة -->
     <section class="max-w-6xl mx-auto py-12 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <a href="https://morad1971.github.io/Haya-Budget/" class="group p-8 bg-white rounded-3xl shadow-lg border-r-8 border-green-600 flex items-center justify-between hover:bg-green-50 transition duration-300">
-                <div>
-                    <h3 class="text-2xl font-bold text-green-900 mb-2">مخطط الميزانية الذكية</h3>
-                    <p class="text-gray-500">احسبي وفوركِ المالي الشهري فوراً.</p>
+        <h2 class="text-3xl font-bold text-gray-800 mb-12 section-title">أدوات التخطيط المالي</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="https://morad1971.github.io/Haya-Budget/" class="card-link p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="p-4 bg-green-50 rounded-full mb-4">
+                    <i data-lucide="calculator" class="w-8 h-8 text-green-700"></i>
                 </div>
-                <i data-lucide="calculator" class="w-10 h-10 text-green-700"></i>
+                <h3 class="font-bold text-lg mb-2 text-green-900">ميزانية بعد الشرح</h3>
+                <p class="text-sm text-gray-500">خطة مالية واضحة لميزانيتكِ الجديدة.</p>
             </a>
-            <a href="https://morad1971.github.io/Haya-Comparison/" class="group p-8 bg-white rounded-3xl shadow-lg border-r-8 border-red-600 flex items-center justify-between hover:bg-red-50 transition duration-300">
-                <div>
-                    <h3 class="text-2xl font-bold text-red-900 mb-2">المقارنة المالية</h3>
-                    <p class="text-gray-500">لماذا دكسن أفضل من السوق التقليدي؟</p>
+            <a href="https://morad1971.github.io/Haya-Comparison/" class="card-link p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="p-4 bg-red-50 rounded-full mb-4">
+                    <i data-lucide="scale" class="w-8 h-8 text-red-700"></i>
                 </div>
-                <i data-lucide="scale" class="w-10 h-10 text-red-700"></i>
+                <h3 class="font-bold text-lg mb-2 text-red-900">المقارنة الذكية</h3>
+                <p class="text-sm text-gray-500">قارني بين السوق التقليدي وعالم دكسن.</p>
+            </a>
+            <a href="https://morad1971.github.io/Haya-Tools/" class="card-link p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="p-4 bg-blue-50 rounded-full mb-4">
+                    <i data-lucide="shopping-cart" class="w-8 h-8 text-blue-700"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2 text-blue-900">لائحة المشتريات</h3>
+                <p class="text-sm text-gray-500">أداة ذكية لتنظيم طلبياتكِ الشهرية.</p>
             </a>
         </div>
     </section>
 
-    <!-- 4. شبكة الـ 15 مستودع (بوابات هيا) -->
-    <main class="bg-gray-100/50 py-24 px-6 mt-12">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-dxn-green mb-12 text-center">المنظومة الرقمية المتكاملة</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="https://morad1971.github.io/Haya-product-catalog/" class="card-hover p-8 rounded-3xl border border-gray-100">
-                    <i data-lucide="shopping-bag" class="w-8 h-8 text-dxn-green mb-4"></i>
-                    <h3 class="text-2xl font-bold text-dxn-green mb-2">الكتالوج الذكي</h3>
-                    <p class="text-gray-500">استكشفي بدائل بقالتكِ الصحية الطبيعية.</p>
+    <!-- المنظومة الرقمية والمعلومات -->
+    <section class="bg-gray-100/50 py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 section-title text-right">المنظومة الرقمية الشاملة</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- المنتجات -->
+                <a href="https://morad1971.github.io/Haya-product-catalog/" class="card-link p-6 rounded-2xl">
+                    <i data-lucide="book-open" class="w-6 h-6 text-dxn-green mb-4"></i>
+                    <h3 class="font-bold mb-2">كتالوج المنتجات</h3>
+                    <p class="text-xs text-gray-500">استكشفي التنوع والجودة العالمية.</p>
                 </a>
-
-                <a href="https://morad1971.github.io/Haya-Health-Guide/" class="card-hover p-8 rounded-3xl border border-gray-100">
-                    <i data-lucide="leaf" class="w-8 h-8 text-dxn-green mb-4"></i>
-                    <h3 class="text-2xl font-bold text-dxn-green mb-2">دليل العافية</h3>
-                    <p class="text-gray-500">استشارات هناده الصحية لتوازن جسمكِ.</p>
+                <!-- الأفضل مبيعاً -->
+                <a href="https://morad1971.github.io/Haya-Top-Products/" class="card-link p-6 rounded-2xl">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-dxn-green mb-4"></i>
+                    <h3 class="font-bold mb-2">المنتجات الثلاثة</h3>
+                    <p class="text-xs text-gray-500">الأكثر طلباً والأقوى تأثيراً.</p>
                 </a>
-
-                <a href="https://morad1971.github.io/Haya-Business/" class="card-hover p-8 rounded-3xl border border-gray-100">
-                    <i data-lucide="briefcase" class="w-8 h-8 text-dxn-green mb-4"></i>
-                    <h3 class="text-2xl font-bold text-dxn-green mb-2">مشروعكِ الخاص</h3>
-                    <p class="text-gray-500">خارطة الطريق لبناء بيزنس من منزلكِ.</p>
+                <!-- المشروع -->
+                <a href="https://morad1971.github.io/Haya-Business/" class="card-link p-6 rounded-2xl">
+                    <i data-lucide="briefcase" class="w-6 h-6 text-dxn-green mb-4"></i>
+                    <h3 class="font-bold mb-2">دكسن كمشروع</h3>
+                    <p class="text-xs text-gray-500">فهم أعمق لنظام العمل المالي.</p>
                 </a>
-
-                <a href="https://morad1971.github.io/Haya-Stories/" class="card-hover p-8 rounded-3xl border border-gray-100">
-                    <i data-lucide="trophy" class="w-8 h-8 text-dxn-green mb-4"></i>
-                    <h3 class="text-2xl font-bold text-dxn-green mb-2">قصص نجاح</h3>
-                    <p class="text-gray-500">سيدات حققن المستحيل في فريقنا.</p>
+                <!-- قصص النجاح -->
+                <a href="https://morad1971.github.io/Haya-Stories/" class="card-link p-6 rounded-2xl">
+                    <i data-lucide="trophy" class="w-6 h-6 text-dxn-green mb-4"></i>
+                    <h3 class="font-bold mb-2">قصص نجاح</h3>
+                    <p class="text-xs text-gray-500">سيدات غيرن حياتهن معنا.</p>
                 </a>
-
-                <a href="https://morad1971.github.io/Haya-Training/" class="card-hover p-8 rounded-3xl border border-gray-100">
-                    <i data-lucide="graduation-cap" class="w-8 h-8 text-dxn-green mb-4"></i>
-                    <h3 class="text-2xl font-bold text-dxn-green mb-2">مركز التدريب</h3>
-                    <p class="text-gray-500">أكاديمية هيا لتطوير مهارات القيادة.</p>
+                <!-- الصحة -->
+                <a href="https://morad1971.github.io/Haya-Health-Guide/" class="card-link p-6 rounded-2xl">
+                    <i data-lucide="heart-pulse" class="w-6 h-6 text-dxn-green mb-4"></i>
+                    <h3 class="font-bold mb-2">صحتك مع هناده</h3>
+                    <p class="text-xs text-gray-500">نصائح صحية من قلب التجربة.</p>
                 </a>
-
-                <a href="https://morad1971.github.io/Haya-Register/" class="card-hover p-8 rounded-3xl border-t-4 border-dxn-red">
-                    <i data-lucide="user-plus" class="w-8 h-8 text-dxn-red mb-4"></i>
-                    <h3 class="text-2xl font-bold text-dxn-red mb-2">انضمي لفريقي</h3>
-                    <p class="text-gray-500">سجلي عضويتكِ العالمية مجاناً الآن.</p>
+                <!-- اسأل هناده -->
+                <a href="https://morad1971.github.io/Haya-Ask/" class="card-link p-6 rounded-2xl">
+                    <i data-lucide="message-circle" class="w-6 h-6 text-dxn-green mb-4"></i>
+                    <h3 class="font-bold mb-2">اسأل هناده</h3>
+                    <p class="text-xs text-gray-500">استشارات مباشرة وإجابات فورية.</p>
+                </a>
+                <!-- الدعم -->
+                <a href="https://morad1971.github.io/Haya-Support/" class="card-link p-6 rounded-2xl">
+                    <i data-lucide="help-circle" class="w-6 h-6 text-dxn-green mb-4"></i>
+                    <h3 class="font-bold mb-2">مركز الدعم</h3>
+                    <p class="text-xs text-gray-500">نحن معكِ في كل خطوة.</p>
+                </a>
+                <!-- التدريب -->
+                <a href="https://morad1971.github.io/Haya-Training/" class="card-link p-6 rounded-2xl border-2 border-gold/20">
+                    <i data-lucide="graduation-cap" class="w-6 h-6 text-gold mb-4"></i>
+                    <h3 class="font-bold mb-2">مركز التدريب</h3>
+                    <p class="text-xs text-gray-500">أكاديمية النجاح الرقمية.</p>
                 </a>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- 5. التذييل -->
-    <footer class="bg-dxn-green text-white py-20 text-center">
+    <!-- قسم التسجيل والإدارة -->
+    <section class="max-w-6xl mx-auto py-20 px-6">
+        <div class="bg-white rounded-[40px] shadow-2xl p-10 md:p-16 border-t-8 border-dxn-red relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-32 h-32 bg-red-50 -translate-x-16 -translate-y-16 rounded-full"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+                <div class="md:w-2/3">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6 italic">ابدئي رحلتكِ الرسمية الآن</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        انضمي لعائلتنا العالمية واحصل على رقم عضويتكِ المجاني لتفتحي أبواب الصحة والمال في أكثر من 180 دولة.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://morad1971.github.io/Haya-Register/" class="cta-button text-white px-10 py-4 rounded-full font-bold shadow-xl">
+                            نموذج تسجيل عضوية
+                        </a>
+                        <a href="https://morad1971.github.io/Haya-Admin/" class="bg-gray-800 text-white px-10 py-4 rounded-full font-bold hover:bg-black transition">
+                            نظام تسجيل الأعضاء
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="w-48 h-48 bg-red-50 rounded-3xl flex items-center justify-center rotate-3 border-2 border-red-100">
+                        <i data-lucide="user-check" class="w-24 h-24 text-dxn-red"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0a1f19] text-white py-20 text-center">
         <div class="max-w-4xl mx-auto px-6">
-            <p class="brand-name text-5xl font-bold mb-4 gold-text">هيا اسكندراني</p>
-            <p class="opacity-60 mb-10 italic text-xl">بصمتي في عالم الصحة والنجاح العالمي</p>
-            <div class="text-xs opacity-30 border-t border-white/10 pt-10 font-light">
-                © 2025 جميع الحقوق محفوظة | منصة هيا الرقمية - DXN
+            <p class="brand-name text-6xl font-bold mb-6 gold-text">هيا اسكندراني</p>
+            <p class="opacity-80 mb-12 italic text-xl">بصمتي في عالم الصحة والنجاح العالمي.</p>
+            <div class="text-sm opacity-40 border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <span>© 2025 جميع الحقوق محفوظة | منصة هيا الرقمية</span>
+                <span class="flex items-center gap-2">صُنع بكل <i data-lucide="heart" class="w-3 h-3 text-red-500 fill-red-500"></i> لدعم رائدات الأعمال</span>
             </div>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(err => console.log(err));
+            });
+        }
     </script>
 </body>
 </html>
