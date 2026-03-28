@@ -1,4 +1,4 @@
-const CACHE_NAME = 'haya-dxn-v3'; // تحديث الإصدار لضمان تنشيط التعديلات الجديدة
+const CACHE_NAME = 'haya-dxn-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -10,45 +10,28 @@ const ASSETS_TO_CACHE = [
   'https://unpkg.com/lucide@latest'
 ];
 
-// مرحلة التثبيت: تخزين الملفات الأساسية في الكاش
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS_TO_CACHE))
   );
   self.skipWaiting(); 
 });
 
-// مرحلة التنشيط: حذف أي كاش قديم لتجنب تعارض الملفات
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
-          }
-        })
-      );
-    })
+    caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))
   );
 });
 
-// استراتيجية جلب البيانات: تخدم من الكاش وتحدث في الخلفية (Stale-While-Revalidate)
 self.addEventListener('fetch', event => {
   if (!(event.request.url.indexOf('http') === 0)) return;
-
   event.respondWith(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.match(event.request).then(response => {
-        const fetchPromise = fetch(event.request).then(networkResponse => {
-          if (networkResponse.ok) {
-            cache.put(event.request, networkResponse.clone());
-          }
-          return networkResponse;
+    caches.match(event.request).then(cached => {
+      return cached || fetch(event.request).then(res => {
+        return caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, res.clone());
+          return res;
         });
-        return response || fetchPromise;
       });
     })
   );
