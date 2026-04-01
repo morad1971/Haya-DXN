@@ -1,38 +1,45 @@
-const CACHE_NAME = 'haya-dxn-v3';
-const ASSETS_TO_CACHE = [
+const cacheName = 'haya-platform-v1';
+const staticAssets = [
   './',
   './index.html',
   './manifest.json',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
   './icons/haya-award.jpg',
-  'https://cdn.tailwindcss.com',
-  'https://unpkg.com/lucide@latest'
+  './icons/icon-192.png',
+  './icons/icon-512.png'
 ];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS_TO_CACHE))
-  );
-  self.skipWaiting(); 
+// تثبيت الـ Service Worker وحفظ الملفات الأساسية في الذاكرة
+self.addEventListener('install', async el => {
+  const cache = await caches.open(cacheName);
+  await cache.addAll(staticAssets);
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))
-  );
+// جلب البيانات من الذاكرة (Cache) عند انقطاع الإنترنت لضمان سرعة التصفح
+self.addEventListener('fetch', el => {
+  const req = el.request;
+  const url = new URL(req.url);
+
+  if (url.origin === location.origin) {
+    el.respondWith(cacheFirst(req));
+  } else {
+    el.respondWith(networkAndCache(req));
+  }
 });
 
-self.addEventListener('fetch', event => {
-  if (!(event.request.url.indexOf('http') === 0)) return;
-  event.respondWith(
-    caches.match(event.request).then(cached => {
-      return cached || fetch(event.request).then(res => {
-        return caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, res.clone());
-          return res;
-        });
-      });
-    })
-  );
-});
+async function cacheFirst(req) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(req);
+  return cached || fetch(req);
+}
+
+async function networkAndCache(req) {
+  const cache = await caches.open(cacheName);
+  try {
+    const fresh = await fetch(req);
+    await cache.put(req, fresh.clone());
+    return fresh;
+  } catch (e) {
+    const cached = await cache.match(req);
+    return cached;
+  }
+}
