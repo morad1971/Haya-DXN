@@ -1,27 +1,24 @@
 {
+  "short_name": "منصة هيا",
   "name": "منصة هيا اسكندراني | عالم دكسن",
-  "short_name": "هيا دكسن",
-  "description": "دليلك الشامل لاستكشاف عالم الصحة، العافية، والفرص الاستثمارية مع دكسن برعاية القائدة هيا اسكندراني.",
-  "start_url": "/Haya-DXN/",
-  "display": "standalone",
-  "background_color": "#fdfdfb",
-  "theme_color": "#1b4d3e",
-  "dir": "rtl",
-  "lang": "ar",
-  "orientation": "portrait",
-  "categories": ["lifestyle", "business", "health"],
   "icons": [
     {
       "src": "icons/icon-192.png",
-      "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "192x192"
     },
     {
       "src": "icons/icon-512.png",
-      "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "512x512"
     }
-  ]
+  ],
+  "start_url": "index.html",
+  "background_color": "#fdfdfb",
+  "display": "standalone",
+  "scope": "./",
+  "theme-color": "#1b4d3e",
+  "description": "منصة تعريفية وأدوات ذكية لاستثمار الاستهلاك مع دكسن بصحبة هيا اسكندراني",
+  "dir": "rtl",
+  "lang": "ar"
 }
