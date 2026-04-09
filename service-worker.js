@@ -1,45 +1,66 @@
-const cacheName = 'haya-platform-v1';
-const staticAssets = [
-  './',
-  './index.html',
-  './manifest.json',
-  './icons/haya-award.jpg',
-  './icons/icon-192.png',
-  './icons/icon-512.png'
+const CACHE_NAME = "haya-platform-v2";
+const STATIC_ASSETS = [
+  "./",
+  "./index.html",
+  "./manifest.json",
+  "./icons/haya-award.jpg",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
 ];
 
-// تثبيت الـ Service Worker وحفظ الملفات الأساسية في الذاكرة
-self.addEventListener('install', async el => {
-  const cache = await caches.open(cacheName);
-  await cache.addAll(staticAssets);
+// Install: cache app shell
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
+  );
+  self.skipWaiting();
 });
 
-// جلب البيانات من الذاكرة (Cache) عند انقطاع الإنترنت لضمان سرعة التصفح
-self.addEventListener('fetch', el => {
-  const req = el.request;
+// Activate: remove old caches
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys
+          .filter((key) => key !== CACHE_NAME)
+          .map((key) => caches.delete(key))
+      )
+    )
+  );
+  self.clients.claim();
+});
+
+// Fetch strategy
+self.addEventListener("fetch", (event) => {
+  const req = event.request;
+  if (req.method !== "GET") return;
+
   const url = new URL(req.url);
 
-  if (url.origin === location.origin) {
-    el.respondWith(cacheFirst(req));
+  if (url.origin === self.location.origin) {
+    event.respondWith(cacheFirst(req));
   } else {
-    el.respondWith(networkAndCache(req));
+    event.respondWith(networkThenCache(req));
   }
 });
 
 async function cacheFirst(req) {
-  const cache = await caches.open(cacheName);
-  const cached = await cache.match(req);
-  return cached || fetch(req);
+  const cached = await caches.match(req);
+  if (cached) return cached;
+
+  const fresh = await fetch(req);
+  const cache = await caches.open(CACHE_NAME);
+  cache.put(req, fresh.clone());
+  return fresh;
 }
 
-async function networkAndCache(req) {
-  const cache = await caches.open(cacheName);
+async function networkThenCache(req) {
   try {
     const fresh = await fetch(req);
-    await cache.put(req, fresh.clone());
+    const cache = await caches.open(CACHE_NAME);
+    cache.put(req, fresh.clone());
     return fresh;
-  } catch (e) {
-    const cached = await cache.match(req);
-    return cached;
+  } catch {
+    return caches.match(req);
   }
 }
