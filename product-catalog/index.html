@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كتالوج هيا الملكي | DXN </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --dxn-green: #1b4d3e; --gold: #d4af37; --soft-bg: #f8fafc; }
+        body { font-family: 'Vazirmatn', sans-serif; background-color: var(--soft-bg); padding-bottom: 140px; }
+        
+        .header-gradient { background: linear-gradient(135deg, var(--dxn-green) 0%, #2d6a58 100%); }
+        
+        .product-card {
+            background: white; 
+            border-radius: 24px; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(226, 232, 240, 0.8); 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+            height: 100%;
+        }
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1); 
+            border-color: var(--gold); 
+        }
+        
+        .pv-badge {
+            background: linear-gradient(45deg, #2563eb, #3b82f6); 
+            color: white;
+            padding: 4px 12px; 
+            border-radius: 12px; 
+            font-size: 11px; 
+            font-weight: 900;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+        
+        .cat-btn {
+            padding: 12px 24px; 
+            border-radius: 20px; 
+            background: white; 
+            color: #64748b;
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            border: 1px solid #e2e8f0;
+            cursor: pointer; 
+            white-space: nowrap; 
+            transition: 0.3s;
+        }
+        .cat-btn.active { 
+            background: var(--gold); 
+            color: white; 
+            border-color: var(--gold); 
+            box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3); 
+        }
+        
+        .add-btn {
+            background: var(--dxn-green); 
+            color: white; 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 16px;
+            font-weight: 700; 
+            transition: 0.3s; 
+            margin-top: auto;
+        }
+        .add-btn:active { transform: scale(0.95); }
 
+        .modal {
+            animation: modalPop 0.3s ease forwards;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+    <nav class="header-gradient sticky top-0 z-50 py-5 px-6 shadow-xl">
+        <div class="max-w-6xl mx-auto flex justify-between items-center text-white">
+            <a href="https://morad1971.github.io/Haya-DXN/" class="bg-white/10 p-3 rounded-2xl backdrop-blur-md hover:bg-white/20 transition-all">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            </a>
+            <div class="text-center">
+                <h1 class="text-xl font-black tracking-tight leading-none">كتالوج هيا الملكي</h1>
+                <p class="text-[10px] text-gold font-bold mt-1 tracking-[0.2em] uppercase">منتجات DXN الطبيعية - الأردن</p>
+            </div>
+            <div class="w-10"></div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-5 mt-8">
+        <div class="flex overflow-x-auto pb-6 mb-4 no-scrollbar gap-3">
+            <div class="cat-btn active" onclick="filterItems('all', this)">✨ الكل</div>
+            <div class="cat-btn" onclick="filterItems('1', this)">☕ المشروبات</div>
+            <div class="cat-btn" onclick="filterItems('2', this)">🌿 المكملات</div>
+            <div class="cat-btn" onclick="filterItems('3', this)">🚿 العناية</div>
+            <div class="cat-btn" onclick="filterItems('4', this)">💄 التجميل</div>
+        </div>
+        
+        <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    </main>
+
+    <div id="cartNotify" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-lg bg-[#1b4d3e] text-white p-5 rounded-[30px] shadow-2xl hidden z-[100] border border-white/10 flex justify-between items-center cursor-pointer" onclick="checkout()">
+    <div class="flex items-center gap-4">
+        <div class="bg-gold p-3 rounded-2xl shadow-inner">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b4d3e" stroke-width="3"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        </div>
+        <div>
+            <p class="text-[11px] text-gold font-black opacity-100 mb-1">في السلة</p>
+            <p class="font-black text-lg leading-none"><span id="cartQty">0</span> منتجات</p>
+        </div>
+    </div>
+    <div class="bg-white text-[#1b4d3e] px-6 py-3 rounded-2xl font-black text-sm shadow-lg border-2 border-white">
+    تأكيد الطلب عبر واتساب
+</div>
+</div>
+
+    <div id="productModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[200]">
+        <div class="modal bg-white rounded-3xl max-w-md w-full mx-4 overflow-hidden shadow-2xl">
+            <div class="p-6" id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            // 1. المشروبات
+            { id: 1, cat: "1", name: "قهوة 3 في 1", pv: 10, image: "images/3in1.webp", desc: "مزيج فاخر من القهوة والجانوديرما", longDesc: "قهوة يومية لذيذة مدعمة بمستخلص فطر الغانوديرما (الريشي). تعزز الطاقة والتركيز، تدعم الجهاز المناعي، تحسن الهضم، وتحتوي على مضادات أكسدة قوية." },
+            { id: 2, cat: "1", name: "قهوة 3 في 1 لايت", pv: 10, desc: "طعم خفيف وقوام كريمي لذيذ", longDesc: "نسخة خفيفة من القهوة مع كريمة نباتية. مناسبة لمن يرغب في طاقة مستدامة دون زيادة السعرات الحرارية." },
+            { id: 3, cat: "1", name: "قهوة 3 في 1 كوردسيبس", pv: 11, desc: "طاقة وحيوية مع فطر الكوردسيبس", longDesc: "مدعمة بفطر الكورديسيبس الطبيعي. تساعد في زيادة الطاقة الجسدية والذهنية وتحسين الأداء اليومي." },
+            { id: 4, cat: "1", name: "قهوة الكريمة", pv: 11, desc: "خالية من السكر مع كريمة نباتية", longDesc: "قهوة كريمية فاخرة تدعم الصحة العامة وتعطي شعوراً بالانتعاش طوال اليوم." },
+            { id: 5, cat: "1", name: "قهوة سادة", pv: 10, desc: "قهوة سوداء مركزة ومنعشة", longDesc: "قهوة سوداء نقية مدعمة بالريشي، مثالية لمحبي القهوة القوية مع فوائد صحية إضافية." },
+            { id: 6, cat: "1", name: "كاكاو (كوكوزي)", pv: 13, desc: "أجود أنواع الكاكاو مع مستخلص الفطر", longDesc: "مشروب كاكاو دافئ ولذيذ غني بمستخلص الغانوديرما، يساعد على الاسترخاء ويحتوي على مضادات أكسدة." },
+            { id: 7, cat: "1", name: "ليمونزي", pv: 8, desc: "شاي بالليمون منعش وغني بالفوائد", longDesc: "مشروب ليمون طبيعي منعش يدعم المناعة ويساعد في تنقية الجسم." },
+            { id: 8, cat: "1", name: "شاي لاتيه", pv: 12, desc: "مزيج الشاي السيلاني مع الكريمة", longDesc: "شاي كريمي فاخر يجمع بين نكهة الشاي الأصلية والراحة." },
+            { id: 9, cat: "1", name: "عصير مورينزي (285 مل)", pv: 17, desc: "عصير فاكهة النوني الاستوائية", longDesc: "عصير مورينغا طبيعي غني بالفيتامينات والمعادن، يعزز المناعة ويمد الجسم بالطاقة." },
+            { id: 10, cat: "1", name: "عصير مورينزي (700 مل)", pv: 35, desc: "الحجم العائلي لتعزيز المناعة", longDesc: "الحجم الكبير من عصير المورينغا، مثالية للعائلة لدعم الصحة اليومية." },
+            { id: 11, cat: "1", name: "عصير الروسيل", pv: 12, desc: "غني بفيتامين C الطبيعي", longDesc: "عصير كركديه مركز غني بفيتامين C الطبيعي، يساعد في تقوية المناعة وتنقية الجسم." },
+            { id: 12, cat: "1", name: "خل أرز", pv: 28, desc: "خل طبيعي مخمر مع الجانوديرما", longDesc: "خل أرز طبيعي مدعم بالغانوديرما، يساعد في الهضم وتنظيف الجسم." },
+            { id: 13, cat: "1", name: "عصير الكيوي", pv: 22, desc: "مشروب الكيوي المركز والمنعش", longDesc: "عصير كيوي مركز يمنح الانتعاش ويدعم الصحة بفضل محتواه العالي من الفيتامينات." },
+            { id: 14, cat: "1", name: "عصير الوفيرا", pv: 4, desc: "مشروب الصبار الطبيعي للهضم", longDesc: "عصير ألوفيرا طبيعي يساعد في تحسين الهضم وتهدئة المعدة." },
+            { id: 15, cat: "1", name: "زيت جوز الهند العضوي البكر", pv: 14, desc: "طبيعي 100% للطبخ والعناية", longDesc: "زيت جوز هند عضوي بكر، متعدد الاستخدامات للطبخ والعناية بالبشرة والشعر." },
+            { id: 16, cat: "1", name: "مربى الأناناس", pv: 6, desc: "فاكهة الأناناس مع فطر الريشي", longDesc: "مربى أناناس طبيعي مدعم بالريشي، خيار صحي ولذيذ." },
+            { id: 17, cat: "1", name: "عسل سدر طبيعي", pv: 28, desc: "عسل سدر نقي عالي الجودة", longDesc: "عسل سدر طبيعي نقي، غني بالعناصر الغذائية والفوائد الصحية." },
+            { id: 18, cat: "1", name: "زي منت بلس - حلوى النعناع", pv: 28, desc: "نعناع طبيعي بدون سكر مضاف", longDesc: "حلوى نعناع طبيعية بدون سكر، تنعش الفم وتساعد في الهضم." },
+            { id: 19, cat: "1", name: "سكر", pv: 2, desc: "سكر صحي بديل عالي النقاء", longDesc: "سكر طبيعي عالي الجودة كبديل صحي." },
+            { id: 20, cat: "1", name: "خليط السبيرولينا والحبوب", pv: 30, desc: "وجبة فطور متكاملة ومغذية", longDesc: "خليط حبوب مدعم بالسبيرولينا، وجبة فطور مغذية ومتوازنة." },
+            { id: 21, cat: "1", name: "خليط الكوردسيبس والحبوب", pv: 53, desc: "طاقة تدوم طوال اليوم", longDesc: "خليط حبوب مدعم بفطر الكورديسيبس للحصول على طاقة مستدامة." },
+            { id: 22, cat: "1", name: "سيرودل", pv: 5, desc: "نودلز صحية غنية بالسبيرولينا", longDesc: "نودلز صحية مدعمة بالسبيرولينا لوجبة خفيفة مغذية." },
+            { id: 23, cat: "1", name: "جانودل", pv: 5, desc: "نودلز صحية مع الفطر الريشي", longDesc: "نودلز صحية مدعمة بالغانوديرما لوجبة متوازنة." },
+
+            // 2. المكملات
+            { id: 24, cat: "2", name: "بودرة الفطر الريشي", pv: 70, desc: "ملك الأعشاب لطرد السموم", longDesc: "بودرة غانوديرما نقية. تقوي المناعة، تساعد في طرد السموم من الجسم، وتدعم الصحة العامة." },
+            { id: 25, cat: "2", name: "سبيرولينا (120 قطعة)", pv: 20, desc: "الغذاء السوبر الغني بالفيتامينات", longDesc: "سبيرولينا عالية الجودة غنية بالبروتين والفيتامينات والمعادن، تعزز الطاقة والمناعة." },
+            { id: 26, cat: "2", name: "سبيرولينا (500 قطعة)", pv: 70, desc: "العبوة الاقتصادية لصحة دائمة", longDesc: "العبوة الكبيرة من السبيرولينا للاستخدام اليومي المنتظم." },
+            { id: 27, cat: "2", name: "فطر عرف الأسد (120 قطعة)", pv: 26, desc: "صديق الجهاز العصبي والهضمي", longDesc: "فطر عرف الأسد يدعم صحة الدماغ والجهاز العصبي ويساعد في الهضم." },
+            { id: 28, cat: "2", name: "فطر الكوردسيبس (120 قطعة)", pv: 60, desc: "لتحسين وظائف الرئة والطاقة", longDesc: "فطر الكورديسيبس معروف بقدرته على زيادة الطاقة ودعم الرئتين." },
+            { id: 29, cat: "2", name: "ميكوفيجي - خليط الأعشاب", pv: 70, desc: "مكنسة القولون والألياف الطبيعية", longDesc: "خليط أعشاب طبيعي يساعد في تنظيف القولون وتحسين الهضم." },
+            { id: 30, cat: "2", name: "لقاح النحل", pv: 17, desc: "غذاء ملكات طبيعي لتعزيز الحيوية", longDesc: "لقاح النحل الطبيعي يعزز الطاقة والحيوية العامة." },
+            { id: 31, cat: "2", name: "حبة البركة (90 كبسولة)", pv: 31, desc: "الشفاء في الحبة السوداء", longDesc: "حبة البركة (النيجيلا ساتيفا) معروفة بخصائصها الصحية القوية." },
+            { id: 32, cat: "2", name: "بودرة فطر السنجال", pv: 21, desc: "دعم قوي للجهاز المناعي", longDesc: "بودرة فطر الشيتاكي تدعم المناعة بشكل طبيعي." },
+
+            // 3. العناية الشخصية
+            { id: 33, cat: "3", name: "معجون أسنان بلس (150 غم)", pv: 6, desc: "حماية فائقة للفم واللثة", longDesc: "معجون أسنان مدعم بالغانوديرما يحمي الأسنان واللثة وينعش الفم." },
+            { id: 34, cat: "3", name: "معجون أسنان (150 غم)", pv: 6, desc: "بدون فلورايد وبدون صبغات", longDesc: "معجون أسنان طبيعي خالٍ من الفلورايد والمواد الكيميائية الضارة." },
+            { id: 39, cat: "3", name: "صابون (حبة واحدة - 80 غم)", pv: 3, desc: "غنية بفيتامين E ومستخلص الريشي", longDesc: "صابون طبيعي غني بفيتامين E ومستخلص الغانوديرما للعناية بالبشرة." },
+            { id: 41, cat: "3", name: "شامبو شعر بلس", pv: 12, desc: "تغذية مكثفة من الجذور للأطراف", longDesc: "شامبو شعر مغذي يرطب الشعر من الجذور إلى الأطراف." },
+            { id: 45, cat: "3", name: "كريم شجرة الشاي", pv: 6, desc: "مضاد طبيعي ومطهر للبشرة", longDesc: "كريم شجرة الشاي الطبيعي يعمل كمطهر ومهدئ للبشرة." },
+
+            // 4. التجميل
+            { id: 62, cat: "4", name: "أحمر شفاه (أحمر بني)", pv: 17, desc: "ثبات عالي وزبدة الشيا", longDesc: "أحمر شفاه أحمر بني جذاب يحتوي على زبدة الشيا والألوفيرا لترطيب عميق وحماية الشفاه من الجفاف." },
+            { id: 63, cat: "4", name: "أحمر شفاه (أحمر لؤلؤي)", pv: 17, desc: "لمعان جذاب وترطيب عميق", longDesc: "روج أحمر لؤلؤي لامع يرطب الشفاه ويعطي إطلالة فاخرة مع عناية يومية." },
+            { id: 64, cat: "4", name: "أحمر شفاه (بينك لؤلؤي)", pv: 17, desc: "لون بناتي رقيق وصحي", longDesc: "لون وردي لؤلؤي ناعم وطبيعي يناسب الاستخدام اليومي مع ترطيب قوي." },
+            { id: 65, cat: "4", name: "أحمر شفاه (عنابي لؤلؤي)", pv: 17, desc: "إطلالة فخمة وألوان ثابتة", longDesc: "لون عنابي فاخر يعطي إطلالة أنيقة مع ثبات جيد وترطيب طبيعي." },
+            { id: 66, cat: "4", name: "أحمر شفاه (وردي مرجاني)", pv: 17, desc: "طبيعي وجذاب لكل الأوقات", longDesc: "لون وردي مرجاني جذاب وطبيعي يناسب جميع المناسبات مع عناية بالشفاه." }
+        ];
+
+        let cart = [];
+
+        function drawGrid(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = items.map(p => `
+                <div class="product-card shadow-sm p-5 relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-[10px] font-black text-slate-300 uppercase">#${p.id}</span>
+                        <span class="pv-badge">${p.pv} PV</span>
+                    </div>
+
+                    ${p.image ? `
+                        <div class="w-full h-32 mb-4 overflow-hidden rounded-2xl bg-slate-50">
+                            <img src="${p.image}" class="w-full h-full object-contain" alt="${p.name}">
+                        </div>
+                    ` : ''}
+
+                    <div class="text-center mb-6 grow">
+                        <h3 class="text-sm font-black text-[#1b4d3e] leading-tight mb-3">${p.name}</h3>
+                        <p class="text-[10px] text-slate-500 font-medium leading-relaxed px-2">${p.desc}</p>
+                    </div>
+                    <button onclick="showDetails(${p.id})" class="add-btn py-3 text-[11px] shadow-lg shadow-green-900/10">عرض التفاصيل</button>
+                </div>
+            `).join('');
+        }
+
+        function showDetails(id) {
+            const p = products.find(item => item.id === id);
+            if (!p) return;
+
+            const modal = document.getElementById('productModal');
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-bold text-slate-400">#${p.id}</span>
+                    <button onclick="closeModal()" class="text-3xl text-slate-400 hover:text-slate-600 leading-none">×</button>
+                </div>
+
+                ${p.image ? `
+                    <div class="w-full h-56 mb-6 overflow-hidden rounded-3xl bg-slate-50 border border-slate-100">
+                        <img src="${p.image}" class="w-full h-full object-contain p-4" alt="${p.name}">
+                    </div>
+                ` : ''}
+
+                <h2 class="text-xl font-black text-[#1b4d3e] mb-2">${p.name}</h2>
+                <span class="pv-badge text-sm px-5 py-2 inline-block mb-4">${p.pv} PV</span>
+                
+                <div class="mt-2 text-slate-600 leading-relaxed text-[15px] mb-8 italic">
+                    ${p.longDesc}
+                </div>
+
+                <div class="mt-auto">
+                    <button onclick="addToCart('${p.name}'); closeModal();" 
+                            class="w-full add-btn py-4 text-base shadow-xl shadow-green-900/20">
+                        إضافة إلى السلة
+                    </button>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function filterItems(category, btn) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            if (category === 'all') {
+                drawGrid(products);
+            } else {
+                drawGrid(products.filter(i => i.cat === category));
+            }
+        }
+
+        function addToCart(name) {
+            cart.push(name);
+            document.getElementById('cartNotify').classList.remove('hidden');
+            document.getElementById('cartQty').innerText = cart.length;
+        }
+
+        function checkout() {
+            if (cart.length === 0) return;
+            const phoneNumber = "962780484425";
+            const items = cart.join('%0A- ');
+            const msg = `مرحباً هيا،%0Aأود طلب المنتجات التالية:%0A- ${items}`;
+            window.open(`https://wa.me/${phoneNumber}?text=${msg}`, '_blank');
+        }
+
+        drawGrid(products);
+    </script>
+</body>
+</html>
