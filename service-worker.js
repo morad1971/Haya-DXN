@@ -1,4 +1,4 @@
-const CACHE_NAME = "haya-platform-v2";
+const CACHE_NAME = "haya-platform-v3";
 const STATIC_ASSETS = [
   "./",
   "./index.html",
@@ -8,7 +8,6 @@ const STATIC_ASSETS = [
   "./icons/icon-512.png"
 ];
 
-// Install: cache app shell
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
@@ -16,32 +15,33 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-// Activate: remove old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
     )
   );
   self.clients.claim();
 });
 
-// Fetch strategy
 self.addEventListener("fetch", (event) => {
   const req = event.request;
-  if (req.method !== "GET") return;
-
   const url = new URL(req.url);
 
+  // تجاهل أي شيء ليس GET
+  if (req.method !== "GET") return;
+
+  // تجاهل أي scheme غير http/https (مثل chrome-extension)
+  if (!url.protocol.startsWith("http")) return;
+
+  // ملفات موقعك: cache first
   if (url.origin === self.location.origin) {
     event.respondWith(cacheFirst(req));
-  } else {
-    event.respondWith(networkThenCache(req));
+    return;
   }
+
+  // خارجي (CDN/Fonts): network then cache مع fallback
+  event.respondWith(networkThenCache(req));
 });
 
 async function cacheFirst(req) {
@@ -61,6 +61,8 @@ async function networkThenCache(req) {
     cache.put(req, fresh.clone());
     return fresh;
   } catch {
-    return caches.match(req);
+    const cached = await caches.match(req);
+    if (cached) return cached;
+    throw new Error("Network failed and no cache available");
   }
 }
