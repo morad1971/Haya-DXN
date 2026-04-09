@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معلومات التطبيق | هيا اسكندراني</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --dxn-green: #1b4d3e;
+            --gold: #d4af37;
+        }
+        * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        h1, h2, h3 { font-family: 'Amiri', serif !important; }
+        body { background-color: #fdfdfb; color: #333; padding-top: 80px; }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
 
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        /* تنسيق روابط التواصل */
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid transparent;
+        }
+        .link-item:hover { border-color: var(--gold); background: white; }
+
+        /* الزر الخاص بالمطور - تم التأكيد على ظهوره */
+        .btn-dev {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: white !important;
+            color: #1b4d3e !important;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 50;
+        }
+        .btn-dev:hover { background-color: #d4af37 !important; color: white !important; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-glass py-4 px-6 text-center">
+        <h1 class="text-xl font-bold text-dxn-green">معلومات التطبيق</h1>
+    </nav>
+
+    <main class="max-w-xl mx-auto px-6 py-8">
+
+        <div class="info-card">
+            <h2 class="text-lg font-bold text-dxn-green mb-4 border-r-4 border-gold pr-3">حسابات التواصل - هيا</h2>
+            <a href="https://www.instagram.com/h.i.i1980?utm_source=qr&igsh=NzZmb3I2azc2NnJ3" target="_blank" class="link-item">
+                <i data-lucide="instagram" class="text-pink-500"></i>
+                <span class="font-medium">انستغرام هيا اسكندراني</span>
+            </a>
+            <a href="https://www.facebook.com/share/p/1GjaWVd34R/" target="_blank" class="link-item">
+                <i data-lucide="facebook" class="text-blue-600"></i>
+                <span class="font-medium">فيسبوك هيا اسكندراني</span>
+            </a>
+        </div>
+
+        <div class="info-card">
+            <h2 class="text-lg font-bold text-dxn-green mb-4 border-r-4 border-gold pr-3">روابط عضوية DXN</h2>
+            <a href="https://eworld.dxn2u.com/s/accreg/en/148000945" target="_blank" class="link-item">
+                <i data-lucide="user-plus" class="text-green-600"></i>
+                <span class="font-medium">رابط تسجيل العضوية المباشر</span>
+            </a>
+            <a href="https://www.dxnarabia.com/pws/148000945" target="_blank" class="link-item">
+                <i data-lucide="globe" class="text-blue-500"></i>
+                <span class="font-medium">موقع هيا الشخصي في ديكسن</span>
+            </a>
+        </div>
+
+        <div class="bg-[#1b4d3e] p-8 rounded-[30px] text-white text-center shadow-xl">
+            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="terminal" class="text-gold"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">صانع التطبيق</h3>
+            <p class="text-sm opacity-80 leading-relaxed mb-6">
+                تم تطوير هذا العمل لتقديم تجربة رقمية متميزة. للتواصل مع المطور للاستفسارات التقنية:
+            </p>
+            
+            <a href="https://api.whatsapp.com/send?phone=447738067404" target="_blank" class="btn-dev">
+                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                تواصل عبر الواتساب
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="py-10 text-center opacity-30 text-xs italic">
+        © 2026 جميع الحقوق محفوظة
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
