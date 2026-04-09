@@ -18,6 +18,46 @@
     h1, h2, h3, .brand-name { font-family: 'Amiri', serif !important; }
     body { background-color: var(--soft-white); direction: rtl; text-align: right; color: #1f2937; }
 
+    /* Banner */
+    .nav-banner-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      background: rgba(253, 253, 251, 0.95);
+      border-bottom: 1px solid #ececec;
+      backdrop-filter: blur(6px);
+    }
+    .nav-banner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 14px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .nav-pill {
+      text-decoration: none;
+      color: #1b4d3e;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .nav-pill:hover {
+      border-color: #d4af37;
+      transform: translateY(-1px);
+    }
+    .nav-pill-register {
+      background: #c8102e;
+      color: #fff;
+      border-color: #c8102e;
+    }
+
     .hero-section {
       background: linear-gradient(to bottom, rgba(10, 31, 25, 0.7), rgba(10, 31, 25, 0.9)), url('icons/haya-award.jpg');
       background-size: cover;
@@ -96,9 +136,31 @@
       max-width: 90%;
       text-align: center;
     }
+
+    @media (max-width: 640px) {
+      .nav-banner {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+      .nav-pill {
+        white-space: nowrap;
+        flex: 0 0 auto;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Banner -->
+  <div class="nav-banner-wrap">
+    <nav class="nav-banner" aria-label="التنقل السريع">
+      <a href="#step1" class="nav-pill">الاستبدال الذكي</a>
+      <a href="#step2" class="nav-pill">المشاركة الصادقة</a>
+      <a href="#step3" class="nav-pill">بناء المشروع</a>
+      <a href="https://morad1971.github.io/Haya-Register/" class="nav-pill nav-pill-register">سجلي الآن</a>
+    </nav>
+  </div>
+
   <button id="install-btn" aria-label="تثبيت التطبيق على هاتفك">
     <i data-lucide="smartphone"></i>
     تثبيت التطبيق على هاتفك
@@ -120,7 +182,7 @@
       </p>
     </div>
 
-    <div class="step-container">
+    <div class="step-container" id="step1">
       <div class="flex items-center mb-4">
         <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4 text-xl">١</span>
         <h3 class="text-2xl font-bold text-[#1b4d3e]">الاستبدال الذكي</h3>
@@ -135,7 +197,7 @@
       </div>
     </div>
 
-    <div class="step-container">
+    <div class="step-container" id="step2">
       <div class="flex items-center mb-4">
         <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4 text-xl">٢</span>
         <h3 class="text-2xl font-bold text-[#1b4d3e]">المشاركة الصادقة</h3>
@@ -150,7 +212,7 @@
       </div>
     </div>
 
-    <div class="step-container">
+    <div class="step-container" id="step3">
       <div class="flex items-center mb-4">
         <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4 text-xl">٣</span>
         <h3 class="text-2xl font-bold text-[#1b4d3e]">بناء الفريق العالمي</h3>
