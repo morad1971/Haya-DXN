@@ -3,68 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كتالوج هيا الملكي | DXN </title>
+    <title>كتالوج هيا الملكي | DXN</title>
+
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1b4d3e">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --dxn-green: #1b4d3e; --gold: #d4af37; --soft-bg: #f8fafc; }
         body { font-family: 'Vazirmatn', sans-serif; background-color: var(--soft-bg); padding-bottom: 140px; }
-        
+
         .header-gradient { background: linear-gradient(135deg, var(--dxn-green) 0%, #2d6a58 100%); }
-        
+
         .product-card {
-            background: white; 
-            border-radius: 24px; 
+            background: white;
+            border-radius: 24px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(226, 232, 240, 0.8); 
-            display: flex; 
-            flex-direction: column; 
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
             height: 100%;
         }
-        .product-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1); 
-            border-color: var(--gold); 
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+            border-color: var(--gold);
         }
-        
+
         .pv-badge {
-            background: linear-gradient(45deg, #2563eb, #3b82f6); 
+            background: linear-gradient(45deg, #2563eb, #3b82f6);
             color: white;
-            padding: 4px 12px; 
-            border-radius: 12px; 
-            font-size: 11px; 
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
             font-weight: 900;
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
         }
-        
+
         .cat-btn {
-            padding: 12px 24px; 
-            border-radius: 20px; 
-            background: white; 
+            padding: 12px 24px;
+            border-radius: 20px;
+            background: white;
             color: #64748b;
-            font-size: 0.9rem; 
-            font-weight: 700; 
+            font-size: 0.9rem;
+            font-weight: 700;
             border: 1px solid #e2e8f0;
-            cursor: pointer; 
-            white-space: nowrap; 
+            cursor: pointer;
+            white-space: nowrap;
             transition: 0.3s;
         }
-        .cat-btn.active { 
-            background: var(--gold); 
-            color: white; 
-            border-color: var(--gold); 
-            box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3); 
+        .cat-btn.active {
+            background: var(--gold);
+            color: white;
+            border-color: var(--gold);
+            box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3);
         }
-        
+
         .add-btn {
-            background: var(--dxn-green); 
-            color: white; 
-            width: 100%; 
-            padding: 12px; 
+            background: var(--dxn-green);
+            color: white;
+            width: 100%;
+            padding: 12px;
             border-radius: 16px;
-            font-weight: 700; 
-            transition: 0.3s; 
+            font-weight: 700;
+            transition: 0.3s;
             margin-top: auto;
         }
         .add-btn:active { transform: scale(0.95); }
@@ -84,12 +88,12 @@
 <body>
     <nav class="header-gradient sticky top-0 z-50 py-5 px-6 shadow-xl">
         <div class="max-w-6xl mx-auto flex justify-between items-center text-white">
-            <a href="https://morad1971.github.io/Haya-DXN/" class="bg-white/10 p-3 rounded-2xl backdrop-blur-md hover:bg-white/20 transition-all">
+            <a href="../" class="bg-white/10 p-3 rounded-2xl backdrop-blur-md hover:bg-white/20 transition-all" aria-label="الرئيسية">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
             </a>
             <div class="text-center">
                 <h1 class="text-xl font-black tracking-tight leading-none">كتالوج هيا الملكي</h1>
-                <p class="text-[10px] text-gold font-bold mt-1 tracking-[0.2em] uppercase">منتجات DXN الطبيعية - الأردن</p>
+                <p class="text-[10px] text-[#d4af37] font-bold mt-1 tracking-[0.2em] uppercase">منتجات DXN الطبيعية - الأردن</p>
             </div>
             <div class="w-10"></div>
         </div>
@@ -103,24 +107,24 @@
             <div class="cat-btn" onclick="filterItems('3', this)">🚿 العناية</div>
             <div class="cat-btn" onclick="filterItems('4', this)">💄 التجميل</div>
         </div>
-        
+
         <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
     </main>
 
     <div id="cartNotify" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-lg bg-[#1b4d3e] text-white p-5 rounded-[30px] shadow-2xl hidden z-[100] border border-white/10 flex justify-between items-center cursor-pointer" onclick="checkout()">
-    <div class="flex items-center gap-4">
-        <div class="bg-gold p-3 rounded-2xl shadow-inner">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b4d3e" stroke-width="3"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <div class="flex items-center gap-4">
+            <div class="bg-[#d4af37] p-3 rounded-2xl shadow-inner">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b4d3e" stroke-width="3"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </div>
+            <div>
+                <p class="text-[11px] text-[#d4af37] font-black opacity-100 mb-1">في السلة</p>
+                <p class="font-black text-lg leading-none"><span id="cartQty">0</span> منتجات</p>
+            </div>
         </div>
-        <div>
-            <p class="text-[11px] text-gold font-black opacity-100 mb-1">في السلة</p>
-            <p class="font-black text-lg leading-none"><span id="cartQty">0</span> منتجات</p>
+        <div class="bg-white text-[#1b4d3e] px-6 py-3 rounded-2xl font-black text-sm shadow-lg border-2 border-white">
+            تأكيد الطلب عبر واتساب
         </div>
     </div>
-    <div class="bg-white text-[#1b4d3e] px-6 py-3 rounded-2xl font-black text-sm shadow-lg border-2 border-white">
-    تأكيد الطلب عبر واتساب
-</div>
-</div>
 
     <div id="productModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[200]">
         <div class="modal bg-white rounded-3xl max-w-md w-full mx-4 overflow-hidden shadow-2xl">
@@ -130,7 +134,6 @@
 
     <script>
         const products = [
-            // 1. المشروبات
             { id: 1, cat: "1", name: "قهوة 3 في 1", pv: 10, image: "images/3in1.webp", desc: "مزيج فاخر من القهوة والجانوديرما", longDesc: "قهوة يومية لذيذة مدعمة بمستخلص فطر الغانوديرما (الريشي). تعزز الطاقة والتركيز، تدعم الجهاز المناعي، تحسن الهضم، وتحتوي على مضادات أكسدة قوية." },
             { id: 2, cat: "1", name: "قهوة 3 في 1 لايت", pv: 10, desc: "طعم خفيف وقوام كريمي لذيذ", longDesc: "نسخة خفيفة من القهوة مع كريمة نباتية. مناسبة لمن يرغب في طاقة مستدامة دون زيادة السعرات الحرارية." },
             { id: 3, cat: "1", name: "قهوة 3 في 1 كوردسيبس", pv: 11, desc: "طاقة وحيوية مع فطر الكوردسيبس", longDesc: "مدعمة بفطر الكورديسيبس الطبيعي. تساعد في زيادة الطاقة الجسدية والذهنية وتحسين الأداء اليومي." },
@@ -155,7 +158,6 @@
             { id: 22, cat: "1", name: "سيرودل", pv: 5, desc: "نودلز صحية غنية بالسبيرولينا", longDesc: "نودلز صحية مدعمة بالسبيرولينا لوجبة خفيفة مغذية." },
             { id: 23, cat: "1", name: "جانودل", pv: 5, desc: "نودلز صحية مع الفطر الريشي", longDesc: "نودلز صحية مدعمة بالغانوديرما لوجبة متوازنة." },
 
-            // 2. المكملات
             { id: 24, cat: "2", name: "بودرة الفطر الريشي", pv: 70, desc: "ملك الأعشاب لطرد السموم", longDesc: "بودرة غانوديرما نقية. تقوي المناعة، تساعد في طرد السموم من الجسم، وتدعم الصحة العامة." },
             { id: 25, cat: "2", name: "سبيرولينا (120 قطعة)", pv: 20, desc: "الغذاء السوبر الغني بالفيتامينات", longDesc: "سبيرولينا عالية الجودة غنية بالبروتين والفيتامينات والمعادن، تعزز الطاقة والمناعة." },
             { id: 26, cat: "2", name: "سبيرولينا (500 قطعة)", pv: 70, desc: "العبوة الاقتصادية لصحة دائمة", longDesc: "العبوة الكبيرة من السبيرولينا للاستخدام اليومي المنتظم." },
@@ -166,14 +168,12 @@
             { id: 31, cat: "2", name: "حبة البركة (90 كبسولة)", pv: 31, desc: "الشفاء في الحبة السوداء", longDesc: "حبة البركة (النيجيلا ساتيفا) معروفة بخصائصها الصحية القوية." },
             { id: 32, cat: "2", name: "بودرة فطر السنجال", pv: 21, desc: "دعم قوي للجهاز المناعي", longDesc: "بودرة فطر الشيتاكي تدعم المناعة بشكل طبيعي." },
 
-            // 3. العناية الشخصية
             { id: 33, cat: "3", name: "معجون أسنان بلس (150 غم)", pv: 6, desc: "حماية فائقة للفم واللثة", longDesc: "معجون أسنان مدعم بالغانوديرما يحمي الأسنان واللثة وينعش الفم." },
             { id: 34, cat: "3", name: "معجون أسنان (150 غم)", pv: 6, desc: "بدون فلورايد وبدون صبغات", longDesc: "معجون أسنان طبيعي خالٍ من الفلورايد والمواد الكيميائية الضارة." },
             { id: 39, cat: "3", name: "صابون (حبة واحدة - 80 غم)", pv: 3, desc: "غنية بفيتامين E ومستخلص الريشي", longDesc: "صابون طبيعي غني بفيتامين E ومستخلص الغانوديرما للعناية بالبشرة." },
             { id: 41, cat: "3", name: "شامبو شعر بلس", pv: 12, desc: "تغذية مكثفة من الجذور للأطراف", longDesc: "شامبو شعر مغذي يرطب الشعر من الجذور إلى الأطراف." },
             { id: 45, cat: "3", name: "كريم شجرة الشاي", pv: 6, desc: "مضاد طبيعي ومطهر للبشرة", longDesc: "كريم شجرة الشاي الطبيعي يعمل كمطهر ومهدئ للبشرة." },
 
-            // 4. التجميل
             { id: 62, cat: "4", name: "أحمر شفاه (أحمر بني)", pv: 17, desc: "ثبات عالي وزبدة الشيا", longDesc: "أحمر شفاه أحمر بني جذاب يحتوي على زبدة الشيا والألوفيرا لترطيب عميق وحماية الشفاه من الجفاف." },
             { id: 63, cat: "4", name: "أحمر شفاه (أحمر لؤلؤي)", pv: 17, desc: "لمعان جذاب وترطيب عميق", longDesc: "روج أحمر لؤلؤي لامع يرطب الشفاه ويعطي إطلالة فاخرة مع عناية يومية." },
             { id: 64, cat: "4", name: "أحمر شفاه (بينك لؤلؤي)", pv: 17, desc: "لون بناتي رقيق وصحي", longDesc: "لون وردي لؤلؤي ناعم وطبيعي يناسب الاستخدام اليومي مع ترطيب قوي." },
@@ -228,13 +228,13 @@
 
                 <h2 class="text-xl font-black text-[#1b4d3e] mb-2">${p.name}</h2>
                 <span class="pv-badge text-sm px-5 py-2 inline-block mb-4">${p.pv} PV</span>
-                
+
                 <div class="mt-2 text-slate-600 leading-relaxed text-[15px] mb-8 italic">
                     ${p.longDesc}
                 </div>
 
                 <div class="mt-auto">
-                    <button onclick="addToCart('${p.name}'); closeModal();" 
+                    <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}'); closeModal();"
                             class="w-full add-btn py-4 text-base shadow-xl shadow-green-900/20">
                         إضافة إلى السلة
                     </button>
@@ -253,7 +253,7 @@
         function filterItems(category, btn) {
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
+
             if (category === 'all') {
                 drawGrid(products);
             } else {
