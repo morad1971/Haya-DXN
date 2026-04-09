@@ -46,13 +46,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      min-height: 96px;
       padding: 1rem;
       border-radius: 15px;
       text-decoration: none;
       color: #333;
       font-size: 0.85rem;
-      min-height: 96px;
-      justify-content: center;
       text-align: center;
     }
 
@@ -63,31 +63,30 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    /* زر التثبيت ظاهر دائمًا */
     #install-btn {
       position: fixed;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 120;
+      z-index: 100;
       background: var(--dxn-green);
       color: white;
       padding: 12px 24px;
       border-radius: 50px;
       border: 2px solid var(--gold);
       font-weight: bold;
-      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
     }
 
     #install-tip {
       position: fixed;
-      bottom: 78px;
+      bottom: 76px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 120;
+      z-index: 100;
       background: #111827;
       color: #fff;
       padding: 8px 12px;
@@ -100,7 +99,6 @@
   </style>
 </head>
 <body>
-
   <button id="install-btn" aria-label="تثبيت التطبيق على هاتفك">
     <i data-lucide="smartphone"></i>
     تثبيت التطبيق على هاتفك
@@ -130,18 +128,10 @@
       <p class="text-gray-700 leading-relaxed mb-6">بدل ما تشتري قهوة عادية أو معجون أسنان من السوق وما تستفيدي غير المصاريف، استبدليهم بمنتجات دكسن الطبيعية. هون أنتي ما دفعتي إشي زيادة، بس وجهتي مصروفك للمكان الصح اللي بفيدك وبفيد صحة عيلتك.</p>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="https://morad1971.github.io/Haya-product-catalog/" class="mini-card">
-          <i data-lucide="book-open" class="mb-2 text-[#1b4d3e]"></i><span>كتالوج المنتجات</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Top-Products/" class="mini-card">
-          <i data-lucide="star" class="mb-2 text-[#d4af37]"></i><span>أهم 3 منتجات</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Comparison/" class="mini-card">
-          <i data-lucide="repeat" class="mb-2 text-[#1b4d3e]"></i><span>المقارنة الذكية</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Budget/" class="mini-card">
-          <i data-lucide="calculator" class="mb-2 text-[#1b4d3e]"></i><span>ميزانية التوفير</span>
-        </a>
+        <a href="https://morad1971.github.io/Haya-product-catalog/" class="mini-card"><i data-lucide="book-open" class="mb-2 text-[#1b4d3e]"></i><span>كتالوج المنتجات</span></a>
+        <a href="https://morad1971.github.io/Haya-Top-Products/" class="mini-card"><i data-lucide="star" class="mb-2 text-[#d4af37]"></i><span>أهم 3 منتجات</span></a>
+        <a href="https://morad1971.github.io/Haya-Comparison/" class="mini-card"><i data-lucide="repeat" class="mb-2 text-[#1b4d3e]"></i><span>المقارنة الذكية</span></a>
+        <a href="https://morad1971.github.io/Haya-Budget/" class="mini-card"><i data-lucide="calculator" class="mb-2 text-[#1b4d3e]"></i><span>ميزانية التوفير</span></a>
       </div>
     </div>
 
@@ -153,18 +143,10 @@
       <p class="text-gray-700 leading-relaxed mb-6">لما تجربي المنتجات وتلاقي الفرق بصحتك ونشاطك، طبيعي راح تحكي لجاراتك وصحباتك عنها. دكسن هون بتكافئك على هاي "الدعاية الصادقة" بعمولات مالية بتكبر شوي شوي.</p>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="https://morad1971.github.io/HAYA-DXN-intro/" class="mini-card">
-          <i data-lucide="play" class="mb-2 text-[#1b4d3e]"></i><span>قصة البداية</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Stories/" class="mini-card">
-          <i data-lucide="heart" class="mb-2 text-[#c8102e]"></i><span>خواتنا اللي نجحوا</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Health-Guide/" class="mini-card">
-          <i data-lucide="shield-check" class="mb-2 text-[#1b4d3e]"></i><span>دليلك للصحة</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Ask/" class="mini-card">
-          <i data-lucide="message-circle" class="mb-2 text-[#1b4d3e]"></i><span>اسألي هيا</span>
-        </a>
+        <a href="https://morad1971.github.io/HAYA-DXN-intro/" class="mini-card"><i data-lucide="play" class="mb-2 text-[#1b4d3e]"></i><span>قصة البداية</span></a>
+        <a href="https://morad1971.github.io/Haya-Stories/" class="mini-card"><i data-lucide="heart" class="mb-2 text-[#c8102e]"></i><span>خواتنا اللي نجحوا</span></a>
+        <a href="https://morad1971.github.io/Haya-Health-Guide/" class="mini-card"><i data-lucide="shield-check" class="mb-2 text-[#1b4d3e]"></i><span>دليلك للصحة</span></a>
+        <a href="https://morad1971.github.io/Haya-Ask/" class="mini-card"><i data-lucide="message-circle" class="mb-2 text-[#1b4d3e]"></i><span>اسألي هيا</span></a>
       </div>
     </div>
 
@@ -176,27 +158,15 @@
       <p class="text-gray-700 leading-relaxed mb-6">راح أعلمك كيف تبني فريق من السيدات الطموحات زيك. هون بتتحول مشترياتك لدخل شهري وأنتي ببيتك وبين ولادك. هاي هي الحرية المالية اللي بنطمح لها.</p>
 
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-        <a href="https://morad1971.github.io/Haya-Business/" class="mini-card">
-          <i data-lucide="briefcase" class="mb-2 text-[#1b4d3e]"></i><span>دكسن كمشروع</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Training/" class="mini-card">
-          <i data-lucide="graduation-cap" class="mb-2 text-[#1b4d3e]"></i><span>مركز التدريب</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Tools/" class="mini-card">
-          <i data-lucide="shopping-bag" class="mb-2 text-[#1b4d3e]"></i><span>لائحة المشتريات</span>
-        </a>
+        <a href="https://morad1971.github.io/Haya-Business/" class="mini-card"><i data-lucide="briefcase" class="mb-2 text-[#1b4d3e]"></i><span>دكسن كمشروع</span></a>
+        <a href="https://morad1971.github.io/Haya-Training/" class="mini-card"><i data-lucide="graduation-cap" class="mb-2 text-[#1b4d3e]"></i><span>مركز التدريب</span></a>
+        <a href="https://morad1971.github.io/Haya-Tools/" class="mini-card"><i data-lucide="shopping-bag" class="mb-2 text-[#1b4d3e]"></i><span>لائحة المشتريات</span></a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <a href="https://morad1971.github.io/Haya-Register/" class="mini-card bg-red-50 border-red-100 py-4 shadow-sm">
-          <i data-lucide="user-plus" class="mb-2 text-[#c8102e]"></i><span class="font-bold text-[#c8102e]">سجلي معي هون</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Admin/" class="mini-card">
-          <i data-lucide="settings" class="mb-2 text-gray-400"></i><span class="text-gray-500">نظام الإدارة</span>
-        </a>
-        <a href="https://morad1971.github.io/Haya-Support/" class="mini-card">
-          <i data-lucide="help-circle" class="mb-2 text-[#1b4d3e]"></i><span>الدعم الفني</span>
-        </a>
+        <a href="https://morad1971.github.io/Haya-Register/" class="mini-card bg-red-50 border-red-100 py-4 shadow-sm"><i data-lucide="user-plus" class="mb-2 text-[#c8102e]"></i><span class="font-bold text-[#c8102e]">سجلي معي هون</span></a>
+        <a href="https://morad1971.github.io/Haya-Admin/" class="mini-card"><i data-lucide="settings" class="mb-2 text-gray-400"></i><span class="text-gray-500">نظام الإدارة</span></a>
+        <a href="https://morad1971.github.io/Haya-Support/" class="mini-card"><i data-lucide="help-circle" class="mb-2 text-[#1b4d3e]"></i><span>الدعم الفني</span></a>
       </div>
     </div>
 
@@ -213,41 +183,36 @@
   <script>
     lucide.createIcons();
 
-    // Service worker (اسم الملف الصحيح)
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js").catch(err => console.log("SW failed", err));
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').catch(err => console.log('SW failed', err));
       });
     }
 
-    // Install handling
     let deferredPrompt = null;
-    const installBtn = document.getElementById("install-btn");
-    const installTip = document.getElementById("install-tip");
+    const installBtn = document.getElementById('install-btn');
+    const installTip = document.getElementById('install-tip');
 
-    window.addEventListener("beforeinstallprompt", (e) => {
+    window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
     });
 
-    installBtn.addEventListener("click", async () => {
+    installBtn.addEventListener('click', async () => {
       if (deferredPrompt) {
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === "accepted") {
-          installTip.style.display = "block";
-          installTip.textContent = "تم إرسال طلب التثبيت.";
-          setTimeout(() => (installTip.style.display = "none"), 2500);
-        }
+        installTip.style.display = 'block';
+        installTip.textContent = outcome === 'accepted' ? 'تم إرسال طلب التثبيت.' : 'تم إلغاء التثبيت حالياً.';
+        setTimeout(() => installTip.style.display = 'none', 2500);
         deferredPrompt = null;
       } else {
-        // fallback guidance
         const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-        installTip.style.display = "block";
+        installTip.style.display = 'block';
         installTip.textContent = isIOS
-          ? "على iPhone: من زر المشاركة اختاري Add to Home Screen"
-          : "إذا لم تظهر نافذة التثبيت، افتحي الموقع من Chrome ثم Menu > Install app";
-        setTimeout(() => (installTip.style.display = "none"), 5000);
+          ? 'على iPhone: اضغطي مشاركة ثم Add to Home Screen'
+          : 'إذا لم تظهر نافذة التثبيت: افتحي الموقع من Chrome ثم Install app';
+        setTimeout(() => installTip.style.display = 'none', 5000);
       }
     });
   </script>
