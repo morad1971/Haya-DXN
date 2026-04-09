@@ -1,11 +1,28 @@
-const CACHE_NAME = "haya-platform-v4";
+const CACHE_NAME = "haya-platform-v5";
+
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.json",
   "./icons/haya-award.jpg",
   "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icons/icon-512.png",
+
+  // صفحات المنظومة — احذفي أي مسار غير موجود على GitHub
+  "./intro/index.html",
+  "./product-catalog/index.html",
+  "./top-products/index.html",
+  "./comparison/index.html",
+  "./budget/index.html",
+  "./health-guide/index.html",
+  "./stories/index.html",
+  "./business/index.html",
+  "./register/index.html",
+  "./training/index.html",
+  "./support/index.html",
+  "./tools/index.html",
+  "./ask/index.html",
+  "./admin/index.html"
 ];
 
 self.addEventListener("install", (event) => {
@@ -32,13 +49,8 @@ self.addEventListener("fetch", (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
-  // فقط GET
   if (req.method !== "GET") return;
-
-  // تجاهل أي بروتوكول غير http/https
   if (!url.protocol.startsWith("http")) return;
-
-  // تعامل فقط مع نفس الأصل (ملفات موقعك)
   if (url.origin !== self.location.origin) return;
 
   event.respondWith(cacheFirst(req));
@@ -54,7 +66,6 @@ async function cacheFirst(req) {
     cache.put(req, fresh.clone());
     return fresh;
   } catch {
-    // fallback بسيط إذا النت مقطوع والملف غير مخزن
     return new Response("Offline", {
       status: 503,
       statusText: "Offline"
