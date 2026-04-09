@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسألي هيا | استشاراتك الشخصية</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dxn-green: #1b4d3e;
+            --gold: #d4af37;
+            --wa-green: #25D366;
+        }
+        * { font-family: 'Vazirmatn', sans-serif; box-sizing: border-box; }
+        h1 { font-family: 'Amiri', serif !important; }
+        
+        body { 
+            background: #f8fafc;
+            background-image: radial-gradient(circle at 0% 0%, rgba(27, 77, 62, 0.05) 0%, transparent 30%),
+                              radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.05) 0%, transparent 30%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-cols: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .cat-option {
+            background: #f1f5f9;
+            padding: 12px 8px;
+            border-radius: 18px;
+            text-align: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .cat-option.active {
+            border-color: var(--gold);
+            background: #fffdf2;
+            color: var(--dxn-green);
+            transform: scale(1.05);
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px 20px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            outline: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .input-field:focus {
+            border-color: var(--gold);
+            background: white;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .ask-btn {
+            width: 100%;
+            background: var(--wa-green);
+            color: white;
+            padding: 18px;
+            border-radius: 22px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .ask-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+            filter: brightness(1.05);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 25px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card">
+        <div class="text-center mb-10">
+            <div class="inline-block p-4 bg-green-50 rounded-full mb-4">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b4d3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h1 class="text-3xl font-bold text-dxn-green mb-2">اسألي هيا</h1>
+            <p class="text-gray-500 text-xs font-medium">مساحة آمنة لكل استفساراتكِ الصحية والمهنية</p>
+        </div>
+
+        <form id="askForm">
+            <label class="block text-xs font-bold text-gray-400 mb-3 mr-2">اختاري موضوع السؤال:</label>
+            <div class="category-grid">
+                <div class="cat-option active" onclick="selectCat(this, 'صحية')">استشارة صحية</div>
+                <div class="cat-option" onclick="selectCat(this, 'فرصة عمل')">فرصة عمل</div>
+                <div class="cat-option" onclick="selectCat(this, 'منتجات')">منتجات</div>
+            </div>
+
+            <input type="hidden" id="selectedCategory" value="صحية">
+            
+            <input type="text" id="userName" required placeholder="اسمكِ الكريم" class="input-field">
+            <input type="tel" id="userPhone" required placeholder="رقم هاتفك (للتواصل)" class="input-field">
+            <textarea id="userMsg" rows="4" required placeholder="اكتبي سؤالكِ هنا بكل وضوح..." class="input-field"></textarea>
+
+            <button type="submit" class="ask-btn">
+                <span>إرسال عبر واتساب</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.539 2.016 2.041-.54c.947.527 1.997.834 3.242.835 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.763-5.766zm4.192 8.161c-.19.531-.967.971-1.328 1.01-.36.039-.714.07-2.105-.487-1.68-.673-2.738-2.383-2.822-2.495-.084-.112-.686-.912-.686-1.745s.434-1.242.589-1.411c.155-.169.34-.212.453-.212.113 0 .226.001.324.005.105.004.246-.039.385.29.141.332.481 1.171.523 1.256.042.085.07.184.014.297-.056.113-.085.184-.169.282-.085.099-.176.221-.252.295-.088.086-.18.179-.077.355.103.176.458.756.983 1.223.676.601 1.244.787 1.42.875.176.088.279.074.381-.046.103-.12.441-.515.559-.691.118-.176.236-.148.397-.089s1.03.485 1.208.574c.178.089.297.133.34.207s.042.443-.148.974z"/></svg>
+            </button>
+        </form>
+
+        <div class="text-center">
+            <a href="https://morad1971.github.io/Haya-DXN/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                العودة للرئيسية
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function selectCat(el, val) {
+            document.querySelectorAll('.cat-option').forEach(opt => opt.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('selectedCategory').value = val;
+        }
+
+        const form = document.getElementById('askForm');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // جمع البيانات
+            const category = document.getElementById('selectedCategory').value;
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const message = document.getElementById('userMsg').value;
+
+            // رقم الواتساب الخاص بك
+            const myPhoneNumber = "962780484425"; 
+            
+            // تجهيز نص الرسالة للواتساب
+            const fullMessage = `مرحباً هيا، أنا ${name}.%0Aعندي استشارة (${category}) بخصوص:%0A${message}%0Aرقم هاتفي: ${phone}`;
+            
+            const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${fullMessage}`;
+
+            // فتح الواتساب
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
