@@ -13,11 +13,11 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "index.html",
-  "background_color": "#fdfdfb",
-  "display": "standalone",
+  "start_url": "./index.html",
   "scope": "./",
-  "theme-color": "#1b4d3e",
+  "display": "standalone",
+  "background_color": "#fdfdfb",
+  "theme_color": "#1b4d3e",
   "description": "منصة تعريفية وأدوات ذكية لاستثمار الاستهلاك مع دكسن بصحبة هيا اسكندراني",
   "dir": "rtl",
   "lang": "ar"
