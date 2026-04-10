@@ -1,1 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أداة المقارنة المالية الذكية | هيا اسكندراني</title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+   
+    <style>
+        :root {
+            --dxn-green: #1b4d3e;
+            --gold: #d4af37;
+            --market-gray: #718096;
+        }
+        * { 
+            font-family: 'Vazirmatn', sans-serif; 
+            margin: 0; padding: 0; 
+            box-sizing: border-box; 
+        }
+        h1, h2, h3 { font-family: 'Amiri', serif !important; }
+        body { 
+            background-color: #fdfdfb; 
+            color: #333; 
+            padding-top: 80px; 
+        }
+       
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-banner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nav-pill {
+            text-decoration: none;
+            color: #1b4d3e;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+        .nav-pill:hover {
+            border-color: var(--gold);
+            transform: translateY(-1px);
+        }
+        .nav-pill-register {
+            background: #c8102e;
+            color: #fff;
+            border-color: #c8102e;
+        }
 
+        .header-bg {
+            background: linear-gradient(rgba(27, 77, 62, 0.92), rgba(10, 31, 25, 0.98)), url('../icons/project.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .comparison-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+        .side-market { border-top: 8px solid var(--market-gray); opacity: 0.85; }
+        .side-haya { 
+            border-top: 8px solid var(--gold); 
+            background: #f7fff9; 
+            transform: scale(1.02); 
+            z-index: 5; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+        }
+        .vs-badge {
+            width: 60px; height: 60px;
+            background: var(--gold); color: var(--dxn-green);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; font-weight: 900;
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10; border: 4px solid #fdfdfb;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--dxn-green) !important;
+            font-weight: 900;
+            transition: 0.3s;
+        }
+        .btn-gold:hover { background-color: #b8860b; transform: translateY(-2px); }
+    </style>
+</head>
+<body class="pb-12">
+    <!-- Navbar موحد -->
+    <div class="nav-glass">
+        <nav class="nav-banner">
+            <a href="../" class="nav-pill">الرئيسية</a>
+            <a href="../product-catalog/" class="nav-pill">كتالوج المنتجات</a>
+            <a href="../stories/" class="nav-pill">قصص النجاح</a>
+            <a href="../register/" class="nav-pill nav-pill-register">سجلي الآن</a>
+        </nav>
+    </div>
+
+    <header class="header-bg text-white py-16 px-6 text-center rounded-b-[60px] shadow-2xl">
+        <div class="relative z-10">
+            <div class="w-20 h-20 mx-auto mb-6 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <i data-lucide="scale" class="w-10 h-10 text-gold"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 italic">أداة الحسم المالي</h1>
+            <p class="opacity-90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+                هل تنفقين المال أم تستثمرين الاستهلاك؟ اكتشفي الحقيقة المذهلة بين "بقالة الحي" و"مشروع هيا".
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 -mt-10 relative z-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative py-8">
+            <div class="vs-badge hidden md:flex italic">ضد</div>
+
+            <!-- السوق العادي -->
+            <div class="comparison-card side-market p-10">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="p-4 bg-gray-100 rounded-2xl text-gray-400">
+                        <i data-lucide="trash-2" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-700">السوق العادي</h3>
+                        <p class="text-xs text-gray-400">استهلاك ينتهي بصندوق القمامة</p>
+                    </div>
+                </div>
+               
+                <ul class="space-y-6 flex-grow">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="minus-circle" class="text-red-400 mt-1 w-6 h-6 flex-shrink-0"></i>
+                        <span class="text-gray-600">أرباحك تذهب لجيوب التجار وأصحاب الإعلانات.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="minus-circle" class="text-red-400 mt-1 w-6 h-6 flex-shrink-0"></i>
+                        <span class="text-gray-600">منتجات تجارية تحتوي على مواد حافظة وملونات.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="minus-circle" class="text-red-400 mt-1 w-6 h-6 flex-shrink-0"></i>
+                        <span class="text-gray-600">الفاتورة هي مجرد "ورقة صرف" لا قيمة لها غداً.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="minus-circle" class="text-red-400 mt-1 w-6 h-6 flex-shrink-0"></i>
+                        <span class="text-gray-600">لا يوجد نظام مكافآت أو دخل إضافي مهما زاد شراؤك.</span>
+                    </li>
+                </ul>
+               
+                <div class="mt-10 pt-8 border-t border-gray-100 text-center">
+                    <div class="text-4xl font-black text-gray-300">0% عائد</div>
+                    <p class="text-sm text-gray-400 mt-2 font-bold">خسارة مالية شهرية مستمرة</p>
+                </div>
+            </div>
+
+            <!-- مشروع هيا -->
+            <div class="comparison-card side-haya p-10 border-2 border-gold/30">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="p-4 bg-green-100 rounded-2xl text-dxn-green">
+                        <i data-lucide="gem" class="w-8 h-8 text-gold"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-dxn-green italic">بقالة هيا الذكية</h3>
+                        <p class="text-xs text-green-600 font-bold uppercase">استهلاك يتحول لثروة</p>
+                    </div>
+                </div>
+               
+                <ul class="space-y-6 flex-grow">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="text-gold mt-1 w-6 h-6 flex-shrink-0"></i>
+                        <span class="text-gray-800 font-bold">أنتِ الشريكة والتاجرة والمستفيدة من الأرباح.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="text-gold mt-1 w-6 h-6 flex-shrink-0"></i>
+                        <span class="text-gray-800 font-bold">منتجات عضوية (سوبر فود) تدعم مناعتك وعائلتك.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="text-gold mt-1 w-6 h-6 flex-shrink-0"></i>
+                        <span class="text-gray-800 font-bold">كل فلس تدفعينه يتحول لنقاط PV تراكمية عالمية.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="text-gold mt-1 w-6 h-6 flex-shrink-0"></i>
+                        <span class="text-gray-800 font-bold">نظام عمولات يبدأ من مشترياتك ويمتد لشبكتك.</span>
+                    </li>
+                </ul>
+
+                <div class="mt-10 pt-8 border-t border-green-200 text-center">
+                    <div class="text-4xl font-black text-dxn-green">عائد متنامٍ</div>
+                    <p class="text-sm text-green-600 mt-2 font-black italic">بناء أصل مالي يورث للأجيال</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-[#1b4d3e] rounded-[40px] p-10 md:p-16 text-center my-16 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full -mr-32 -mt-32"></div>
+           
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 italic">المعادلة بسيطة: توقفي عن الهدر!</h2>
+            <p class="text-green-100/80 mb-12 max-w-3xl mx-auto text-lg leading-relaxed font-medium">
+                الفرق بين الفقر والغنى أحياناً يكون في "مكان التسوق". حوّلي استهلاكك الشهري الروتيني إلى مشروع تجاري عالمي بضغطة زر واحدة.
+            </p>
+           
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="../budget/" class="btn-gold w-full md:w-auto px-12 py-5 rounded-2xl shadow-xl flex items-center justify-center gap-3 text-lg">
+                    <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    احسبي أرباحك الآن
+                </a>
+                <a href="../register/" class="btn-gold w-full md:w-auto px-12 py-5 rounded-2xl shadow-xl flex items-center justify-center gap-3 text-lg">
+                    <i data-lucide="user-plus" class="w-6 h-6"></i>
+                    سجلي عضويتك مجاناً
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="../" class="text-gray-400 hover:text-dxn-green font-bold transition-all flex items-center justify-center gap-2">
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                العودة للواجهة الرئيسية
+            </a>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
