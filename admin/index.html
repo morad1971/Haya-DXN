@@ -4,25 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>معلومات التطبيق | هيا اسكندراني</title>
-    
+   
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+   
     <style>
         :root {
             --dxn-green: #1b4d3e;
             --gold: #d4af37;
         }
-        * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            font-family: 'Vazirmatn', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
         h1, h2, h3 { font-family: 'Amiri', serif !important; }
-        body { background-color: #fdfdfb; color: #333; padding-top: 80px; }
-        
+        body { 
+            background-color: #fdfdfb; 
+            color: #333; 
+            padding-top: 80px; 
+        }
+       
         .nav-glass {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            position: fixed; top: 0; width: 100%; z-index: 1000;
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000;
             border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-banner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nav-pill {
+            text-decoration: none;
+            color: #1b4d3e;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+        .nav-pill:hover {
+            border-color: #d4af37;
+            transform: translateY(-1px);
+        }
+        .nav-pill-register {
+            background: #c8102e;
+            color: #fff;
+            border-color: #c8102e;
         }
 
         .info-card {
@@ -32,8 +74,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 1.5rem;
         }
-
-        /* تنسيق روابط التواصل */
         .link-item {
             display: flex;
             align-items: center;
@@ -45,10 +85,12 @@
             text-decoration: none;
             color: inherit;
             border: 1px solid transparent;
+            transition: all 0.2s;
         }
-        .link-item:hover { border-color: var(--gold); background: white; }
-
-        /* الزر الخاص بالمطور - تم التأكيد على ظهوره */
+        .link-item:hover { 
+            border-color: var(--gold); 
+            background: white; 
+        }
         .btn-dev {
             display: flex !important;
             align-items: center;
@@ -62,20 +104,25 @@
             text-decoration: none;
             margin-top: 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 50;
         }
-        .btn-dev:hover { background-color: #d4af37 !important; color: white !important; }
+        .btn-dev:hover { 
+            background-color: #d4af37 !important; 
+            color: white !important; 
+        }
     </style>
 </head>
 <body>
-
-    <nav class="nav-glass py-4 px-6 text-center">
-        <h1 class="text-xl font-bold text-dxn-green">معلومات التطبيق</h1>
-    </nav>
+    <!-- Navbar موحد -->
+    <div class="nav-glass">
+        <nav class="nav-banner">
+            <a href="../" class="nav-pill">الرئيسية</a>
+            <a href="../product-catalog/" class="nav-pill">كتالوج المنتجات</a>
+            <a href="../stories/" class="nav-pill">قصص النجاح</a>
+            <a href="../register/" class="nav-pill nav-pill-register">سجلي الآن</a>
+        </nav>
+    </div>
 
     <main class="max-w-xl mx-auto px-6 py-8">
-
         <div class="info-card">
             <h2 class="text-lg font-bold text-dxn-green mb-4 border-r-4 border-gold pr-3">حسابات التواصل - هيا</h2>
             <a href="https://www.instagram.com/h.i.i1980?utm_source=qr&igsh=NzZmb3I2azc2NnJ3" target="_blank" class="link-item">
@@ -108,13 +155,12 @@
             <p class="text-sm opacity-80 leading-relaxed mb-6">
                 تم تطوير هذا العمل لتقديم تجربة رقمية متميزة. للتواصل مع المطور للاستفسارات التقنية:
             </p>
-            
+           
             <a href="https://api.whatsapp.com/send?phone=447738067404" target="_blank" class="btn-dev">
                 <i data-lucide="message-circle" class="w-6 h-6"></i>
                 تواصل عبر الواتساب
             </a>
         </div>
-
     </main>
 
     <footer class="py-10 text-center opacity-30 text-xs italic">
