@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملهمات هيا | قصص النجاح</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --dxn-green: #1b4d3e;
+            --gold: #d4af37;
+            --soft-white: #fdfdfb;
+        }
+        * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        h1, h2, h3 { font-family: 'Amiri', serif !important; }
+        body { background-color: var(--soft-white); color: #333; padding-top: 70px; padding-bottom: 120px; }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
 
+        .story-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+            display: flex; flex-direction: column;
+        }
+        .story-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+        .video-container {
+            position: relative; width: 100%; padding-top: 177.77%; background: #000;
+        }
+        .video-container video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+        }
+
+        .bottom-nav {
+            background: rgba(27, 77, 62, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed; bottom: 20px; left: 50%;
+            transform: translateX(-50%);
+            width: 90%; max-width: 450px;
+            border-radius: 25px;
+            display: flex; justify-content: space-around;
+            padding: 12px; z-index: 2000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .nav-item { color: rgba(255,255,255,0.6); display: flex; flex-direction: column; align-items: center; font-size: 10px; gap: 4px; text-decoration: none; }
+        .nav-item.active { color: var(--gold); }
+        
+        .gradient-overlay { background: linear-gradient(to top, rgba(27, 77, 62, 0.9), transparent); }
+        
+        .featured-label {
+            position: absolute; top: 20px; right: 20px;
+            background: var(--gold); color: white;
+            padding: 5px 15px; border-radius: 50px;
+            font-size: 10px; font-weight: bold; z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-glass py-4 px-6 flex justify-between items-center">
+        <a href="../" class="flex items-center gap-2 text-dxn-green font-bold text-sm">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            <span>منظومة هيا</span>
+        </a>
+        <span class="text-xs font-bold text-gold italic">حكايات طموح</span>
+    </nav>
+
+    <header class="py-12 px-6 text-center">
+        <h1 class="text-4xl font-bold text-dxn-green mb-3 italic">ملهمات التغيير</h1>
+        <p class="text-gray-500 text-sm max-w-md mx-auto leading-relaxed">استمعي لقصص حقيقية لسيدات بدأن من الصفر ووصلن للقمة</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        
+        <div class="story-card border-2 border-gold/20">
+            <div class="video-container relative">
+                <span class="featured-label shadow-lg">القائدة هدى ✨</span>
+                <video controls preload="metadata">
+                    <source src="https://raw.githubusercontent.com/morad1971/Haya-Stories/main/icons/Huda.mp4" type="video/mp4">
+                </video>
+                <div class="absolute bottom-0 inset-x-0 p-5 gradient-overlay">
+                    <span class="text-white font-bold block italic">هدى طهماز - الأردن</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 text-sm italic">"من شغف الصحة والجمال إلى بناء مشروع ريادي يمنحني الحرية المالية."</p>
+            </div>
+        </div>
+
+        <div class="story-card border-2 border-gold/10">
+            <div class="video-container relative">
+                <span class="featured-label bg-dxn-green/80">يسرى أبو ليلى 🇯🇴</span>
+                <video controls preload="metadata">
+                    <source src="https://raw.githubusercontent.com/morad1971/Haya-Stories/main/icons/Yusra.mp4" type="video/mp4">
+                </video>
+                <div class="absolute bottom-0 inset-x-0 p-5 gradient-overlay">
+                    <span class="text-white font-bold block italic">يسرى أبو ليلى - الأردن</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 text-sm italic">"تجربة واقعية تثبت أن الإصرار والعمل بذكاء يحقق المستحيل مع دكسن."</p>
+            </div>
+        </div>
+
+        <div class="story-card border-2 border-gold/10">
+            <div class="video-container relative">
+                <span class="featured-label bg-dxn-green/80">نغم 🇱🇧</span>
+                <video controls preload="metadata">
+                    <source src="https://raw.githubusercontent.com/morad1971/Haya-Stories/main/icons/Nagham.mp4" type="video/mp4">
+                </video>
+                <div class="absolute bottom-0 inset-x-0 p-5 gradient-overlay">
+                    <span class="text-white font-bold block italic">نغم - لبنان</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 text-sm italic">"رحلة مذهلة حولت فيها استهلاكي اليومي إلى مصدر دخل وسفر وتطوير."</p>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="bottom-nav">
+        <a href="../" class="nav-item">
+            <i data-lucide="home"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="../product-catalog/" class="nav-item">
+            <i data-lucide="shopping-bag"></i>
+            <span>المنتجات</span>
+        </a>
+        <a href="../budget/" class="nav-item">
+            <i data-lucide="calculator"></i>
+            <span>الحاسبة</span>
+        </a>
+        <a href="#" class="nav-item active">
+            <i data-lucide="heart"></i>
+            <span>القصص</span>
+        </a>
+        <a href="../register/" class="nav-item">
+            <i data-lucide="user-plus"></i>
+            <span>انضمي</span>
+        </a>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
