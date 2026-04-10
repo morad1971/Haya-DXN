@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشروع العمر | ريادة الأعمال مع هيا اسكندراني</title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+   
+    <style>
+        :root {
+            --dxn-green: #1b4d3e;
+            --gold: #d4af37;
+            --soft-white: #fdfdfb;
+        }
+        * { 
+            font-family: 'Vazirmatn', sans-serif; 
+            margin: 0; padding: 0; 
+            box-sizing: border-box; 
+        }
+        h1, h2, h3 { font-family: 'Amiri', serif !important; }
+        body { 
+            background-color: var(--soft-white); 
+            color: #333; 
+            padding-top: 80px; 
+        }
+       
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-banner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nav-pill {
+            text-decoration: none;
+            color: #1b4d3e;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+        .nav-pill:hover {
+            border-color: var(--gold);
+            transform: translateY(-1px);
+        }
+        .nav-pill-register {
+            background: #c8102e;
+            color: #fff;
+            border-color: #c8102e;
+        }
 
+        .step-box {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem;
+            border-right: 6px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .step-box:hover { transform: scale(1.02); }
+
+        .stat-card {
+            background: var(--dxn-green);
+            color: white;
+            border-radius: 25px;
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar موحد -->
+    <div class="nav-glass">
+        <nav class="nav-banner">
+            <a href="../" class="nav-pill">الرئيسية</a>
+            <a href="../product-catalog/" class="nav-pill">كتالوج المنتجات</a>
+            <a href="../stories/" class="nav-pill">قصص النجاح</a>
+            <a href="../register/" class="nav-pill nav-pill-register">سجلي الآن</a>
+        </nav>
+    </div>
+
+    <header class="py-20 px-6 text-center bg-white border-b border-gray-100">
+        <div class="max-w-3xl mx-auto">
+            <div class="inline-block px-4 py-1 bg-gold/10 text-gold rounded-full text-xs font-black tracking-widest mb-6 uppercase">فرصة عمل عالمية</div>
+            <h1 class="text-4xl md:text-6xl font-bold text-dxn-green mb-6 leading-tight">حولي مشترياتكِ إلى <span class="text-gold">مصدر دخل</span> مستدام</h1>
+            <p class="text-gray-500 text-lg leading-relaxed">مع هيا، ستتعلمين كيف تبنين مشروعك الخاص من المنزل، بدون رأس مال، وبنظام يضمن لكِ النمو العالمي.</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            <div class="text-center p-6">
+                <div class="w-16 h-16 bg-green-50 text-dxn-green rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="globe" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold mb-2">عضوية عالمية</h3>
+                <p class="text-xs text-gray-500">رقم عضويتك يعمل في أكثر من 180 دولة حول العالم.</p>
+            </div>
+            <div class="text-center p-6">
+                <div class="w-16 h-16 bg-green-50 text-dxn-green rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="trending-up" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold mb-2">نمو تصاعدي</h3>
+                <p class="text-xs text-gray-500">أرباحكِ تزداد بزيادة مشترياتك ومشتريات فريقكِ.</p>
+            </div>
+            <div class="text-center p-6">
+                <div class="w-16 h-16 bg-green-50 text-dxn-green rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="briefcase" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold mb-2">توريث الأرباح</h3>
+                <p class="text-xs text-gray-500">جهدكِ اليوم هو أمان مالي لكِ ولعائلتك مستقبلاً.</p>
+            </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-center text-dxn-green mb-12 italic">خارطة الطريق للنجاح</h2>
+        <div class="space-y-10 mb-24">
+           
+            <div class="step-box flex flex-col md:flex-row items-center gap-8">
+                <div class="text-5xl font-black text-gold/20">01</div>
+                <div>
+                    <h3 class="text-xl font-bold text-dxn-green mb-2">استبدلي بقالتكِ</h3>
+                    <p class="text-sm text-gray-600">بدلاً من شراء منتجات كيماوية من السوق بدون مقابل، اشتري منتجات طبيعية (قهوة، معجون، صابون) واحفظي نقاطها في رصيدك.</p>
+                </div>
+            </div>
+
+            <div class="step-box flex flex-col md:flex-row items-center gap-8">
+                <div class="text-5xl font-black text-gold/20">02</div>
+                <div>
+                    <h3 class="text-xl font-bold text-dxn-green mb-2">شاركي التجربة</h3>
+                    <p class="text-sm text-gray-600">عندما تخبرين صديقاتك وعائلتك عن جودة المنتجات، ويقومون بالشراء عبر رقم عضويتك، تزداد نقاطك وتتحول لعمولات نقدية.</p>
+                </div>
+            </div>
+
+            <div class="step-box flex flex-col md:flex-row items-center gap-8">
+                <div class="text-5xl font-black text-gold/20">03</div>
+                <div>
+                    <h3 class="text-xl font-bold text-dxn-green mb-2">بناء الفريق والقيادة</h3>
+                    <p class="text-sm text-gray-600">دربي فريقكِ على فعل نفس الشيء، وهنا تبدأ العمولات الحقيقية والرحلات الدولية المجانية والحوافز المالية الكبيرة.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="stat-card">
+                <h4 class="text-gold font-bold mb-2">نسبة الأرباح</h4>
+                <div class="text-4xl font-black mb-4">6% <i data-lucide="arrow-right" class="inline w-6"></i> 71%</div>
+                <p class="text-xs opacity-70">تبدأ عمولتك من 6% وتصل إلى 71% كشريكة في أرباح الشركة العالمية.</p>
+            </div>
+            <div class="stat-card" style="background-color: #d4af37;">
+                <h4 class="text-dxn-green font-bold mb-2">الحوافز النقدية</h4>
+                <div class="text-4xl font-black mb-4">$230 <span class="text-sm">&</span> $1580</div>
+                <p class="text-xs text-dxn-green font-bold opacity-80">حوافز نقدية لمرة واحدة عند الوصول لرتب معينة (هاتف، رحلة دولية).</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dxn-green py-20 px-6 text-center text-white">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 italic text-black">لا تضيعي الوقت، المشروع يبدأ بقرار!</h2>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="../register/" class="footer-btn-gold hover:scale-105 transition-all">
+                    سجلي الآن مجاناً
+                </a>
+                <a href="https://wa.me/962780484425" class="footer-btn-outline hover:bg-white/20 transition-all">
+                    <i data-lucide="message-circle"></i> دردشة مع هيا
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
