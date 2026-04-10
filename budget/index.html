@@ -4,75 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حاسبة الميزانية والاستثمار | هيا اسكندراني</title>
-    
+   
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+   
     <style>
         :root {
             --dxn-green: #1b4d3e;
             --gold: #d4af37;
             --soft-white: #fdfdfb;
         }
-        * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            font-family: 'Vazirmatn', sans-serif; 
+            margin: 0; padding: 0; 
+            box-sizing: border-box; 
+        }
         h1, h2, h3 { font-family: 'Amiri', serif !important; }
-        body { background-color: var(--soft-white); color: #333; padding-top: 70px; }
-        
+        body { 
+            background-color: var(--soft-white); 
+            color: #333; 
+            padding-top: 80px; 
+        }
+       
         .nav-glass {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            position: fixed; top: 0; width: 100%; z-index: 1000;
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000;
             border-bottom: 1px solid #e2e8f0;
         }
+        .nav-banner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nav-pill {
+            text-decoration: none;
+            color: #1b4d3e;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+        .nav-pill:hover {
+            border-color: var(--gold);
+            transform: translateY(-1px);
+        }
+        .nav-pill-register {
+            background: #c8102e;
+            color: #fff;
+            border-color: #c8102e;
+        }
 
-        .header-bg { 
-            background: linear-gradient(rgba(27, 77, 62, 0.92), rgba(10, 31, 25, 0.96)), url('images/project.png');
+        .header-bg {
+            background: linear-gradient(rgba(27, 77, 62, 0.92), rgba(10, 31, 25, 0.96)), url('../icons/project.png');
             background-size: cover;
             background-position: center;
         }
-
         .budget-card {
             background: white;
             border-radius: 24px;
             border: 1px solid #f0f0f0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-
         .pv-counter {
             background: linear-gradient(135deg, var(--dxn-green), #2d6a58);
             color: white;
             border-radius: 32px;
             padding: 2rem;
             position: sticky;
-            top: 90px;
+            top: 100px;
         }
-
         .product-item {
             transition: all 0.2s ease;
             border-bottom: 1px inset #f9f9f9;
         }
         .product-item:hover { background-color: #fdfdfb; }
-
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            opacity: 1;
-        }
     </style>
 </head>
 <body class="pb-12">
-
-    <nav class="nav-glass py-4 px-6">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="https://morad1971.github.io/Haya-DXN/" class="flex items-center gap-2 text-dxn-green font-bold">
-                <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                <span>العودة للرئيسية</span>
-            </a>
-            <div class="flex gap-4">
-                <span class="text-[10px] bg-green-50 px-2 py-1 rounded text-dxn-green font-bold border border-green-100 italic">سوق الأردن 🇯🇴</span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar موحد -->
+    <div class="nav-glass">
+        <nav class="nav-banner">
+            <a href="../" class="nav-pill">الرئيسية</a>
+            <a href="../product-catalog/" class="nav-pill">كتالوج المنتجات</a>
+            <a href="../stories/" class="nav-pill">قصص النجاح</a>
+            <a href="../register/" class="nav-pill nav-pill-register">سجلي الآن</a>
+        </nav>
+    </div>
 
     <header class="header-bg text-white py-16 px-6 text-center rounded-b-[50px] shadow-2xl">
         <div class="relative z-10">
@@ -86,16 +116,15 @@
 
     <main class="max-w-6xl mx-auto px-4 -mt-10 relative z-20">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
+           
             <div class="lg:col-span-2 space-y-6">
                 <div class="budget-card p-6 md:p-8">
-                    <h2 class="text-xl font-bold text-dxn-green mb-6 flex items-center gap-2 font-black italic">
+                    <h2 class="text-xl font-bold text-dxn-green mb-6 flex items-center gap-2">
                         <i data-lucide="shopping-basket" class="text-gold"></i>
                         قائمة المشتريات
                     </h2>
-                    
-                    <div id="calculator-list" class="grid grid-cols-1 gap-1">
-                        </div>
+                   
+                    <div id="calculator-list" class="grid grid-cols-1 gap-1"></div>
                 </div>
             </div>
 
@@ -104,17 +133,17 @@
                     <h3 class="text-lg opacity-80 mb-2 font-light italic">مجموع النقاط الحالي</h3>
                     <div id="total-pv" class="text-6xl font-black mb-4">0.00</div>
                     <div class="text-sm bg-white/10 rounded-full py-1 px-4 inline-block mb-6 font-bold uppercase tracking-widest">PV Point</div>
-                    
+                   
                     <div class="space-y-4 pt-6 border-t border-white/20">
                         <div id="target-msg" class="text-sm font-light leading-relaxed min-h-[60px]">
                             اختاري منتجاتكِ لتفعيل حسابكِ في نظام الأرباح العالمي.
                         </div>
-                        
+                       
                         <div class="w-full bg-white/20 rounded-full h-2 overflow-hidden">
                             <div id="progress-bar" class="bg-gold h-full transition-all duration-500" style="width: 0%"></div>
                         </div>
 
-                        <a href="https://morad1971.github.io/Haya-Register/" class="block w-full bg-gold hover:bg-yellow-600 text-dxn-green py-4 rounded-2xl font-black transition-all shadow-lg mt-8 text-lg">
+                        <a href="../register/" class="block w-full bg-gold hover:bg-yellow-600 text-dxn-green py-4 rounded-2xl font-black transition-all shadow-lg mt-8 text-lg">
                             سجلي عضويتكِ الآن
                         </a>
                     </div>
@@ -127,7 +156,6 @@
                     </button>
                 </div>
             </div>
-
         </div>
     </main>
 
@@ -150,7 +178,7 @@
 
         function initCalculator() {
             const list = document.getElementById('calculator-list');
-            list.innerHTML = ''; 
+            list.innerHTML = '';
             budgetProducts.forEach(p => {
                 list.innerHTML += `
                     <div class="product-item flex items-center justify-between py-4 px-2 hover:bg-gray-50 rounded-xl transition-all">
@@ -159,8 +187,8 @@
                             <div class="text-xs text-gold font-black italic">${p.pv.toFixed(2)} PV</div>
                         </div>
                         <div class="flex items-center gap-3">
-                            <input type="number" min="0" value="0" 
-                                   oninput="updateTotal()" 
+                            <input type="number" min="0" value="0"
+                                   oninput="updateTotal()"
                                    data-pv="${p.pv}"
                                    class="qty-input w-16 p-2 border-2 border-gray-100 rounded-xl text-center font-black text-dxn-green focus:border-gold outline-none bg-white">
                         </div>
@@ -178,12 +206,11 @@
                 total += qty * pv;
             });
 
-            const displayTotal = document.getElementById('total-pv');
-            displayTotal.innerText = total.toFixed(2);
-            
+            document.getElementById('total-pv').innerText = total.toFixed(2);
+           
             const progress = Math.min((total / 100) * 100, 100);
             document.getElementById('progress-bar').style.width = progress + '%';
-            
+           
             const msg = document.getElementById('target-msg');
             if(total === 0) {
                 msg.innerHTML = "اختاري منتجاتكِ لتفعيل حسابكِ في نظام الأرباح العالمي.";
@@ -199,6 +226,7 @@
             updateTotal();
         }
 
+        // تشغيل الحاسبة
         initCalculator();
     </script>
 </body>
