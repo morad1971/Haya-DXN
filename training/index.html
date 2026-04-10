@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز التدريب | أكاديمية هيا اسكندراني</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --dxn-green: #1b4d3e;
+            --gold: #d4af37;
+            --soft-white: #fdfdfb;
+        }
+        * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        h1, h2, h3 { font-family: 'Amiri', serif !important; }
+        body { background-color: #f4f7f6; color: #333; padding-top: 70px; }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid #e5e7eb;
+        }
 
+        .step-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid #eef2f3;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .step-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 5rem;
+            font-weight: 900;
+            color: rgba(27, 77, 62, 0.05);
+            z-index: 0;
+        }
+
+        .video-container {
+            background: #1a1a1a;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-glass py-4 px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../" class="flex items-center gap-2 text-dxn-green font-bold">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>الرئيسية</span>
+            </a>
+            <div class="flex gap-4 items-center">
+                <span class="text-xs bg-gold/10 text-gold px-3 py-1 rounded-full font-bold">منطقة الأعضاء</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-12 px-6 text-center bg-white border-b border-gray-100 mb-12">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl font-bold text-dxn-green mb-4">مرحباً بكِ في رحلة النجاح</h1>
+            <p class="text-gray-500">خطة العمل التدريبية المكونة من 3 مراحل لنقلكِ من "مستهلكة" إلى "رائدة أعمال عالمية".</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 space-y-12 pb-20">
+
+        <section class="step-card group">
+            <span class="step-number">01</span>
+            <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-3 bg-dxn-green text-white rounded-2xl shadow-lg">
+                        <i data-lucide="play-circle"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-dxn-green">المرحلة الأولى: الأساسيات والمنتج</h2>
+                </div>
+                <p class="text-gray-600 mb-6">في هذا المقطع، سنشرح لكِ قوة المنتجات العضوية وكيف تبدئين بتغيير بقالتكِ بذكاء.</p>
+                
+                <div class="video-container">
+                    <video controls preload="metadata" poster="../top-products/icons/haya-main.png">
+                        <source src="../top-products/icons/office-visit.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                    <a href="#" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-xl text-sm flex items-center gap-2 transition-colors hover:bg-gold hover:text-white">
+                        <i data-lucide="file-text" class="w-4 h-4"></i> تحميل دليل المنتجات PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="step-card group">
+            <span class="step-number">02</span>
+            <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-3 bg-dxn-green text-white rounded-2xl shadow-lg">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-dxn-green">المرحلة الثانية: بناء الفريق</h2>
+                </div>
+                <p class="text-gray-600 mb-6">كيف تشاركين تجربتكِ مع الآخرين وتبدئين ببناء فريقكِ الأول؟ دليلكِ الشامل للتوسع.</p>
+                
+                <div class="bg-gray-100 rounded-2xl aspect-video flex flex-col items-center justify-center text-gray-400 gap-3 border-2 border-dashed border-gray-200">
+                    <i data-lucide="lock" class="w-12 h-12"></i>
+                    <span class="font-bold">يفتح بعد إتمام المرحلة الأولى</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="step-card group">
+            <span class="step-number">03</span>
+            <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-3 bg-dxn-green text-white rounded-2xl shadow-lg">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-dxn-green">المرحلة الثالثة: القيادة والعمولات</h2>
+                </div>
+                <p class="text-gray-600 mb-6">فهم خطة الأرباح العميقة وكيفية الوصول لرتبة "ماسي" وتحقيق الاستقلال المالي.</p>
+                
+                <div class="bg-gray-100 rounded-2xl aspect-video flex flex-col items-center justify-center text-gray-400 gap-3 border-2 border-dashed border-gray-200">
+                    <i data-lucide="lock" class="w-12 h-12"></i>
+                    <span class="font-bold">محتوى مخصص للرتب المتقدمة</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center py-12 bg-white rounded-[40px] shadow-sm border border-dashed border-gold/30">
+            <h3 class="font-bold text-lg mb-2">هل تحتاجين لمساعدة في أحد الدروس؟</h3>
+            <p class="text-gray-500 text-sm mb-6 px-6">فريق الدعم وهيا موجودون دائماً للإجابة على استفساراتكِ التقنية والتدريبية.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/962788220038" class="bg-green-500 text-white px-8 py-3 rounded-2xl font-bold flex items-center gap-2 text-sm shadow-lg transition-transform hover:scale-105">
+                    <i data-lucide="message-circle"></i> تواصل مباشر مع هيا
+                </a>
+                <a href="../support/" class="bg-gray-800 text-white px-8 py-3 rounded-2xl font-bold flex items-center gap-2 text-sm shadow-lg transition-transform hover:scale-105">
+                    <i data-lucide="help-circle"></i> مركز المساعدة الذكي
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
