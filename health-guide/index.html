@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليلك للصحة مع هيا | رحلة استعادة الحيوية</title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+   
+    <style>
+        :root { --dxn-green: #1b4d3e; --gold: #d4af37; }
+        * { 
+            font-family: 'Vazirmatn', sans-serif; 
+            scroll-behavior: smooth; 
+        }
+        h1, h2, h3, .amiri { font-family: 'Amiri', serif !important; }
+        .hero-gradient {
+            background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(27, 77, 62, 0.85)), url('../icons/office-exterior.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .product-card { 
+            transition: all 0.3s ease; 
+            border-top: 4px solid var(--gold); 
+        }
+        .product-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); 
+        }
+        .glass-nav { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(226, 232, 240, 0.8); 
+        }
+        .pulse-wa { 
+            animation: pulse 2s infinite; 
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
+</head>
+<body class="bg-[#fdfdfb] text-gray-800 pb-20">
+    <!-- Navbar موحد -->
+    <nav class="fixed top-0 left-0 right-0 z-50 p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass-nav rounded-full px-6 py-3 shadow-lg">
+            <a href="../" class="text-[#1b4d3e] flex items-center gap-2 hover:text-[#d4af37] transition-all font-bold">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="../product-catalog/" class="text-[#1b4d3e] hover:text-gold transition-all">كتالوج المنتجات</a>
+            <div class="text-[#1b4d3e] amiri text-xl font-bold italic">عالم هيا الصحي</div>
+        </div>
+    </nav>
 
+    <header class="hero-gradient min-h-[60vh] flex items-center justify-center text-center pt-20 px-6">
+        <div class="max-w-4xl">
+            <h1 class="text-4xl md:text-6xl text-white font-bold mb-6">دليلك الشامل لنمط حياة صحي</h1>
+            <p class="text-xl text-gray-200 leading-relaxed mb-8 amiri italic">
+                "جسمك أمانة.. والوقاية خيرٌ من ألف علاج. هنا نبدأ رحلة تنظيف السموم واستعادة الطاقة."
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto py-16 px-6">
+        <section class="flex flex-col md:flex-row items-center gap-12 mb-24 bg-white p-8 rounded-[40px] shadow-sm border border-gray-100">
+            <div class="md:w-1/2">
+                <img src="../icons/haya-main.png" alt="هيا إسكندراني" class="w-full rounded-[30px] shadow-2xl border-4 border-white">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold text-[#1b4d3e] mb-6">ليش جسمك بحاجة "صيانة"؟</h2>
+                <p class="text-lg leading-relaxed text-gray-600 mb-6 italic">
+                    في عالمنا اليوم، الأكل المهرمن، الهواء الملوث، والتوتر المستمر بيعملوا تراكم سموم في جسمك. هاد التراكم هو السبب الرئيسي للخمول، الصداع، ومشاكل الهضم.
+                </p>
+                <div class="bg-green-50 p-6 rounded-2xl border-r-4 border-[#1b4d3e] flex gap-4 items-start">
+                    <img src="../icons/detox-icon.png" class="w-12 h-12 object-contain" alt="تنظيف">
+                    <div>
+                        <p class="font-bold text-[#1b4d3e]">السر في "القلوية":</p>
+                        <p class="text-sm text-gray-700">الأمراض بتعشق البيئة الحمضية.. دكسن بتعلمك كيف تخلي جسمك "قلوي" عشان يدافع عن نفسه بنفسه.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">شاركي هيا جولتها في قلب عالم دكسن - الأردن</h2>
+            <div class="max-w-3xl mx-auto rounded-[30px] overflow-hidden shadow-2xl border-8 border-white relative">
+                <video controls class="w-full">
+                    <source src="../icons/office-visit.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+            <p class="mt-6 text-gray-500 italic flex items-center justify-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-red-500"></i>
+                مقر الشركة الرسمي - الدوار الثامن، عمّان
+            </p>
+        </section>
+
+        <section class="mb-24">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-[#1b4d3e] mb-4">المثلث الذهبي: إعادة ضبط المصنع</h2>
+                <p class="text-gray-500">أهم 3 مكملات لبناء أساس صحي متين</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="product-card bg-white p-8 rounded-3xl shadow-md text-center">
+                    <img src="../icons/reishi.webp" class="w-32 h-32 mx-auto mb-6 object-contain" alt="الفطر الريشي">
+                    <h3 class="text-2xl font-bold mb-4">الفطر الريشي (RG/GL)</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">يستهدف "الخلية" ككاشف للسموم ويطردها من الكبد والكلى والدم. يقوي جهاز المناعة بشكل طبيعي.</p>
+                </div>
+                <div class="product-card bg-white p-8 rounded-3xl shadow-md text-center border-t-[#22c55e]">
+                    <img src="../icons/SPIRULINA.webp" class="w-32 h-32 mx-auto mb-6 object-contain" alt="الاسبيرولينا">
+                    <h3 class="text-2xl font-bold mb-4">الاسبيرولينا (الغذاء السوبر)</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">ملعقة صغيرة تعادل كيلو فواكه وخضروات. ترفع الهيموجلوبين في الدم وتعزز الطاقة القصوى.</p>
+                </div>
+                <div class="product-card bg-white p-8 rounded-3xl shadow-md text-center border-t-yellow-500">
+                    <img src="../icons/morinzhe.webp" class="w-32 h-32 mx-auto mb-6 object-contain" alt="المورينزي">
+                    <h3 class="text-2xl font-bold mb-4">عصير المورينزي</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">يحسن الهضم بشكل سحري، يضبط ضغط الدم، ويحفز هرمون السعادة لتحسين المزاج والنوم.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center py-12">
+            <h3 class="text-2xl font-bold mb-10">اقتنعتي بالنتائج الصحية؟ شوفي الخطوة الجاية:</h3>
+            <div class="flex flex-col gap-5 max-w-md mx-auto">
+                <a href="../product-catalog/" class="bg-[#d4af37] text-white py-5 px-8 rounded-full font-bold text-xl shadow-xl hover:scale-105 transition-all text-center">
+                    تصفحي الكتالوج الكامل ←
+                </a>
+               
+                <a href="https://wa.me/962780484425?text=مرحباً%20هيا،%20قرأت%20الدليل%20الصحي%20وأريد%20استشارة%20حول%20البرامج%20الصحية%20المناسبة%20لي" 
+                   class="bg-[#25D366] text-white py-4 px-8 rounded-full font-bold text-lg shadow-md hover:opacity-90 flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle"></i>
+                    استشارة صحية مجانية مع هيا
+                </a>
+               
+                <div class="flex gap-4">
+                    <a href="../" class="flex-1 bg-white border border-gray-200 text-gray-500 py-3 rounded-xl text-sm font-bold hover:bg-gray-50 text-center">
+                        الرئيسية
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 py-12 text-center text-gray-400 text-sm">
+        <p class="amiri text-2xl mb-2 text-[#1b4d3e]">هيا اسكندراني</p>
+        <p>عالم واحد.. عائلة واحدة</p>
+        <p class="mt-4 italic text-xs">جميع الحقوق محفوظة © 2026</p>
+    </footer>
+
+    <!-- زر الواتساب الثابت -->
+    <a href="https://wa.me/962780484425?text=مرحباً%20هيا،%20أنا%20في%20صفحة%20الدليل%20الصحي%20وأريد%20طرح%20سؤال.." 
+       class="fixed bottom-6 left-6 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform pulse-wa flex items-center justify-center"
+       target="_blank">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
