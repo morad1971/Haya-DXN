@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باقات هيا الذهبية | DXN</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --dxn-green: #1b4d3e;
+            --gold: #d4af37;
+            --soft-white: #fdfdfb;
+        }
+        * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        h1, h2, h3 { font-family: 'Amiri', serif !important; }
+        body { background-color: var(--soft-white); color: #333; padding-top: 80px; padding-bottom: 120px; }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
 
+        .hero-gradient {
+            background: linear-gradient(135deg, #1b4d3e 0%, #2d6a58 100%);
+        }
+
+        .product-card {
+            background: white; border-radius: 35px; padding: 2rem 1.5rem;
+            text-align: center; border: 1px solid #f0f0f0;
+            transition: 0.4s; position: relative;
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--gold);
+        }
+
+        .img-wrapper {
+            width: 100px; height: 100px; background: #f8fafc;
+            border-radius: 25px; display: flex; align-items: center;
+            justify-content: center; margin: 0 auto 1.5rem;
+            border: 1px solid #f1f5f9; overflow: hidden;
+        }
+        .img-wrapper img { width: 80%; height: 80%; object-fit: contain; }
+
+        .pv-badge {
+            position: absolute; top: 20px; left: 20px;
+            background: var(--gold); color: white;
+            padding: 4px 12px; border-radius: 50px;
+            font-size: 0.7rem; font-weight: 900; z-index: 10;
+        }
+
+        .section-title {
+            text-align: center; margin-bottom: 3rem; position: relative;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 50px; height: 3px;
+            background: var(--gold); margin: 10px auto; border-radius: 5px;
+        }
+
+        .btn-gold-action {
+            background-color: var(--gold); color: var(--dxn-green) !important;
+            padding: 1rem 2.5rem; border-radius: 1rem; font-weight: 900;
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            transition: 0.3s; text-decoration: none;
+        }
+
+        .bottom-nav {
+            background: rgba(27, 77, 62, 0.98); backdrop-filter: blur(15px);
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 92%; max-width: 500px; border-radius: 25px;
+            display: flex; justify-content: space-around;
+            padding: 14px; z-index: 2000; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .nav-item { color: rgba(255,255,255,0.6); display: flex; flex-direction: column; align-items: center; font-size: 10px; gap: 4px; text-decoration: none; }
+        .nav-item.active { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-glass py-4 px-6 flex justify-between items-center">
+        <a href="../" class="flex items-center gap-2 text-dxn-green font-bold text-sm">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            <span>الرئيسية</span>
+        </a>
+        <div class="text-gold font-black italic text-sm">باقات هيا المعتمدة ★</div>
+    </nav>
+
+    <header class="hero-gradient py-16 px-6 text-center text-white mb-12 rounded-b-[50px] shadow-xl">
+        <h1 class="text-3xl md:text-4xl font-bold mb-3 text-gold italic">باقات الانطلاق والتميز</h1>
+        <p class="opacity-80 text-xs md:text-sm">حلول صحية متكاملة مصممة لتبدأي رحلة نجاحك بذكاء</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-32">
+        
+        <div class="section-title">
+            <h2 class="text-2xl font-black text-dxn-green italic">أولاً: ثلاثي الوقاية الذهبي (157 PV)</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+            <div class="product-card">
+                <div class="pv-badge">70 PV</div>
+                <div class="img-wrapper">
+                    <img src="icons/reishi.webp" alt="الفطر الريشي">
+                </div>
+                <h3 class="font-bold text-dxn-green mb-2">الفطر الريشي</h3>
+                <p class="text-xs text-gray-500">المجدد الطبيعي للخلايا ومنظف السموم الأول.</p>
+            </div>
+            <div class="product-card">
+                <div class="pv-badge">70 PV</div>
+                <div class="img-wrapper">
+                    <img src="icons/SPIRULINA.webp" alt="السبيرولينا">
+                </div>
+                <h3 class="font-bold text-dxn-green mb-2">السبيرولينا</h3>
+                <p class="text-xs text-gray-500">الغذاء السوبر لتعويض النقص الغذائي وبناء الجسم.</p>
+            </div>
+            <div class="product-card">
+                <div class="pv-badge">17 PV</div>
+                <div class="img-wrapper">
+                    <img src="icons/morinzhe.webp" alt="المورينزي">
+                </div>
+                <h3 class="font-bold text-dxn-green mb-2">عصير المورينزي</h3>
+                <p class="text-xs text-gray-500">منظم الهضم والطاقة الحيوية الطبيعي.</p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2 class="text-2xl font-black text-dxn-green italic">ثانياً: باقة النشاط والرشاقة</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 max-w-2xl mx-auto">
+            <div class="product-card">
+                <div class="pv-badge">10 PV</div>
+                <div class="img-wrapper">
+                    <img src="icons/Black-Coffee.webp" alt="القهوة السوداء">
+                </div>
+                <h3 class="font-bold text-dxn-green mb-2">القهوة السوداء</h3>
+                <p class="text-xs text-gray-500">خالية من السكر، تدعم الحرق والنشاط اليومي.</p>
+            </div>
+            <div class="product-card">
+                <div class="pv-badge">10 PV</div>
+                <div class="img-wrapper">
+                    <img src="icons/Cocozhi.webp" alt="كوكوزي">
+                </div>
+                <h3 class="font-bold text-dxn-green mb-2">كوكوزي</h3>
+                <p class="text-xs text-gray-500">مشروب الكاكاو الفاخر مع الفطر الريشي للتركيز والطاقة.</p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2 class="text-2xl font-black text-dxn-green italic">ثالثاً: باقة العناية اليومية</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mb-20 max-w-sm mx-auto">
+            <div class="product-card">
+                <div class="pv-badge">6 PV</div>
+                <div class="img-wrapper">
+                    <img src="icons/Tooth-paste.webp" alt="معجون جانوزي">
+                </div>
+                <h3 class="font-bold text-dxn-green mb-2">معجون جانوزي</h3>
+                <p class="text-xs text-gray-500">عناية طبيعية فائقة للأسنان واللثة بدون فلورايد.</p>
+            </div>
+        </div>
+
+        <div class="bg-white border-2 border-gold rounded-[40px] p-10 text-center shadow-xl">
+            <h2 class="text-2xl font-bold text-dxn-green mb-4 italic">فعلي عضويتك بـ 100 نقطة</h2>
+            <p class="text-gray-500 mb-8 text-sm max-w-lg mx-auto">
+                اجمعي بين باقاتك المفضلة لتصلي لنصاب العمولات وتبدئي مشروعك العالمي مع فريق هيا.
+            </p>
+            <a href="../register/" class="btn-gold-action">
+                <i data-lucide="user-plus" class="w-5 h-5"></i>
+                <span>سجلي الآن وابدئي رحلتك</span>
+            </a>
+        </div>
+    </main>
+
+    <div class="bottom-nav">
+        <a href="../" class="nav-item">
+            <i data-lucide="home" class="w-5 h-5"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="../product-catalog/" class="nav-item">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span>المنتجات</span>
+        </a>
+        <a href="../budget/" class="nav-item">
+            <i data-lucide="calculator" class="w-5 h-5"></i>
+            <span>الحاسبة</span>
+        </a>
+        <a href="../register/" class="nav-item">
+            <i data-lucide="user-plus" class="w-5 h-5"></i>
+            <span>تسجيل</span>
+        </a>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body> 
+</html>
