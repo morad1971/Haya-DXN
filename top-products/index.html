@@ -42,19 +42,18 @@
             border-color: var(--gold);
         }
 
-        .img-wrapper {
-            width: 100px; height: 100px; background: #f8fafc;
+        .icon-wrapper {
+            width: 80px; height: 80px; background: #f8fafc;
             border-radius: 25px; display: flex; align-items: center;
             justify-content: center; margin: 0 auto 1.5rem;
-            border: 1px solid #f1f5f9; overflow: hidden;
+            color: var(--dxn-green); border: 1px solid #f1f5f9;
         }
-        .img-wrapper img { width: 80%; height: 80%; object-fit: contain; }
 
         .pv-badge {
             position: absolute; top: 20px; left: 20px;
             background: var(--gold); color: white;
             padding: 4px 12px; border-radius: 50px;
-            font-size: 0.7rem; font-weight: 900; z-index: 10;
+            font-size: 0.7rem; font-weight: 900;
         }
 
         .section-title {
@@ -87,88 +86,94 @@
 <body>
 
     <nav class="nav-glass py-4 px-6 flex justify-between items-center">
-        <a href="../" class="flex items-center gap-2 text-dxn-green font-bold text-sm">
+        <a href="../" class="flex items-center gap-2 text-[#1b4d3e] font-bold text-sm">
             <i data-lucide="chevron-right" class="w-4 h-4"></i>
             <span>الرئيسية</span>
         </a>
-        <div class="text-gold font-black italic text-sm">باقات هيا المعتمدة ★</div>
+        <div class="text-[#d4af37] font-black italic text-sm">باقات هيا المعتمدة ★</div>
     </nav>
 
     <header class="hero-gradient py-16 px-6 text-center text-white mb-12 rounded-b-[50px] shadow-xl">
-        <h1 class="text-3xl md:text-4xl font-bold mb-3 text-gold italic">باقات الانطلاق والتميز</h1>
+        <h1 class="text-3xl md:text-4xl font-bold mb-3 text-[#d4af37] italic">باقات الانطلاق والتميز</h1>
         <p class="opacity-80 text-xs md:text-sm">حلول صحية متكاملة مصممة لتبدأي رحلة نجاحك بذكاء</p>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 pb-32">
         
         <div class="section-title">
-            <h2 class="text-2xl font-black text-dxn-green italic">أولاً: ثلاثي الوقاية الذهبي (157 PV)</h2>
+            <h2 class="text-2xl font-black text-[#1b4d3e] italic">أولاً: ثلاثي الوقاية الذهبي (157 PV)</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
             <div class="product-card">
                 <div class="pv-badge">70 PV</div>
-                <div class="img-wrapper">
-                    <img src="icons/reishi.webp" alt="الفطر الريشي">
-                </div>
-                <h3 class="font-bold text-dxn-green mb-2">الفطر الريشي</h3>
+                <div class="icon-wrapper"><i data-lucide="shield-check" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">الفطر الريشي</h3>
                 <p class="text-xs text-gray-500">المجدد الطبيعي للخلايا ومنظف السموم الأول.</p>
             </div>
             <div class="product-card">
                 <div class="pv-badge">70 PV</div>
-                <div class="img-wrapper">
-                    <img src="icons/SPIRULINA.webp" alt="السبيرولينا">
-                </div>
-                <h3 class="font-bold text-dxn-green mb-2">السبيرولينا</h3>
+                <div class="icon-wrapper"><i data-lucide="leaf" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">السبيرولينا</h3>
                 <p class="text-xs text-gray-500">الغذاء السوبر لتعويض النقص الغذائي وبناء الجسم.</p>
             </div>
             <div class="product-card">
                 <div class="pv-badge">17 PV</div>
-                <div class="img-wrapper">
-                    <img src="icons/morinzhe.webp" alt="المورينزي">
-                </div>
-                <h3 class="font-bold text-dxn-green mb-2">عصير المورينزي</h3>
+                <div class="icon-wrapper"><i data-lucide="droplet" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">عصير المورينزي</h3>
                 <p class="text-xs text-gray-500">منظم الهضم والطاقة الحيوية الطبيعي.</p>
             </div>
         </div>
 
         <div class="section-title">
-            <h2 class="text-2xl font-black text-dxn-green italic">ثانياً: باقة النشاط والرشاقة</h2>
+            <h2 class="text-2xl font-black text-[#1b4d3e] italic">ثانياً: ثلاثي الرشاقة والنظام الغذائي</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 max-w-2xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
             <div class="product-card">
                 <div class="pv-badge">10 PV</div>
-                <div class="img-wrapper">
-                    <img src="icons/Black-Coffee.webp" alt="القهوة السوداء">
-                </div>
-                <h3 class="font-bold text-dxn-green mb-2">القهوة السوداء</h3>
+                <div class="icon-wrapper"><i data-lucide="coffee" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">القهوة السوداء</h3>
                 <p class="text-xs text-gray-500">خالية من السكر، تدعم الحرق والنشاط اليومي.</p>
             </div>
             <div class="product-card">
-                <div class="pv-badge">10 PV</div>
-                <div class="img-wrapper">
-                    <img src="icons/Cocozhi.webp" alt="كوكوزي">
-                </div>
-                <h3 class="font-bold text-dxn-green mb-2">كوكوزي</h3>
-                <p class="text-xs text-gray-500">مشروب الكاكاو الفاخر مع الفطر الريشي للتركيز والطاقة.</p>
+                <div class="pv-badge">70 PV</div>
+                <div class="icon-wrapper"><i data-lucide="sprout" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">المايكوفيجي</h3>
+                <p class="text-xs text-gray-500">خليط الألياف النباتية لتنظيف القولون والرشاقة.</p>
+            </div>
+            <div class="product-card">
+                <div class="pv-badge">13 PV</div>
+                <div class="icon-wrapper"><i data-lucide="flame" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">زيت جوز الهند</h3>
+                <p class="text-xs text-gray-500">الزيت العضوي البكر للطاقة والصحة العامة.</p>
             </div>
         </div>
 
         <div class="section-title">
-            <h2 class="text-2xl font-black text-dxn-green italic">ثالثاً: باقة العناية اليومية</h2>
+            <h2 class="text-2xl font-black text-[#1b4d3e] italic">ثالثاً: ثلاثي العناية الشخصية</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mb-20 max-w-sm mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
             <div class="product-card">
                 <div class="pv-badge">6 PV</div>
-                <div class="img-wrapper">
-                    <img src="icons/Tooth-paste.webp" alt="معجون جانوزي">
-                </div>
-                <h3 class="font-bold text-dxn-green mb-2">معجون جانوزي</h3>
+                <div class="icon-wrapper"><i data-lucide="sparkles" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">معجون جانوزي</h3>
                 <p class="text-xs text-gray-500">عناية طبيعية فائقة للأسنان واللثة بدون فلورايد.</p>
+            </div>
+            <div class="product-card">
+                <div class="pv-badge">3 PV</div>
+                <div class="icon-wrapper"><i data-lucide="bath" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">صابون جانوزي</h3>
+                <p class="text-xs text-gray-500">ينظف البشرة بلطف بفوائد فطر الجانوديرما.</p>
+            </div>
+            <div class="product-card">
+                <div class="pv-badge">6 PV</div>
+                <div class="icon-wrapper"><i data-lucide="flask-conical" class="w-10 h-10"></i></div>
+                <h3 class="font-bold text-[#1b4d3e] mb-2">كريم الشاي</h3>
+                <p class="text-xs text-gray-500">مضاد حيوي طبيعي ومهدئ ومرطب فعال للبشرة.</p>
             </div>
         </div>
 
-        <div class="bg-white border-2 border-gold rounded-[40px] p-10 text-center shadow-xl">
-            <h2 class="text-2xl font-bold text-dxn-green mb-4 italic">فعلي عضويتك بـ 100 نقطة</h2>
+        <div class="bg-white border-2 border-[#d4af37] rounded-[40px] p-10 text-center shadow-xl">
+            <h2 class="text-2xl font-bold text-[#1b4d3e] mb-4 italic">فعلي عضويتك بـ 100 نقطة</h2>
             <p class="text-gray-500 mb-8 text-sm max-w-lg mx-auto">
                 اجمعي بين باقاتك المفضلة لتصلي لنصاب العمولات وتبدئي مشروعك العالمي مع فريق هيا.
             </p>
@@ -201,5 +206,5 @@
     <script>
         lucide.createIcons();
     </script>
-</body> 
+</body>
 </html>
