@@ -36,11 +36,15 @@
         }
         .story-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
 
+        /* حاوية مخصصة لفيديوهات يوتيوب الشورتس الطولية */
         .video-container {
-            position: relative; width: 100%; padding-top: 177.77%; background: #000;
+            position: relative; 
+            width: 100%; 
+            padding-top: 177.77%; /* نسبة 9:16 للطولي */
+            background: #000;
         }
-        .video-container video {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
         }
 
         .bottom-nav {
@@ -58,7 +62,10 @@
         .nav-item { color: rgba(255,255,255,0.6); display: flex; flex-direction: column; align-items: center; font-size: 10px; gap: 4px; text-decoration: none; }
         .nav-item.active { color: var(--gold); }
         
-        .gradient-overlay { background: linear-gradient(to top, rgba(27, 77, 62, 0.9), transparent); }
+        .gradient-overlay { 
+            background: linear-gradient(to top, rgba(27, 77, 62, 0.9), transparent); 
+            pointer-events: none; /* لتجنب حجب أزرار الفيديو */
+        }
         
         .featured-label {
             position: absolute; top: 20px; right: 20px;
@@ -70,17 +77,17 @@
 </head>
 <body>
 
-    <nav class="nav-glass py-4 px-6 flex justify-between items-center">
-        <a href="../" class="flex items-center gap-2 text-dxn-green font-bold text-sm">
+    <nav class="nav-glass py-4 px-6 flex justify-between items-center w-full">
+        <a href="../" class="flex items-center gap-2 text-[#1b4d3e] font-bold text-sm">
             <i data-lucide="chevron-right" class="w-5 h-5"></i>
             <span>منظومة هيا</span>
         </a>
-        <span class="text-xs font-bold text-gold italic">حكايات طموح</span>
+        <span class="text-xs font-bold text-[#d4af37] italic">حكايات طموح</span>
     </nav>
 
     <header class="py-12 px-6 text-center">
-        <h1 class="text-4xl font-bold text-dxn-green mb-3 italic">ملهمات التغيير</h1>
-        <p class="text-gray-500 text-sm max-w-md mx-auto leading-relaxed">استمعي لقصص حقيقية لسيدات بدأن من الصفر ووصلن للقمة</p>
+        <h1 class="text-4xl font-bold text-[#1b4d3e] mb-3 italic">ملهمات التغيير</h1>
+        <p class="text-gray-500 text-sm max-w-md mx-auto leading-relaxed">استمعي لقصص حقيقية لسيدات بدأن من الصفر ووصلن للقمة مع هيا</p>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -88,9 +95,7 @@
         <div class="story-card border-2 border-gold/20">
             <div class="video-container relative">
                 <span class="featured-label shadow-lg">القائدة هدى ✨</span>
-                <video controls preload="metadata">
-                    <source src="https://raw.githubusercontent.com/morad1971/Haya-Stories/main/icons/Huda.mp4" type="video/mp4">
-                </video>
+                <iframe src="https://www.youtube.com/embed/FtzgUuEkuAM" allowfullscreen></iframe>
                 <div class="absolute bottom-0 inset-x-0 p-5 gradient-overlay">
                     <span class="text-white font-bold block italic">هدى طهماز - الأردن</span>
                 </div>
@@ -102,10 +107,8 @@
 
         <div class="story-card border-2 border-gold/10">
             <div class="video-container relative">
-                <span class="featured-label bg-dxn-green/80">يسرى أبو ليلى 🇯🇴</span>
-                <video controls preload="metadata">
-                    <source src="https://raw.githubusercontent.com/morad1971/Haya-Stories/main/icons/Yusra.mp4" type="video/mp4">
-                </video>
+                <span class="featured-label bg-[#1b4d3e]/80">يسرى أبو ليلى 🇯🇴</span>
+                <iframe src="https://www.youtube.com/embed/yzngZq5d0ns" allowfullscreen></iframe>
                 <div class="absolute bottom-0 inset-x-0 p-5 gradient-overlay">
                     <span class="text-white font-bold block italic">يسرى أبو ليلى - الأردن</span>
                 </div>
@@ -117,10 +120,8 @@
 
         <div class="story-card border-2 border-gold/10">
             <div class="video-container relative">
-                <span class="featured-label bg-dxn-green/80">نغم 🇱🇧</span>
-                <video controls preload="metadata">
-                    <source src="https://raw.githubusercontent.com/morad1971/Haya-Stories/main/icons/Nagham.mp4" type="video/mp4">
-                </video>
+                <span class="featured-label bg-[#1b4d3e]/80">نغم 🇱🇧</span>
+                <iframe src="https://www.youtube.com/embed/VEa03Cy4Z7k" allowfullscreen></iframe>
                 <div class="absolute bottom-0 inset-x-0 p-5 gradient-overlay">
                     <span class="text-white font-bold block italic">نغم - لبنان</span>
                 </div>
@@ -141,9 +142,9 @@
             <i data-lucide="shopping-bag"></i>
             <span>المنتجات</span>
         </a>
-        <a href="../budget/" class="nav-item">
-            <i data-lucide="calculator"></i>
-            <span>الحاسبة</span>
+        <a href="../training/" class="nav-item">
+            <i data-lucide="play-circle"></i>
+            <span>التدريب</span>
         </a>
         <a href="#" class="nav-item active">
             <i data-lucide="heart"></i>
