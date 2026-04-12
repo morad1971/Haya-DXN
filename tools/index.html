@@ -23,13 +23,13 @@
         .product-item {
             background: white; border-radius: 15px; padding: 0.8rem;
             border: 1px solid #edf2f7; display: flex; align-items: center; justify-content: space-between;
-            transition: border-color 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
-        .product-item:hover { border-color: var(--gold); }
 
-        .counter-btn {
-            width: 28px; height: 28px; border-radius: 8px;
-            display: flex; align-items: center; justify-content: center; font-weight: bold;
+        .img-container {
+            width: 65px; height: 65px; background: #fff; 
+            border-radius: 12px; border: 1px solid #f0f0f0;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
 
         .cart-sticky {
@@ -48,31 +48,18 @@
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 <span>العودة للرئيسية</span>
             </a>
-            <span class="text-xs font-bold text-[#d4af37]">قائمة النقاط المباشرة</span>
+            <span class="text-xs font-bold text-[#d4af37] italic">HAYA DXN TOOLS</span>
         </div>
     </nav>
 
     <header class="py-6 px-6 text-center">
         <h1 class="text-3xl font-bold text-[#1b4d3e]">لائحة مشترياتي</h1>
-        <p class="text-gray-500 text-sm">اختاري منتجاتكِ وحققي نصاب الـ 100 نقطة</p>
+        <p class="text-gray-500 text-sm">حددي احتياجاتك وراقبي نقاطك (PV) فوراً</p>
     </header>
 
     <main class="max-w-3xl mx-auto px-4 pb-48">
-        
-        <div class="mb-6">
-            <h3 class="text-md font-bold text-gray-400 mb-3 flex items-center gap-2">
-                <i data-lucide="coffee" class="w-4 h-4"></i> القهوة والمشروبات
-            </h3>
-            <div class="grid grid-cols-1 gap-3" id="beverages-list">
-                </div>
-        </div>
-
-        <div class="mb-6">
-            <h3 class="text-md font-bold text-gray-400 mb-3 flex items-center gap-2">
-                <i data-lucide="sparkles" class="w-4 h-4"></i> العناية الشخصية
-            </h3>
-            <div class="grid grid-cols-1 gap-3" id="care-list"></div>
-        </div>
+        <div id="product-list" class="space-y-4">
+            </div>
     </main>
 
     <div class="cart-sticky">
@@ -88,66 +75,59 @@
                 باقي 100.0 نقطة
             </div>
         </div>
-        <button onclick="window.print()" class="w-full bg-[#d4af37] text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all">
-            <i data-lucide="file-text" class="w-4 h-4"></i> اعتماد اللائحة وطلبها
+        <button onclick="window.print()" class="w-full bg-[#d4af37] text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95">
+            <i data-lucide="printer" class="w-4 h-4"></i> طباعة اللائحة للطلب من الفرع
         </button>
     </div>
 
     <script>
-        // مصفوفة المنتجات بناءً على ملفاتك في مجلد icons داخل tools
+        // أسماء الملفات مطابقة تماماً للقائمة التي أرسلتها
         const products = [
-            { id: 'coffee_black', name: 'قهوة لينجزي السوداء', pv: 11.0, img: './icons/coffee.jpg', cat: 'bev' },
-            { id: 'coffee_3in1', name: 'قهوة لينجزي 3 في 1', pv: 11.5, img: './icons/coffee.jpg', cat: 'bev' },
-            { id: 'cocozhi', name: 'كوكوزي (كاكاو طبيعي)', pv: 14.0, img: './icons/cocozhi.jpg', cat: 'bev' },
-            { id: 'tea', name: 'شاي لينجزي', pv: 10.0, img: './icons/coffee.jpg', cat: 'bev' },
-            { id: 'toothpaste', name: 'معجون أسنان جانوزي', pv: 6.0, img: './icons/toothpaste.jpg', cat: 'care' },
-            { id: 'soap', name: 'صابون جانوزي', pv: 5.0, img: './icons/soap.jpg', cat: 'care' },
-            { id: 'shampoo', name: 'شامبو جانوزي', pv: 11.0, img: './icons/shampoo.jpg', cat: 'care' },
-            { id: 'gano_oil', name: 'زيت جانو', pv: 8.0, img: './icons/shampoo.jpg', cat: 'care' }
+            { id: 'p1', name: 'قهوة لينجزي السوداء', pv: 11.0, img: 'icons/Black-Coffee.webp' },
+            { id: 'p2', name: 'كوكوزي (كاكاو طبيعي)', pv: 14.0, img: 'icons/Cocozhi.webp' },
+            { id: 'p3', name: 'سبيرولينا (SPIRULINA)', pv: 70.0, img: 'icons/SPIRULINA.webp' },
+            { id: 'p4', name: 'معجون أسنان جانوزي', pv: 6.0, img: 'icons/Tooth-paste.webp' },
+            { id: 'p5', name: 'عصير مورينزي', pv: 14.0, img: 'icons/morinzhe.webp' },
+            { id: 'p6', name: 'الفطر الريشي (RG)', pv: 35.0, img: 'icons/reishi.webp' }
         ];
 
         let cart = {};
         products.forEach(p => cart[p.id] = 0);
 
-        function renderProducts() {
-            const bevContainer = document.getElementById('beverages-list');
-            const careContainer = document.getElementById('care-list');
-
-            products.forEach(p => {
-                const html = `
-                    <div class="product-item">
-                        <div class="flex items-center gap-3">
-                            <img src="${p.img}" class="w-10 h-10 rounded-lg object-cover" alt="${p.name}" onerror="this.src='https://via.placeholder.com/40'">
-                            <div>
-                                <h4 class="font-bold text-xs">${p.name}</h4>
-                                <p class="text-[10px] text-[#d4af37] font-bold">${p.pv} PV</p>
-                            </div>
+        function render() {
+            const list = document.getElementById('product-list');
+            list.innerHTML = products.map(p => `
+                <div class="product-item">
+                    <div class="flex items-center gap-4">
+                        <div class="img-container">
+                            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-contain" 
+                                 onerror="this.src='../icons/package.png'; this.style.opacity='0.2';">
                         </div>
-                        <div class="flex items-center gap-3">
-                            <button onclick="updateQty('${p.id}', -1)" class="counter-btn bg-gray-100 text-gray-500">-</button>
-                            <span id="qty-${p.id}" class="font-bold text-sm w-4 text-center">0</span>
-                            <button onclick="updateQty('${p.id}', 1)" class="counter-btn bg-[#1b4d3e] text-white">+</button>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-800">${p.name}</h4>
+                            <p class="text-[10px] text-[#d4af37] font-bold">${p.pv} PV</p>
                         </div>
                     </div>
-                `;
-                if (p.cat === 'bev') bevContainer.innerHTML += html;
-                else careContainer.innerHTML += html;
-            });
+                    <div class="flex items-center gap-3">
+                        <button onclick="updateQty('${p.id}', -1)" class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg text-gray-500 font-bold">-</button>
+                        <span id="qty-${p.id}" class="font-bold text-sm w-4 text-center">0</span>
+                        <button onclick="updateQty('${p.id}', 1)" class="w-8 h-8 flex items-center justify-center bg-[#1b4d3e] text-white rounded-lg font-bold">+</button>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
         }
 
         function updateQty(id, delta) {
             cart[id] = Math.max(0, cart[id] + delta);
             document.getElementById(`qty-${id}`).innerText = cart[id];
-            calculateTotal();
+            calculate();
         }
 
-        function calculateTotal() {
-            let total = 0;
-            products.forEach(p => {
-                total += cart[p.id] * p.pv;
-            });
+        function calculate() {
+            let total = products.reduce((sum, p) => sum + (cart[p.id] * p.pv), 0);
             document.getElementById('total-pv').innerText = total.toFixed(1);
-
+            
             const badge = document.getElementById('status-badge');
             if (total >= 100) {
                 badge.innerText = "النصاب مكتمل! ✅";
@@ -158,10 +138,7 @@
             }
         }
 
-        window.onload = () => {
-            renderProducts();
-            lucide.createIcons();
-        };
+        window.onload = render;
     </script>
 </body>
 </html>
