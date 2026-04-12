@@ -63,17 +63,6 @@
       padding: 12px 24px; border-radius: 50px; border: 2px solid var(--gold);
       font-weight: bold; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
     }
-
-    #install-tip {
-      position: fixed; bottom: 76px; left: 50%; transform: translateX(-50%);
-      z-index: 100; background: #111827; color: #fff; padding: 8px 12px;
-      border-radius: 10px; font-size: 12px; display: none; max-width: 90%; text-align: center;
-    }
-
-    @media (max-width: 640px) {
-      .nav-banner { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
-      .nav-pill { white-space: nowrap; flex: 0 0 auto; }
-    }
   </style>
 </head>
 <body>
@@ -83,15 +72,13 @@
       <a href="#step1" class="nav-pill">الاستبدال الذكي</a>
       <a href="#step2" class="nav-pill">المشاركة الصادقة</a>
       <a href="#step3" class="nav-pill">بناء المشروع</a>
-      <a href="register/index.html" class="nav-pill nav-pill-register">سجلي الآن</a>
+      <a href="./register/index.html" class="nav-pill nav-pill-register">سجلي الآن</a>
     </nav>
   </div>
 
-  <button id="install-btn" aria-label="تثبيت التطبيق على هاتفك">
-    <i data-lucide="smartphone"></i>
-    تثبيت التطبيق على هاتفك
+  <button id="install-btn">
+    <i data-lucide="smartphone"></i> تثبيت التطبيق
   </button>
-  <div id="install-tip"></div>
 
   <header class="hero-section">
     <div class="px-6">
@@ -101,98 +88,65 @@
   </header>
 
   <main class="max-w-5xl mx-auto py-12 px-6">
-    <div class="mb-12 text-center bg-white p-8 rounded-[30px] border border-gray-100 shadow-sm">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6 underline decoration-[#d4af37]">منصة هيا إسكندراني: تجربتي من الاستهلاك.. للاستثمار</h2>
-      <p class="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-        "يا هلا بيكي في منصتي الخاصة.. أنا هيا إسكندراني، صممت هاد التطبيق عشان أشاركك تجربتي الحقيقية مع عالم (دكسن). هدفي أفرجي كل سيدة طموحة كيف قدرت أحوّل مشترياتي اليومية لمشروع عالمي ناجح."
-      </p>
-    </div>
-
+    
     <div class="step-container" id="step1">
       <div class="flex items-center mb-4">
-        <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4 text-xl">١</span>
+        <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4">١</span>
         <h3 class="text-2xl font-bold text-[#1b4d3e]">الاستبدال الذكي</h3>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="product-catalog/index.html" class="mini-card"><i data-lucide="book-open" class="mb-2 text-[#1b4d3e]"></i><span>كتالوج المنتجات</span></a>
-        <a href="top-products/index.html" class="mini-card"><i data-lucide="star" class="mb-2 text-[#d4af37]"></i><span>باقات هيا الذهبية</span></a>
-        <a href="comparison/index.html" class="mini-card"><i data-lucide="repeat" class="mb-2 text-[#1b4d3e]"></i><span>المقارنة الذكية</span></a>
-        <a href="budget/index.html" class="mini-card"><i data-lucide="calculator" class="mb-2 text-[#1b4d3e]"></i><span>ميزانية التوفير</span></a>
+        <a href="./product-catalog/index.html" class="mini-card"><i data-lucide="book-open" class="mb-2"></i><span>كتالوج المنتجات</span></a>
+        <a href="./top-products/index.html" class="mini-card"><i data-lucide="star" class="mb-2"></i><span>باقات هيا الذهبية</span></a>
+        <a href="./comparison/index.html" class="mini-card"><i data-lucide="repeat" class="mb-2"></i><span>المقارنة الذكية</span></a>
+        <a href="./budget/index.html" class="mini-card"><i data-lucide="calculator" class="mb-2"></i><span>ميزانية التوفير</span></a>
       </div>
     </div>
 
     <div class="step-container" id="step2">
       <div class="flex items-center mb-4">
-        <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4 text-xl">٢</span>
+        <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4">٢</span>
         <h3 class="text-2xl font-bold text-[#1b4d3e]">المشاركة الصادقة</h3>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="intro/index.html" class="mini-card"><i data-lucide="play" class="mb-2 text-[#1b4d3e]"></i><span>قصة البداية</span></a>
-        <a href="stories/index.html" class="mini-card"><i data-lucide="heart" class="mb-2 text-[#c8102e]"></i><span>خواتنا اللي نجحوا</span></a>
-        <a href="health-guide/index.html" class="mini-card"><i data-lucide="shield-check" class="mb-2 text-[#1b4d3e]"></i><span>دليلك للصحة</span></a>
-        <a href="ask/index.html" class="mini-card"><i data-lucide="message-circle" class="mb-2 text-[#1b4d3e]"></i><span>اسألي هيا</span></a>
+        <a href="./intro/index.html" class="mini-card"><i data-lucide="play" class="mb-2"></i><span>قصة البداية</span></a>
+        <a href="./stories/index.html" class="mini-card"><i data-lucide="heart" class="mb-2"></i><span>خواتنا اللي نجحوا</span></a>
+        <a href="./health-guide/index.html" class="mini-card"><i data-lucide="shield-check" class="mb-2"></i><span>دليلك للصحة</span></a>
+        <a href="./ask/index.html" class="mini-card"><i data-lucide="message-circle" class="mb-2"></i><span>اسألي هيا</span></a>
       </div>
     </div>
 
     <div class="step-container" id="step3">
       <div class="flex items-center mb-4">
-        <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4 text-xl">٣</span>
-        <h3 class="text-2xl font-bold text-[#1b4d3e]">بناء الفريق العالمي</h3>
+        <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4">٣</span>
+        <h3 class="text-2xl font-bold text-[#1b4d3e]">بناء المشروع</h3>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-        <a href="business/index.html" class="mini-card"><i data-lucide="briefcase" class="mb-2 text-[#1b4d3e]"></i><span>دكسن كمشروع</span></a>
-        <a href="training/index.html" class="mini-card"><i data-lucide="graduation-cap" class="mb-2 text-[#1b4d3e]"></i><span>مركز التدريب</span></a>
-        <a href="tools/index.html" class="mini-card"><i data-lucide="shopping-bag" class="mb-2 text-[#1b4d3e]"></i><span>لائحة المشتريات</span></a>
+        <a href="./business/index.html" class="mini-card"><i data-lucide="briefcase" class="mb-2"></i><span>دكسن كمشروع</span></a>
+        <a href="./training/index.html" class="mini-card"><i data-lucide="graduation-cap" class="mb-2"></i><span>مركز التدريب</span></a>
+        <a href="./tools/index.html" class="mini-card border-2 border-gold font-bold"><i data-lucide="shopping-bag" class="mb-2"></i><span>لائحة المشتريات</span></a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <a href="register/index.html" class="mini-card bg-red-50 border-red-100 py-4 shadow-sm"><i data-lucide="user-plus" class="mb-2 text-[#c8102e]"></i><span class="font-bold text-[#c8102e]">سجلي معي هون</span></a>
-        <a href="admin/index.html" class="mini-card"><i data-lucide="settings" class="mb-2 text-gray-400"></i><span class="text-gray-500">نظام الإدارة</span></a>
-        <a href="support/index.html" class="mini-card"><i data-lucide="help-circle" class="mb-2 text-[#1b4d3e]"></i><span>الدعم الفني</span></a>
+        <a href="./register/index.html" class="mini-card bg-red-50 border-red-100"><i data-lucide="user-plus" class="mb-2 text-[#c8102e]"></i><span class="text-[#c8102e] font-bold">سجلي معي هون</span></a>
+        <a href="./admin/index.html" class="mini-card"><i data-lucide="settings" class="mb-2"></i><span>نظام الإدارة</span></a>
+        <a href="./support/index.html" class="mini-card"><i data-lucide="help-circle" class="mb-2"></i><span>الدعم الفني</span></a>
       </div>
     </div>
   </main>
 
   <footer class="bg-[#0a1f19] text-white py-12 text-center">
-    <p class="brand-name text-4xl text-[#d4af37] mb-2">هيا اسكندراني</p>
-    <p class="opacity-50 text-xs">جميع الحقوق محفوظة © 2026</p>
+    <p class="brand-name text-4xl text-[#d4af37]">هيا اسكندراني</p>
+    <p class="opacity-50 text-xs mt-2">© 2026 جميع الحقوق محفوظة</p>
   </footer>
 
   <script>
     lucide.createIcons();
-    // كود الـ Service Worker و Install Prompt يبقى كما هو
+    // تفعيل Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./service-worker.js').catch(err => console.log('SW failed', err));
       });
     }
-
-    let deferredPrompt = null;
-    const installBtn = document.getElementById('install-btn');
-    const installTip = document.getElementById('install-tip');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-    });
-
-    installBtn.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        installTip.style.display = 'block';
-        installTip.textContent = outcome === 'accepted' ? 'تم إرسال طلب التثبيت.' : 'تم إلغاء التثبيت حالياً.';
-        setTimeout(() => installTip.style.display = 'none', 2500);
-        deferredPrompt = null;
-      } else {
-        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-        installTip.style.display = 'block';
-        installTip.textContent = isIOS
-          ? 'على iPhone: اضغطي مشاركة ثم Add to Home Screen'
-          : 'للتثبيت: افتحي الموقع من Chrome ثم اختاري Install app';
-        setTimeout(() => installTip.style.display = 'none', 5000);
-      }
-    });
   </script>
 </body>
 </html>
