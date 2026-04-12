@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>منصة هيا اسكندراني | عالم دكسن</title>
-
+  
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#1b4d3e" />
+  
+  <!-- iOS PWA Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
@@ -17,7 +22,6 @@
     * { font-family: 'Vazirmatn', sans-serif; box-sizing: border-box; }
     h1, h2, h3, .brand-name { font-family: 'Amiri', serif !important; }
     body { background-color: var(--soft-white); direction: rtl; text-align: right; color: #1f2937; }
-
     .nav-banner-wrap {
       position: sticky; top: 0; z-index: 120;
       background: rgba(253, 253, 251, 0.95);
@@ -36,19 +40,16 @@
     }
     .nav-pill:hover { border-color: #d4af37; transform: translateY(-1px); }
     .nav-pill-register { background: #c8102e; color: #fff; border-color: #c8102e; }
-
     .hero-section {
       background: linear-gradient(to bottom, rgba(10, 31, 25, 0.7), rgba(10, 31, 25, 0.9)), url('icons/haya-award.jpg');
       background-size: cover; background-position: center 20%;
       min-height: 60vh; display: flex; align-items: center; justify-content: center;
       text-align: center; color: white;
     }
-
     .step-container {
       background: white; border-radius: 25px; padding: 2rem; margin-bottom: 2rem;
       border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
-
     .mini-card {
       background: #f9f9f9; border: 1px solid #eee; transition: all 0.3s;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -56,17 +57,23 @@
       text-decoration: none; color: #333; font-size: 0.85rem; text-align: center;
     }
     .mini-card:hover { border-color: var(--gold); transform: translateY(-3px); background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
+    
     #install-btn {
       position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
       z-index: 100; background: var(--dxn-green); color: white;
       padding: 12px 24px; border-radius: 50px; border: 2px solid var(--gold);
-      font-weight: bold; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+      font-weight: bold; display: inline-flex; align-items: center; gap: 8px; 
+      cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+    }
+    #install-btn:hover {
+      background: #d4af37;
+      color: #1b4d3e;
+      transform: translateX(-50%) translateY(-2px);
     }
   </style>
 </head>
 <body>
-
   <div class="nav-banner-wrap">
     <nav class="nav-banner" aria-label="التنقل السريع">
       <a href="#step1" class="nav-pill">الاستبدال الذكي</a>
@@ -76,7 +83,8 @@
     </nav>
   </div>
 
-  <button id="install-btn">
+  <!-- زر تثبيت التطبيق اليدوي -->
+  <button id="install-btn" style="display: none;">
     <i data-lucide="smartphone"></i> تثبيت التطبيق
   </button>
 
@@ -88,7 +96,7 @@
   </header>
 
   <main class="max-w-5xl mx-auto py-12 px-6">
-    
+   
     <div class="step-container" id="step1">
       <div class="flex items-center mb-4">
         <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4">١</span>
@@ -125,7 +133,6 @@
         <a href="./training/index.html" class="mini-card"><i data-lucide="graduation-cap" class="mb-2"></i><span>مركز التدريب</span></a>
         <a href="./tools/index.html" class="mini-card border-2 border-gold font-bold"><i data-lucide="shopping-bag" class="mb-2"></i><span>لائحة المشتريات</span></a>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <a href="./register/index.html" class="mini-card bg-red-50 border-red-100"><i data-lucide="user-plus" class="mb-2 text-[#c8102e]"></i><span class="text-[#c8102e] font-bold">سجلي معي هون</span></a>
         <a href="./admin/index.html" class="mini-card"><i data-lucide="settings" class="mb-2"></i><span>نظام الإدارة</span></a>
@@ -141,8 +148,8 @@
 
   <script>
     lucide.createIcons();
-    
-    // تفعيل الـ Service Worker باستخدام الاسم الصحيح لملفك
+
+    // تسجيل Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./service-worker.js')
@@ -154,6 +161,37 @@
           });
       });
     }
+
+    // كود زر التثبيت اليدوي (Install Prompt)
+    let deferredPrompt;
+    const installBtn = document.getElementById('install-btn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'inline-flex';   // إظهار الزر
+    });
+
+    installBtn.addEventListener('click', () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          } else {
+            console.log('User dismissed the install prompt');
+          }
+          deferredPrompt = null;
+          installBtn.style.display = 'none';
+        });
+      }
+    });
+
+    // إخفاء الزر بعد التثبيت
+    window.addEventListener('appinstalled', () => {
+      installBtn.style.display = 'none';
+      console.log('PWA was installed');
+    });
   </script>
 </body>
 </html>
