@@ -1,74 +1,49 @@
-const CACHE_NAME = "haya-platform-v5";
-
-const APP_SHELL = [
-  "./",
-  "./index.html",
-  "./manifest.json",
-  "./icons/haya-award.jpg",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-
-  // صفحات المنظومة — احذفي أي مسار غير موجود على GitHub
-  "./intro/index.html",
-  "./product-catalog/index.html",
-  "./top-products/index.html",
-  "./comparison/index.html",
-  "./budget/index.html",
-  "./health-guide/index.html",
-  "./stories/index.html",
-  "./business/index.html",
-  "./register/index.html",
-  "./training/index.html",
-  "./support/index.html",
-  "./tools/index.html",
-  "./ask/index.html",
-  "./admin/index.html"
+const CACHE_NAME = 'haya-dxn-v2'; // قمنا بتغيير الإصدار لضمان تحديث الكاش عند المستخدمين
+const ASSETS_TO_CACHE = [
+  './',
+  './index.html',
+  './manifest.json',
+  './tools/index.html',
+  './product-catalog/index.html',
+  './register/index.html',
+  // أضف أي ملفات CSS أو صور أساسية هنا
+  './icons/icon-192.png',
+  './icons/icon-512.png'
 ];
 
-self.addEventListener("install", (event) => {
+// مرحلة التثبيت: حفظ الملفات الأساسية في الكاش
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL))
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log('تم فتح الكاش وحفظ الملفات الجديدة');
+      return cache.addAll(ASSETS_TO_CACHE);
+    })
   );
   self.skipWaiting();
 });
 
-self.addEventListener("activate", (event) => {
+// مرحلة التفعيل: حذف الكاش القديم للمستودعات السابقة
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
-    )
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            console.log('حذف الكاش القديم:', cache);
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
   );
-  self.clients.claim();
+  return self.clients.claim();
 });
 
-self.addEventListener("fetch", (event) => {
-  const req = event.request;
-  const url = new URL(req.url);
-
-  if (req.method !== "GET") return;
-  if (!url.protocol.startsWith("http")) return;
-  if (url.origin !== self.location.origin) return;
-
-  event.respondWith(cacheFirst(req));
+// استراتيجية الاستجابة: البحث في الكاش أولاً، ثم الشبكة
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
 });
-
-async function cacheFirst(req) {
-  const cached = await caches.match(req);
-  if (cached) return cached;
-
-  try {
-    const fresh = await fetch(req);
-    const cache = await caches.open(CACHE_NAME);
-    cache.put(req, fresh.clone());
-    return fresh;
-  } catch {
-    return new Response("Offline", {
-      status: 503,
-      statusText: "Offline"
-    });
-  }
-}
