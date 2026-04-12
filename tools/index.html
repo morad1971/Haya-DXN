@@ -17,7 +17,7 @@
         }
         * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
         h1, h2, h3 { font-family: 'Amiri', serif !important; }
-        body { background-color: #f9fbfd; color: #333; padding-top: 70px; }
+        body { background-color: #f9fbfd; color: #333; padding-top: 70px; min-height: 100vh; }
         
         .nav-glass {
             background: rgba(255, 255, 255, 0.95);
@@ -46,6 +46,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
+            cursor: pointer;
         }
 
         .cart-sticky {
@@ -68,16 +69,16 @@
 
     <nav class="nav-glass py-4 px-6">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="../" class="flex items-center gap-2 text-dxn-green font-bold">
+            <a href="../index.html" class="flex items-center gap-2 text-[#1b4d3e] font-bold">
                 <i data-lucide="home" class="w-5 h-5"></i>
                 <span>الرئيسية</span>
             </a>
-            <span class="text-xs font-bold text-gold uppercase italic">أدوات النجاح</span>
+            <span class="text-xs font-bold text-[#d4af37] uppercase italic">أدوات النجاح</span>
         </div>
     </nav>
 
     <header class="py-10 px-6 text-center">
-        <h1 class="text-3xl font-bold text-dxn-green mb-2">لائحة مشتريات الشهر</h1>
+        <h1 class="text-3xl font-bold text-[#1b4d3e] mb-2">لائحة مشتريات الشهر</h1>
         <p class="text-gray-500 text-sm">حددي احتياجاتكِ وراقبي مجموع نقاطكِ (PV) فوراً.</p>
     </header>
 
@@ -90,31 +91,30 @@
             <div class="space-y-3">
                 <div class="product-item">
                     <div class="flex items-center gap-4">
-                        <img src="../images/Black-Coffee.webp" class="w-12 h-12 object-contain" alt="Coffee">
+                        <img src="../images/Black-Coffee.webp" class="w-12 h-12 object-contain" alt="Coffee" onerror="this.src='https://via.placeholder.com/50'">
                         <div>
                             <h4 class="font-bold text-sm">قهوة لينجزي السوداء</h4>
-                            <p class="text-[10px] text-gold font-bold">11.0 PV</p>
+                            <p class="text-[10px] text-[#d4af37] font-bold">11.0 PV</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
                         <button onclick="updateQty('coffee', -1)" class="counter-btn bg-gray-100 text-gray-500">-</button>
                         <span id="qty-coffee" class="font-bold w-4 text-center">0</span>
-                        <button onclick="updateQty('coffee', 1)" class="counter-btn bg-dxn-green text-white">+</button>
+                        <button onclick="updateQty('coffee', 1)" class="counter-btn bg-[#1b4d3e] text-white">+</button>
                     </div>
                 </div>
-
                 <div class="product-item">
                     <div class="flex items-center gap-4">
-                        <img src="../images/Cocozhi.webp" class="w-12 h-12 object-contain" alt="Cocozhi">
+                        <img src="../images/Cocozhi.webp" class="w-12 h-12 object-contain" alt="Cocozhi" onerror="this.src='https://via.placeholder.com/50'">
                         <div>
                             <h4 class="font-bold text-sm">كوكوزي (كاكاو طبيعي)</h4>
-                            <p class="text-[10px] text-gold font-bold">14.0 PV</p>
+                            <p class="text-[10px] text-[#d4af37] font-bold">14.0 PV</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
                         <button onclick="updateQty('coco', -1)" class="counter-btn bg-gray-100 text-gray-500">-</button>
                         <span id="qty-coco" class="font-bold w-4 text-center">0</span>
-                        <button onclick="updateQty('coco', 1)" class="counter-btn bg-dxn-green text-white">+</button>
+                        <button onclick="updateQty('coco', 1)" class="counter-btn bg-[#1b4d3e] text-white">+</button>
                     </div>
                 </div>
             </div>
@@ -127,58 +127,20 @@
             <div class="space-y-3">
                 <div class="product-item">
                     <div class="flex items-center gap-4">
-                        <img src="../images/reishi.webp" class="w-12 h-12 object-contain" alt="Reishi">
+                        <img src="../images/reishi.webp" class="w-12 h-12 object-contain" alt="Reishi" onerror="this.src='https://via.placeholder.com/50'">
                         <div>
                             <h4 class="font-bold text-sm">الفطر الريشي (مسحوق)</h4>
-                            <p class="text-[10px] text-gold font-bold">70.0 PV</p>
+                            <p class="text-[10px] text-[#d4af37] font-bold">70.0 PV</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
                         <button onclick="updateQty('reishi', -1)" class="counter-btn bg-gray-100 text-gray-500">-</button>
                         <span id="qty-reishi" class="font-bold w-4 text-center">0</span>
-                        <button onclick="updateQty('reishi', 1)" class="counter-btn bg-dxn-green text-white">+</button>
-                    </div>
-                </div>
-
-                <div class="product-item">
-                    <div class="flex items-center gap-4">
-                        <img src="../images/SPIRULINA.webp" class="w-12 h-12 object-contain" alt="Spirulina">
-                        <div>
-                            <h4 class="font-bold text-sm">سبيرولينا (كبيرة)</h4>
-                            <p class="text-[10px] text-gold font-bold">70.0 PV</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <button onclick="updateQty('spiru', -1)" class="counter-btn bg-gray-100 text-gray-500">-</button>
-                        <span id="qty-spiru" class="font-bold w-4 text-center">0</span>
-                        <button onclick="updateQty('spiru', 1)" class="counter-btn bg-dxn-green text-white">+</button>
+                        <button onclick="updateQty('reishi', 1)" class="counter-btn bg-[#1b4d3e] text-white">+</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="mb-8">
-            <h3 class="text-lg font-bold text-gray-400 mb-4 flex items-center gap-2">
-                <i data-lucide="sparkles" class="w-4 h-4"></i> العناية والجمال
-            </h3>
-            <div class="space-y-3">
-                <div class="product-item">
-                    <div class="flex items-center gap-4">
-                        <img src="../images/Tooth-paste.webp" class="w-12 h-12 object-contain" alt="Toothpaste">
-                        <div>
-                            <h4 class="font-bold text-sm">معجون أسنان جانوزي</h4>
-                            <p class="text-[10px] text-gold font-bold">6.0 PV</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <button onclick="updateQty('paste', -1)" class="counter-btn bg-gray-100 text-gray-500">-</button>
-                        <span id="qty-paste" class="font-bold w-4 text-center">0</span>
-                        <button onclick="updateQty('paste', 1)" class="counter-btn bg-dxn-green text-white">+</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </main>
 
     <div class="cart-sticky">
@@ -187,34 +149,34 @@
                 <p class="text-[10px] uppercase opacity-70">إجمالي النقاط لهذا الشهر</p>
                 <div class="flex items-baseline gap-2">
                     <span id="total-pv" class="text-3xl font-black">0.0</span>
-                    <span class="text-sm font-bold text-gold">PV</span>
+                    <span class="text-sm font-bold text-[#d4af37]">PV</span>
                 </div>
             </div>
             <div id="status-badge" class="bg-white/10 px-4 py-2 rounded-xl text-[10px] font-bold">
                 لم تكتمل الـ 100 نقطة
             </div>
         </div>
-        <button onclick="window.print()" class="w-full bg-gold text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all">
+        <button onclick="window.print()" class="w-full bg-[#d4af37] text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all">
             <i data-lucide="download" class="w-4 h-4"></i> حفظ اللائحة كـ PDF للفرع
         </button>
     </div>
 
     <script>
+        // تفعيل الأيقونات
         lucide.createIcons();
 
         const prices = {
             coffee: 11,
             coco: 14,
-            reishi: 70,
-            spiru: 70,
-            paste: 6
+            reishi: 70
         };
 
-        const cart = {
-            coffee: 0, coco: 0, reishi: 0, spiru: 0, paste: 0
+        let cart = {
+            coffee: 0, coco: 0, reishi: 0
         };
 
         function updateQty(item, delta) {
+            if (!cart.hasOwnProperty(item)) return;
             cart[item] = Math.max(0, cart[item] + delta);
             document.getElementById(`qty-${item}`).innerText = cart[item];
             calculateTotal();
@@ -223,17 +185,17 @@
         function calculateTotal() {
             let total = 0;
             for (let item in cart) {
-                total += cart[item] * prices[item];
+                total += cart[item] * (prices[item] || 0);
             }
             document.getElementById('total-pv').innerText = total.toFixed(1);
 
             const badge = document.getElementById('status-badge');
             if (total >= 100) {
                 badge.innerText = "تم تفعيل العمولات! ✅";
-                badge.className = "bg-green-500 px-4 py-2 rounded-xl text-[10px] font-bold";
+                badge.style.background = "#22c55e"; // Green
             } else {
                 badge.innerText = `باقي لكِ ${(100 - total).toFixed(1)} نقطة`;
-                badge.className = "bg-white/10 px-4 py-2 rounded-xl text-[10px] font-bold";
+                badge.style.background = "rgba(255,255,255,0.1)";
             }
         }
     </script>
