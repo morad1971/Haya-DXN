@@ -5,74 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مساعد هيا الذكي | دعم مباشر</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root { --dxn: #1b4d3e; --gold: #d4af37; }
-        body { font-family: 'Vazirmatn', sans-serif; background: #fdfdfb; min-height: 100vh; }
+        :root {
+            --dxn: #1b4d3e;
+            --gold: #d4af37;
+        }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #f8f5f0 0%, #fdfdfb 100%);
+            min-height: 100vh;
+        }
+        .main-card {
+            background: white;
+            box-shadow: 0 25px 50px -12px rgba(27, 77, 62, 0.15);
+        }
         .support-option {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #eee;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f1f1f1;
         }
         .support-option:hover {
-            transform: scale(1.02);
+            transform: translateY(-8px) scale(1.03);
             border-color: var(--gold);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.15),
+                        0 8px 10px -6px rgba(212, 175, 55, 0.1);
         }
-        .whatsapp-icon { color: #25D366; }
+        .option-icon {
+            transition: all 0.3s ease;
+        }
+        .support-option:hover .option-icon {
+            background-color: var(--dxn);
+            color: white;
+            transform: scale(1.1);
+        }
+        .header-icon {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
     </style>
 </head>
 <body class="flex flex-col items-center justify-center p-6">
-    <div class="max-w-md w-full bg-white rounded-[40px] shadow-2xl overflow-hidden border-t-8 border-gold">
-        <div class="p-8 text-center">
-            <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i data-lucide="message-circle" class="w-10 h-10 text-[#1b4d3e]"></i>
+    <div class="max-w-md w-full main-card rounded-3xl overflow-hidden border-t-8 border-gold">
+        
+        <!-- Header -->
+        <div class="bg-gradient-to-br from-[#1b4d3e] to-[#0f2a22] p-8 text-center text-white">
+            <div class="w-24 h-24 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-5 header-icon">
+                <i data-lucide="message-circle-heart" class="w-14 h-14"></i>
             </div>
-            <h1 class="text-2xl font-black text-dxn">مساعد هيا المباشر</h1>
-            <p class="text-gray-500 text-sm mt-2">اختاري القسم الذي تحتاجين المساعدة فيه:</p>
+            <h1 class="text-3xl font-black tracking-tight">مساعد هيا المباشر</h1>
+            <p class="text-white/80 mt-2 text-lg">تواصلي معي فورًا عبر واتساب</p>
         </div>
-        <div class="px-6 pb-8 space-y-4">
+
+        <!-- Options -->
+        <div class="p-6 space-y-5">
+            
             <a href="https://wa.me/962780484425?text=أهلاً هيا، أرغب في الاستفسار عن كيفية الانضمام للفريق والبدء بالعمل معكم."
-               target="_blank" class="support-option flex items-center p-4 rounded-2xl bg-gray-50 hover:bg-white group">
-                <div class="bg-white p-3 rounded-xl shadow-sm group-hover:bg-dxn group-hover:text-white transition-colors">
-                    <i data-lucide="user-plus" class="w-6 h-6"></i>
+               target="_blank" 
+               class="support-option flex items-center p-5 rounded-3xl bg-white group">
+                <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
+                    <i data-lucide="user-plus" class="w-8 h-8 text-[#1b4d3e]"></i>
                 </div>
-                <div class="mr-4 text-right flex-1">
-                    <h3 class="font-bold text-dxn text-sm">تسجيل عضوية جديدة</h3>
-                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-loose">استفسار عن الانضمام</p>
+                <div class="mr-5 flex-1">
+                    <h3 class="font-bold text-xl text-dxn">تسجيل عضوية جديدة</h3>
+                    <p class="text-gray-500 text-sm mt-1">استفسار عن الانضمام للفريق</p>
                 </div>
-                <i data-lucide="chevron-left" class="w-5 h-5 text-gray-300"></i>
+                <i data-lucide="chevron-left" class="w-6 h-6 text-gray-400 group-hover:text-gold transition-colors"></i>
             </a>
+
             <a href="https://wa.me/962780484425?text=أهلاً هيا، أود الاستفسار عن أسعار وتوفر بعض منتجات DXN."
-               target="_blank" class="support-option flex items-center p-4 rounded-2xl bg-gray-50 hover:bg-white group">
-                <div class="bg-white p-3 rounded-xl shadow-sm group-hover:bg-dxn group-hover:text-white transition-colors">
-                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+               target="_blank" 
+               class="support-option flex items-center p-5 rounded-3xl bg-white group">
+                <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
+                    <i data-lucide="shopping-cart" class="w-8 h-8 text-[#1b4d3e]"></i>
                 </div>
-                <div class="mr-4 text-right flex-1">
-                    <h3 class="font-bold text-dxn text-sm">طلب منتجات دكسن</h3>
-                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-loose">طلب مباشر وتوصيل</p>
+                <div class="mr-5 flex-1">
+                    <h3 class="font-bold text-xl text-dxn">طلب منتجات دكسن</h3>
+                    <p class="text-gray-500 text-sm mt-1">أسعار - توفر - توصيل</p>
                 </div>
-                <i data-lucide="chevron-left" class="w-5 h-5 text-gray-300"></i>
+                <i data-lucide="chevron-left" class="w-6 h-6 text-gray-400 group-hover:text-gold transition-colors"></i>
             </a>
+
             <a href="https://wa.me/962780484425?text=أهلاً هيا، لدي سؤال بخصوص منتجات دكسن أو طريقة العمل."
-               target="_blank" class="support-option flex items-center p-4 rounded-2xl bg-gray-50 hover:bg-white group">
-                <div class="bg-white p-3 rounded-xl shadow-sm group-hover:bg-dxn group-hover:text-white transition-colors">
-                    <i data-lucide="help-circle" class="w-6 h-6"></i>
+               target="_blank" 
+               class="support-option flex items-center p-5 rounded-3xl bg-white group">
+                <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
+                    <i data-lucide="help-circle" class="w-8 h-8 text-[#1b4d3e]"></i>
                 </div>
-                <div class="mr-4 text-right flex-1">
-                    <h3 class="font-bold text-dxn text-sm">استفسار عام</h3>
-                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-loose">تواصل مباشر مع هيا</p>
+                <div class="mr-5 flex-1">
+                    <h3 class="font-bold text-xl text-dxn">استفسار عام</h3>
+                    <p class="text-gray-500 text-sm mt-1">أي سؤال آخر عن المنتجات أو العمل</p>
                 </div>
-                <i data-lucide="chevron-left" class="w-5 h-5 text-gray-300"></i>
+                <i data-lucide="chevron-left" class="w-6 h-6 text-gray-400 group-hover:text-gold transition-colors"></i>
             </a>
+
         </div>
     </div>
-    <div class="mt-8">
-        <a href="../" class="text-xs text-gray-400 hover:text-dxn flex items-center gap-2 transition-all font-bold">
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            <span>العودة لمنظومة هيا الرئيسية</span>
+
+    <!-- Back Button -->
+    <div class="mt-10">
+        <a href="../" 
+           class="flex items-center gap-3 text-gray-500 hover:text-[#1b4d3e] transition-all font-medium group">
+            <div class="w-9 h-9 rounded-2xl bg-white shadow flex items-center justify-center group-hover:rotate-180 transition-transform">
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </div>
+            <span class="text-sm">العودة لمنظومة هيا الرئيسية</span>
         </a>
     </div>
-    <script>lucide.createIcons();</script>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
