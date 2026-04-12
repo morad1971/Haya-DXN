@@ -141,10 +141,17 @@
 
   <script>
     lucide.createIcons();
-    // تفعيل Service Worker
+    
+    // تفعيل الـ Service Worker باستخدام الاسم الصحيح لملفك
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js').catch(err => console.log('SW failed', err));
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
       });
     }
   </script>
