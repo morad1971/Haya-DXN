@@ -4,34 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لائحة مشترياتي الذكية | فريق هيا اسكندراني</title>
-    
+   
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+   
     <style>
         :root { --dxn-green: #1b4d3e; --gold: #d4af37; }
         * { font-family: 'Vazirmatn', sans-serif; box-sizing: border-box; }
         h1, h2, h3 { font-family: 'Amiri', serif !important; }
         body { background-color: #f9fbfd; padding-top: 70px; min-height: 100vh; }
-        
+       
         .nav-glass {
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
             position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #e2e8f0;
         }
-
         .product-item {
             background: white; border-radius: 15px; padding: 0.8rem;
             border: 1px solid #edf2f7; display: flex; align-items: center; justify-content: space-between;
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
-
         .img-container {
-            width: 65px; height: 65px; background: #fff; 
+            width: 65px; height: 65px; background: #fff;
             border-radius: 12px; border: 1px solid #f0f0f0;
             display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
-
         .cart-sticky {
             position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%);
             width: 95%; max-width: 500px; background: var(--dxn-green);
@@ -41,7 +38,6 @@
     </style>
 </head>
 <body>
-
     <nav class="nav-glass py-4 px-6">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <a href="../index.html" class="flex items-center gap-2 text-[#1b4d3e] font-bold">
@@ -51,17 +47,14 @@
             <span class="text-xs font-bold text-[#d4af37] italic">HAYA DXN TOOLS</span>
         </div>
     </nav>
-
     <header class="py-6 px-6 text-center">
         <h1 class="text-3xl font-bold text-[#1b4d3e]">لائحة مشترياتي</h1>
         <p class="text-gray-500 text-sm">حددي احتياجاتك وراقبي نقاطك (PV) فوراً</p>
     </header>
-
     <main class="max-w-3xl mx-auto px-4 pb-48">
         <div id="product-list" class="space-y-4">
             </div>
     </main>
-
     <div class="cart-sticky">
         <div class="flex justify-between items-center mb-3">
             <div>
@@ -79,28 +72,25 @@
             <i data-lucide="printer" class="w-4 h-4"></i> طباعة اللائحة للطلب من الفرع
         </button>
     </div>
-
     <script>
         // أسماء الملفات مطابقة تماماً للقائمة التي أرسلتها
         const products = [
-            { id: 'p1', name: 'قهوة لينجزي السوداء', pv: 11.0, img: 'icons/Black-Coffee.webp' },
-            { id: 'p2', name: 'كوكوزي (كاكاو طبيعي)', pv: 14.0, img: 'icons/Cocozhi.webp' },
-            { id: 'p3', name: 'سبيرولينا (SPIRULINA)', pv: 70.0, img: 'icons/SPIRULINA.webp' },
+            { id: 'p1', name: 'قهوة لينجزي السوداء', pv: 10.0, img: 'icons/Black-Coffee.webp' },
+            { id: 'p2', name: 'كوكوزي (كاكاو طبيعي)', pv: 8.0, img: 'icons/Cocozhi.webp' },
+            { id: 'p3', name: 'سبيرولينا (SPIRULINA)', pv: 20.0, img: 'icons/SPIRULINA.webp' },
             { id: 'p4', name: 'معجون أسنان جانوزي', pv: 6.0, img: 'icons/Tooth-paste.webp' },
-            { id: 'p5', name: 'عصير مورينزي', pv: 14.0, img: 'icons/morinzhe.webp' },
-            { id: 'p6', name: 'الفطر الريشي (RG)', pv: 35.0, img: 'icons/reishi.webp' }
+            { id: 'p5', name: 'عصير مورينزي', pv: 37.0, img: 'icons/morinzhe.webp' },
+            { id: 'p6', name: 'الفطر الريشي (RG)', pv: 70.0, img: 'icons/reishi.webp' }
         ];
-
         let cart = {};
         products.forEach(p => cart[p.id] = 0);
-
         function render() {
             const list = document.getElementById('product-list');
             list.innerHTML = products.map(p => `
                 <div class="product-item">
                     <div class="flex items-center gap-4">
                         <div class="img-container">
-                            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-contain" 
+                            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-contain"
                                  onerror="this.src='../icons/package.png'; this.style.opacity='0.2';">
                         </div>
                         <div>
@@ -117,17 +107,15 @@
             `).join('');
             lucide.createIcons();
         }
-
         function updateQty(id, delta) {
             cart[id] = Math.max(0, cart[id] + delta);
             document.getElementById(`qty-${id}`).innerText = cart[id];
             calculate();
         }
-
         function calculate() {
             let total = products.reduce((sum, p) => sum + (cart[p.id] * p.pv), 0);
             document.getElementById('total-pv').innerText = total.toFixed(1);
-            
+           
             const badge = document.getElementById('status-badge');
             if (total >= 100) {
                 badge.innerText = "النصاب مكتمل! ✅";
@@ -137,7 +125,6 @@
                 badge.style.background = "rgba(255,255,255,0.1)";
             }
         }
-
         window.onload = render;
     </script>
 </body>
