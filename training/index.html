@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مركز التدريب | أكاديمية هيا اسكندراني</title>
-    
+   
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+   
     <style>
         :root {
             --dxn-green: #1b4d3e;
@@ -18,14 +18,13 @@
         * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
         h1, h2, h3 { font-family: 'Amiri', serif !important; }
         body { background-color: #f4f7f6; color: #333; padding-top: 70px; }
-        
+       
         .nav-glass {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             position: fixed; top: 0; width: 100%; z-index: 1000;
             border-bottom: 1px solid #e5e7eb;
         }
-
         .step-card {
             background: white;
             border-radius: 24px;
@@ -36,7 +35,6 @@
             overflow: hidden;
         }
         .step-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-
         .step-number {
             position: absolute;
             top: -10px;
@@ -47,7 +45,6 @@
             z-index: 0;
         }
 
-        /* تنسيق خاص لفيديوهات الشورتس الطولية */
         .video-shorts-wrapper {
             max-width: 350px;
             margin: 0 auto 1.5rem auto;
@@ -59,7 +56,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        /* تنسيق الفيديو العرضي التقليدي */
         .video-standard-wrapper {
             background: #1a1a1a;
             border-radius: 16px;
@@ -78,7 +74,6 @@
     </style>
 </head>
 <body>
-
     <nav class="nav-glass py-4 px-6">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <a href="../" class="flex items-center gap-2 text-[#1b4d3e] font-bold">
@@ -100,6 +95,7 @@
 
     <main class="max-w-5xl mx-auto px-6 space-y-12 pb-20">
 
+        <!-- المرحلة الأولى - الفيديو الأول (مصحح الآن) -->
         <section class="step-card group">
             <span class="step-number">01</span>
             <div class="relative z-10">
@@ -110,13 +106,20 @@
                     <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الأولى: البداية الصحيحة</h2>
                 </div>
                 <p class="text-gray-600 mb-6">البداية من المنتجات الحقيقية.</p>
-                
+               
                 <div class="video-shorts-wrapper">
-                    <iframe src="https://youtu.be/i0mcUvzB36g" title="YouTube video player" allowfullscreen></iframe>
+                    <iframe 
+                        src="https://www.youtube.com/embed/i0mcUvzB36g" 
+                        title="المرحلة الأولى - البداية الصحيحة"
+                        allowfullscreen 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </section>
 
+        <!-- المرحلة الثانية -->
         <section class="step-card group border-r-4 border-[#d4af37]">
             <span class="step-number">02</span>
             <div class="relative z-10">
@@ -127,11 +130,16 @@
                     <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الثانية: الاستهلاك الذكي</h2>
                 </div>
                 <p class="text-gray-600 mb-6">لماذا نستخدم هذه المنتجات؟ هيا تشرح لكِ كيف بدأت بتغيير "البقالة" لمنتجات عضوية.</p>
-                
+               
                 <div class="video-shorts-wrapper">
-                    <iframe src="https://www.youtube.com/embed/RadMQP_hOeg" title="YouTube video player" allowfullscreen></iframe>
+                    <iframe 
+                        src="https://www.youtube.com/embed/RadMQP_hOeg" 
+                        title="YouTube video player" 
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        loading="lazy">
+                    </iframe>
                 </div>
-
                 <div class="flex flex-wrap justify-center gap-3">
                     <a href="../health-guide/" class="bg-gray-100 text-gray-700 px-6 py-2 rounded-xl text-sm flex items-center gap-2 transition-colors hover:bg-[#d4af37] hover:text-white">
                         <i data-lucide="book-open" class="w-4 h-4"></i> مراجعة الدليل الصحي
@@ -140,6 +148,7 @@
             </div>
         </section>
 
+        <!-- المرحلة الثالثة -->
         <section class="step-card group">
             <span class="step-number">03</span>
             <div class="relative z-10">
@@ -150,9 +159,15 @@
                     <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الثالثة: مشروعك الاستثماري</h2>
                 </div>
                 <p class="text-gray-600 mb-6">السر الحقيقي: كيف تحولين هذا الاستهلاك إلى دخل متنامٍ وعالمي؟ شرح خطة العمل والبيزنس.</p>
-                
+               
                 <div class="video-standard-wrapper">
-                    <iframe src="https://www.youtube.com/embed/iX_FFDaQeJQ" title="YouTube video player" allowfullscreen></iframe>
+                    <iframe 
+                        src="https://www.youtube.com/embed/iX_FFDaQeJQ" 
+                        title="YouTube video player" 
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </section>
@@ -166,7 +181,6 @@
                 </a>
             </div>
         </div>
-
     </main>
 
     <script>
