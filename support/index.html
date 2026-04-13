@@ -17,24 +17,35 @@
             min-height: 100vh;
         }
         .hero-bg {
-            background-image: url('icons/back.jpeg');   /* ← غيري المسار هنا إذا أردت صورة أخرى */
+            background-image: url('icons/back.jpeg');
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;   /* لتأثير أفضل على الموبايل */
+            background-position: center 30%;     /* ← مهم: يرفع الصورة للأعلى */
+            background-attachment: fixed;
+            filter: brightness(0.85) contrast(1.1);   /* يخفف الإضاءة ويحسن التباين */
         }
+
+        /* خيار إضافي: تأثير الـ Overlay الأقوى */
+        .overlay {
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.45) 0%,
+                rgba(27, 77, 62, 0.65) 100%
+            );
+        }
+
         .main-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 25px 50px -12px rgba(27, 77, 62, 0.25);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 25px 50px -12px rgba(27, 77, 62, 0.3);
         }
+
         .support-option {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #f1f1f1;
         }
         .support-option:hover {
             transform: translateY(-8px) scale(1.03);
             border-color: var(--gold);
-            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.25);
         }
         .option-icon {
             transition: all 0.3s ease;
@@ -48,8 +59,8 @@
 </head>
 <body class="hero-bg flex flex-col items-center justify-center p-6 relative">
 
-    <!-- طبقة تغطية خفيفة لتحسين القراءة -->
-    <div class="absolute inset-0 bg-black/30"></div>
+    <!-- طبقة التغطية المحسنة -->
+    <div class="overlay absolute inset-0"></div>
 
     <div class="max-w-md w-full main-card rounded-3xl overflow-hidden border-t-8 border-gold relative z-10">
         
@@ -64,7 +75,6 @@
 
         <!-- Options -->
         <div class="p-6 space-y-5">
-            
             <a href="https://wa.me/962780484425?text=أهلاً هيا، أرغب في الاستفسار عن كيفية الانضمام للفريق والبدء بالعمل معكم."
                target="_blank" 
                class="support-option flex items-center p-5 rounded-3xl bg-white group">
@@ -103,7 +113,6 @@
                 </div>
                 <i data-lucide="chevron-left" class="w-6 h-6 text-gray-400 group-hover:text-gold transition-colors"></i>
             </a>
-
         </div>
     </div>
 
