@@ -14,38 +14,24 @@
         }
         body {
             font-family: 'Vazirmatn', sans-serif;
+            background: #fdfdfb;
             min-height: 100vh;
         }
-        .hero-bg {
-            background-image: url('icons/back.jpeg');
-            background-size: cover;
-            background-position: center 10%;     /* ← مهم: يرفع الصورة للأعلى */
-            background-attachment: fixed;
-            filter: brightness(0.85) contrast(1.1);   /* يخفف الإضاءة ويحسن التباين */
+        .photo-frame {
+            width: 110px;
+            height: 110px;
+            border: 6px solid var(--gold);
+            border-radius: 9999px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
         }
-
-        /* خيار إضافي: تأثير الـ Overlay الأقوى */
-        .overlay {
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0.45) 0%,
-                rgba(27, 77, 62, 0.65) 100%
-            );
-        }
-
-        .main-card {
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(14px);
-            box-shadow: 0 25px 50px -12px rgba(27, 77, 62, 0.3);
-        }
-
         .support-option {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .support-option:hover {
-            transform: translateY(-8px) scale(1.03);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 25px rgba(27, 77, 62, 0.1);
             border-color: var(--gold);
-            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.25);
         }
         .option-icon {
             transition: all 0.3s ease;
@@ -53,31 +39,38 @@
         .support-option:hover .option-icon {
             background-color: var(--dxn);
             color: white;
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
     </style>
 </head>
-<body class="hero-bg flex flex-col items-center justify-center p-6 relative">
+<body class="flex flex-col items-center justify-center p-6">
 
-    <!-- طبقة التغطية المحسنة -->
-    <div class="overlay absolute inset-0"></div>
-
-    <div class="max-w-md w-full main-card rounded-3xl overflow-hidden border-t-8 border-gold relative z-10">
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl overflow-hidden border-t-8 border-gold">
         
-        <!-- Header -->
-        <div class="bg-gradient-to-br from-[#1b4d3e]/95 to-[#0f2a22]/95 p-8 text-center text-white">
-            <div class="w-24 h-24 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-5">
-                <i data-lucide="message-circle-heart" class="w-14 h-14"></i>
+        <!-- Header مع الصورة بجانب النص -->
+        <div class="bg-gradient-to-br from-[#1b4d3e] to-[#0f2a22] p-8">
+            <div class="flex items-center gap-5">
+                <!-- إطار الصورة -->
+                <div class="photo-frame flex-shrink-0">
+                    <img src="icons/back.jpeg" 
+                         alt="هيا اسكندراني" 
+                         class="w-full h-full object-cover">
+                </div>
+                
+                <!-- النص -->
+                <div class="flex-1 text-white">
+                    <h1 class="text-3xl font-black tracking-tight leading-tight">مساعد هيا المباشر</h1>
+                    <p class="text-white/80 mt-2 text-lg">تواصلي معي فورًا عبر الواتساب</p>
+                </div>
             </div>
-            <h1 class="text-3xl font-black tracking-tight">مساعد هيا المباشر</h1>
-            <p class="text-white/80 mt-2 text-lg">تواصلي معي فورًا عبر واتساب</p>
         </div>
 
-        <!-- Options -->
-        <div class="p-6 space-y-5">
+        <!-- خيارات التواصل -->
+        <div class="p-7 space-y-5 bg-white">
+            
             <a href="https://wa.me/962780484425?text=أهلاً هيا، أرغب في الاستفسار عن كيفية الانضمام للفريق والبدء بالعمل معكم."
                target="_blank" 
-               class="support-option flex items-center p-5 rounded-3xl bg-white group">
+               class="support-option flex items-center p-5 rounded-3xl border border-gray-100 bg-white group">
                 <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
                     <i data-lucide="user-plus" class="w-8 h-8 text-[#1b4d3e]"></i>
                 </div>
@@ -90,7 +83,7 @@
 
             <a href="https://wa.me/962780484425?text=أهلاً هيا، أود الاستفسار عن أسعار وتوفر بعض منتجات DXN."
                target="_blank" 
-               class="support-option flex items-center p-5 rounded-3xl bg-white group">
+               class="support-option flex items-center p-5 rounded-3xl border border-gray-100 bg-white group">
                 <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
                     <i data-lucide="shopping-cart" class="w-8 h-8 text-[#1b4d3e]"></i>
                 </div>
@@ -103,7 +96,7 @@
 
             <a href="https://wa.me/962780484425?text=أهلاً هيا، لدي سؤال بخصوص منتجات دكسن أو طريقة العمل."
                target="_blank" 
-               class="support-option flex items-center p-5 rounded-3xl bg-white group">
+               class="support-option flex items-center p-5 rounded-3xl border border-gray-100 bg-white group">
                 <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
                     <i data-lucide="help-circle" class="w-8 h-8 text-[#1b4d3e]"></i>
                 </div>
@@ -113,14 +106,15 @@
                 </div>
                 <i data-lucide="chevron-left" class="w-6 h-6 text-gray-400 group-hover:text-gold transition-colors"></i>
             </a>
+
         </div>
     </div>
 
-    <!-- Back Button -->
-    <div class="mt-10 relative z-10">
+    <!-- زر العودة -->
+    <div class="mt-10">
         <a href="../" 
-           class="flex items-center gap-3 text-white hover:text-gold transition-all font-medium group">
-            <div class="w-9 h-9 rounded-2xl bg-white/20 backdrop-blur-md shadow flex items-center justify-center group-hover:rotate-180 transition-transform">
+           class="flex items-center gap-3 text-gray-500 hover:text-dxn transition-all font-medium group">
+            <div class="w-9 h-9 rounded-2xl bg-white shadow flex items-center justify-center group-hover:rotate-180 transition-transform">
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </div>
             <span class="text-sm">العودة لمنظومة هيا الرئيسية</span>
