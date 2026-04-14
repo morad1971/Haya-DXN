@@ -4,75 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>معلومات التطبيق | هيا اسكندراني</title>
-   
+  
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-   
+  
     <style>
         :root {
             --dxn-green: #1b4d3e;
             --gold: #d4af37;
         }
-        * { 
-            font-family: 'Vazirmatn', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        * {
+            font-family: 'Vazirmatn', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         h1, h2, h3 { font-family: 'Amiri', serif !important; }
-        body { 
-            background-color: #fdfdfb; 
-            color: #333; 
-            padding-top: 80px; 
+        body {
+            background-color: #fdfdfb;
+            color: #333;
+            padding-top: 80px;
         }
-       
         .nav-glass {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
+            position: fixed;
+            top: 0;
+            width: 100%;
             z-index: 1000;
             border-bottom: 1px solid #e2e8f0;
         }
-        .nav-banner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 10px 14px;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .nav-pill {
-            text-decoration: none;
-            color: #1b4d3e;
-            background: #fff;
-            border: 1px solid #e6e6e6;
-            border-radius: 999px;
-            padding: 7px 14px;
-            font-size: 14px;
-            font-weight: 700;
-            transition: all 0.2s ease;
-        }
-        .nav-pill:hover {
-            border-color: #d4af37;
-            transform: translateY(-1px);
-        }
-        .nav-pill-register {
-            background: #c8102e;
-            color: #fff;
-            border-color: #c8102e;
-        }
-
-        .info-card {
+        .info-card, .social-feed {
             background: white;
             border-radius: 20px;
-            padding: 1.5rem;
+            padding: 1.8rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         .link-item {
             display: flex;
@@ -84,12 +52,11 @@
             margin-bottom: 10px;
             text-decoration: none;
             color: inherit;
-            border: 1px solid transparent;
             transition: all 0.2s;
         }
-        .link-item:hover { 
-            border-color: var(--gold); 
-            background: white; 
+        .link-item:hover {
+            border-color: var(--gold);
+            background: white;
         }
         .btn-dev {
             display: flex !important;
@@ -105,57 +72,111 @@
             margin-top: 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        .btn-dev:hover { 
-            background-color: #d4af37 !important; 
-            color: white !important; 
+        .btn-dev:hover {
+            background-color: #d4af37 !important;
+            color: white !important;
+        }
+        
+        /* تنسيق Fouita Widget */
+        #ftyqh125v {
+            width: 100%;
+            max-width: 100%;
         }
     </style>
 </head>
 <body>
-    <!-- Navbar موحد -->
+    <!-- Navbar -->
     <div class="nav-glass">
-        <nav class="nav-banner">
-            <a href="../" class="nav-pill">الرئيسية</a>
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex gap-3 flex-wrap justify-center">
+            <a href="https://morad1971.github.io/Haya-DXN/" class="nav-pill">الرئيسية</a>
             <a href="../product-catalog/" class="nav-pill">كتالوج المنتجات</a>
             <a href="../stories/" class="nav-pill">قصص النجاح</a>
             <a href="../register/" class="nav-pill nav-pill-register">سجلي الآن</a>
         </nav>
     </div>
 
-    <main class="max-w-xl mx-auto px-6 py-8">
+    <main class="max-w-2xl mx-auto px-6 py-8">
+
+        <!-- قسم آخر المنشورات -->
+        <div class="social-feed">
+            <h2 class="text-xl font-bold text-[#1b4d3e] mb-6 border-r-4 border-[#d4af37] pr-4 flex items-center gap-3">
+                <i data-lucide="rss" class="w-6 h-6"></i>
+                آخر المنشورات من هيا اسكندراني
+            </h2>
+
+            <!-- فيسبوك -->
+            <div class="mb-12">
+                <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                    <i data-lucide="facebook" class="text-blue-600 w-6 h-6"></i>
+                    فيسبوك
+                </h3>
+                <div class="fb-page" 
+                     data-href="https://www.facebook.com/hayaiskandrany" 
+                     data-tabs="timeline" 
+                     data-width="500" 
+                     data-height="650" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/hayaiskandrany" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/hayaiskandrany">فيسبوك هيا اسكندراني</a>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- إنستغرام - الكود الصحيح الجديد -->
+            <div>
+                <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                    <i data-lucide="instagram" class="text-pink-500 w-6 h-6"></i>
+                    إنستغرام
+                </h3>
+                
+                <!-- Fouita Widget الصحيح -->
+                <div data-key="Instagram Feed" class="ft" id="ftyqh125v"></div>
+                <script src="https://wdg.fouita.com/widgets/0x426c94.js"></script>
+                
+                <div style="font-size: 11px; text-align: center; margin-top: 10px; opacity: 0.7;">
+                    Powered by <a href="https://fouita.com" target="_blank">Fouita</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- حسابات التواصل -->
         <div class="info-card">
-            <h2 class="text-lg font-bold text-dxn-green mb-4 border-r-4 border-gold pr-3">حسابات التواصل - هيا</h2>
-            <a href="https://www.instagram.com/h.i.i1980?utm_source=qr&igsh=NzZmb3I2azc2NnJ3" target="_blank" class="link-item">
-                <i data-lucide="instagram" class="text-pink-500"></i>
+            <h2 class="text-lg font-bold text-[#1b4d3e] mb-4 border-r-4 border-[#d4af37] pr-3">حسابات التواصل - هيا</h2>
+            <a href="https://www.instagram.com/h.i.i1980" target="_blank" class="link-item">
+                <i data-lucide="instagram" class="text-pink-500 w-6 h-6"></i>
                 <span class="font-medium">انستغرام هيا اسكندراني</span>
             </a>
-            <a href="https://www.facebook.com/share/p/1GjaWVd34R/" target="_blank" class="link-item">
-                <i data-lucide="facebook" class="text-blue-600"></i>
+            <a href="https://www.facebook.com/hayaiskandrany" target="_blank" class="link-item">
+                <i data-lucide="facebook" class="text-blue-600 w-6 h-6"></i>
                 <span class="font-medium">فيسبوك هيا اسكندراني</span>
             </a>
         </div>
 
+        <!-- روابط DXN -->
         <div class="info-card">
-            <h2 class="text-lg font-bold text-dxn-green mb-4 border-r-4 border-gold pr-3">روابط عضوية DXN</h2>
+            <h2 class="text-lg font-bold text-[#1b4d3e] mb-4 border-r-4 border-[#d4af37] pr-3">روابط عضوية DXN</h2>
             <a href="https://eworld.dxn2u.com/s/accreg/en/148000945" target="_blank" class="link-item">
-                <i data-lucide="user-plus" class="text-green-600"></i>
+                <i data-lucide="user-plus" class="text-green-600 w-6 h-6"></i>
                 <span class="font-medium">رابط تسجيل العضوية المباشر</span>
             </a>
             <a href="https://www.dxnarabia.com/pws/148000945" target="_blank" class="link-item">
-                <i data-lucide="globe" class="text-blue-500"></i>
+                <i data-lucide="globe" class="text-blue-500 w-6 h-6"></i>
                 <span class="font-medium">موقع هيا الشخصي في ديكسن</span>
             </a>
         </div>
 
+        <!-- صانع التطبيق -->
         <div class="bg-[#1b4d3e] p-8 rounded-[30px] text-white text-center shadow-xl">
             <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i data-lucide="terminal" class="text-gold"></i>
+                <i data-lucide="terminal" class="text-[#d4af37]"></i>
             </div>
             <h3 class="text-xl font-bold mb-3">صانع التطبيق</h3>
             <p class="text-sm opacity-80 leading-relaxed mb-6">
                 تم تطوير هذا العمل لتقديم تجربة رقمية متميزة. للتواصل مع المطور للاستفسارات التقنية:
             </p>
-           
             <a href="https://api.whatsapp.com/send?phone=447738067404" target="_blank" class="btn-dev">
                 <i data-lucide="message-circle" class="w-6 h-6"></i>
                 تواصل عبر الواتساب
@@ -163,9 +184,15 @@
         </div>
     </main>
 
-    <footer class="py-10 text-center opacity-30 text-xs italic">
+    <footer class="py-10 text-center opacity-40 text-xs italic">
         © 2026 جميع الحقوق محفوظة
     </footer>
+
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" 
+            src="https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v20.0">
+    </script>
 
     <script>
         lucide.createIcons();
