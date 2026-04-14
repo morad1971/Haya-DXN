@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مركز التدريب | أكاديمية هيا اسكندراني</title>
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
-    <!-- خطوط Google (Vazirmatn + Amiri) -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root { 
             --dxn-green: #1b4d3e; 
             --gold: #d4af37; 
-            --soft-white: #fdfdfb; 
         }
         
         * { 
@@ -32,13 +28,13 @@
         body { 
             background-color: #f4f7f6; 
             color: #333; 
-            padding-top: 70px; 
-            line-height: 1.6;
+            padding-top: 80px; 
+            line-height: 1.7;
         }
         
         .nav-glass { 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px); 
+            background: rgba(255, 255, 255, 0.97); 
+            backdrop-filter: blur(12px); 
             position: fixed; 
             top: 0; 
             width: 100%; 
@@ -48,142 +44,188 @@
         
         .step-card { 
             background: white; 
-            border-radius: 24px; 
-            padding: 2rem; 
+            border-radius: 28px; 
+            padding: 2.2rem; 
             border: 1px solid #eef2f3; 
-            transition: all 0.3s ease; 
+            transition: all 0.4s ease; 
             position: relative; 
             overflow: hidden; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
         }
         
         .step-card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05); 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(27,77,62,0.12); 
         }
         
         .step-number { 
             position: absolute; 
-            top: -10px; 
-            left: -10px; 
-            font-size: 5rem; 
+            top: -25px; 
+            left: -20px; 
+            font-size: 7rem; 
             font-weight: 900; 
-            color: rgba(27, 77, 62, 0.05); 
+            color: rgba(27, 77, 62, 0.07); 
             z-index: 0; 
+            pointer-events: none;
         }
         
-        .video-shorts-wrapper { 
-            max-width: 350px; 
-            margin: 0 auto 1.5rem auto; 
-            background: #1a1a1a; 
+        .video-wrapper { 
+            background: #0f0f0f; 
             border-radius: 20px; 
             overflow: hidden; 
-            aspect-ratio: 9/16; 
-            position: relative; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+            margin-bottom: 1.8rem; 
         }
         
-        .video-standard-wrapper { 
-            background: #1a1a1a; 
-            border-radius: 16px; 
-            overflow: hidden; 
-            aspect-ratio: 16/9; 
-            margin-bottom: 1.5rem; 
-            position: relative; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
-        }
+        .video-standard { aspect-ratio: 16/9; }
+        .video-shorts { max-width: 360px; margin: 0 auto 1.8rem auto; aspect-ratio: 9/16; }
         
         iframe { 
             width: 100%; 
             height: 100%; 
             border: none; 
         }
+        
+        .phase-description { 
+            background: #f8faf9; 
+            padding: 1.8rem; 
+            border-radius: 20px; 
+            border-right: 5px solid var(--dxn-green);
+            font-size: 1.02rem;
+        }
+        
+        .youtube-btn {
+            background: #ff0000;
+            color: white;
+            padding: 12px 26px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(255,0,0,0.25);
+        }
+        
+        .youtube-btn:hover {
+            background: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255,0,0,0.35);
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="nav-glass py-4 px-6">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="../" class="flex items-center gap-2 text-[#1b4d3e] font-bold">
-                <i data-lucide="home" class="w-5 h-5"></i>
+            <a href="https://morad1971.github.io/Haya-DXN/" class="flex items-center gap-2 text-[#1b4d3e] font-bold text-lg">
+                <i data-lucide="home" class="w-6 h-6"></i>
                 <span>الرئيسية</span>
             </a>
-            <div class="flex gap-4 items-center">
-                <span class="text-xs bg-gold/10 text-[#d4af37] px-3 py-1 rounded-full font-bold">أكاديمية التدريب</span>
-            </div>
+            
+            <a href="https://www.youtube.com/@hayaiskandarany6114" target="_blank" class="youtube-btn">
+                <i data-lucide="youtube" class="w-5 h-5"></i>
+                <span>قناة هيا اسكندراني</span>
+            </a>
         </div>
     </nav>
 
-    <header class="py-12 px-6 text-center bg-white border-b border-gray-100 mb-12">
+    <!-- Header -->
+    <header class="py-14 px-6 text-center bg-white border-b border-gray-100">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl font-bold text-[#1b4d3e] mb-4">مرحباً بكِ في رحلة النجاح</h1>
-            <p class="text-gray-500">خطة العمل التدريبية المكونة من 3 مراحل.</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-[#1b4d3e] mb-4">مرحباً بكِ في رحلة النجاح</h1>
+            <p class="text-gray-600 text-lg">خطة تدريبية متكاملة من 3 مراحل مصممة خصيصاً للعضوات الجدد في DXN</p>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 space-y-12 pb-20">
+    <main class="max-w-5xl mx-auto px-6 space-y-16 pb-24">
         
         <!-- المرحلة 1 -->
-        <section class="step-card group">
+        <section class="step-card">
             <span class="step-number">01</span>
-            <div class="relative z-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="p-3 bg-[#1b4d3e] text-white rounded-2xl shadow-lg">
-                        <i data-lucide="play-circle"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الأولى: البداية الصحيحة</h2>
+            <div class="flex items-center gap-4 mb-6">
+                <div class="p-4 bg-[#1b4d3e] text-white rounded-3xl shadow-lg">
+                    <i data-lucide="play-circle" class="w-8 h-8"></i>
                 </div>
-                <div class="video-standard-wrapper">
-                    <iframe src="https://www.youtube-nocookie.com/embed/vjgGQOYAoG4" 
-                            title="المرحلة الأولى: البداية الصحيحة"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen 
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                <h2 class="text-3xl font-bold text-[#1b4d3e]">المرحلة الأولى: البداية الصحيحة</h2>
+            </div>
+            
+            <div class="video-wrapper video-standard">
+                <iframe src="https://www.youtube-nocookie.com/embed/vjgGQOYAoG4" 
+                        title="المرحلة الأولى" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="phase-description">
+                <strong>ما ستتعلّمينه:</strong><br>
+                تدريب شامل على منتجات DXN الطبيعية (ريشي، سبيرولينا، نوني وغيرها) + فوائدها الصحية + طريقة الاستهلاك اليومي الصحيحة لبناء أساس قوي لصحتك وطاقتك.
             </div>
         </section>
 
         <!-- المرحلة 2 -->
-        <section class="step-card group border-r-4 border-[#d4af37]">
+        <section class="step-card border-r-4 border-[#d4af37]">
             <span class="step-number">02</span>
-            <div class="relative z-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="p-3 bg-[#d4af37] text-white rounded-2xl shadow-lg">
-                        <i data-lucide="sparkles"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الثانية: الاستهلاك الذكي</h2>
+            <div class="flex items-center gap-4 mb-6">
+                <div class="p-4 bg-[#d4af37] text-white rounded-3xl shadow-lg">
+                    <i data-lucide="sparkles" class="w-8 h-8"></i>
                 </div>
-                <div class="video-shorts-wrapper">
-                    <iframe src="https://www.youtube-nocookie.com/embed/q5AbRpDJaWU" 
-                            title="المرحلة الثانية: الاستهلاك الذكي"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen 
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                <h2 class="text-3xl font-bold text-[#1b4d3e]">المرحلة الثانية: الاستهلاك الذكي</h2>
+            </div>
+            
+            <div class="video-wrapper video-shorts">
+                <iframe src="https://www.youtube-nocookie.com/embed/q5AbRpDJaWU" 
+                        title="المرحلة الثانية" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="phase-description">
+                <strong>ما ستتعلّمينه:</strong><br>
+                أساليب البيع الطبيعية والمريحة في DXN + كيف تحولين استهلاكك اليومي إلى مشاركة سهلة مع أهلك وصديقاتك + بداية بناء فريقك الأول بدون ضغط.
             </div>
         </section>
 
         <!-- المرحلة 3 -->
-        <section class="step-card group">
+        <section class="step-card">
             <span class="step-number">03</span>
-            <div class="relative z-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="p-3 bg-red-600 text-white rounded-2xl shadow-lg">
-                        <i data-lucide="trending-up"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الثالثة: مشروعك الاستثماري</h2>
+            <div class="flex items-center gap-4 mb-6">
+                <div class="p-4 bg-red-600 text-white rounded-3xl shadow-lg">
+                    <i data-lucide="trending-up" class="w-8 h-8"></i>
                 </div>
-                <div class="video-standard-wrapper">
-                    <iframe src="https://www.youtube-nocookie.com/embed/k_8SK49pjxQ" 
-                            title="المرحلة الثالثة: مشروعك الاستثماري"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen 
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                <h2 class="text-3xl font-bold text-[#1b4d3e]">المرحلة الثالثة: مشروعك الاستثماري</h2>
+            </div>
+            
+            <div class="video-wrapper video-standard">
+                <iframe src="https://www.youtube-nocookie.com/embed/k_8SK49pjxQ" 
+                        title="المرحلة الثالثة" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="phase-description">
+                <strong>ما ستتعلّمينه:</strong><br>
+                كيف تبنين بزنس DXN بشكل احترافي: نظام العمولات والنقاط، طريقة تحقيق الدخل الشهري المستمر، وخطة 6 أشهر لبناء فريق قوي ومربح.
             </div>
         </section>
     </main>
 
+    <!-- زر القناة في الأسفل -->
+    <div class="text-center py-16 bg-white border-t">
+        <a href="https://www.youtube.com/@hayaiskandarany6114" 
+           target="_blank" 
+           class="youtube-btn text-xl px-12 py-6">
+            <i data-lucide="youtube" class="w-7 h-7"></i>
+            اشتركي في قناة هيا اسكندراني على يوتيوب
+        </a>
+        <p class="text-gray-500 mt-5 text-lg">محتوى يومي عن DXN والتطوير الذاتي والنجاح المالي</p>
+    </div>
+
     <script>
-        // تحميل الأيقونات
         window.onload = function() {
             lucide.createIcons();
         };
