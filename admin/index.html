@@ -35,6 +35,36 @@
             z-index: 1000;
             border-bottom: 1px solid #e2e8f0;
         }
+        .nav-banner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nav-pill {
+            text-decoration: none;
+            color: #1b4d3e;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+        .nav-pill:hover {
+            border-color: #d4af37;
+            transform: translateY(-1px);
+        }
+        .nav-pill-register {
+            background: #c8102e;
+            color: #fff;
+            border-color: #c8102e;
+        }
         .info-card, .social-feed {
             background: white;
             border-radius: 20px;
@@ -76,19 +106,16 @@
             background-color: #d4af37 !important;
             color: white !important;
         }
-        
-        /* تنسيق Fouita Widget */
         #ftyqh125v {
             width: 100%;
-            max-width: 100%;
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar موحد - كما كان أصلياً -->
     <div class="nav-glass">
-        <nav class="max-w-6xl mx-auto px-6 py-4 flex gap-3 flex-wrap justify-center">
-            <a href="https://morad1971.github.io/Haya-DXN/" class="nav-pill">الرئيسية</a>
+        <nav class="nav-banner">
+            <a href="../" class="nav-pill">الرئيسية</a>
             <a href="../product-catalog/" class="nav-pill">كتالوج المنتجات</a>
             <a href="../stories/" class="nav-pill">قصص النجاح</a>
             <a href="../register/" class="nav-pill nav-pill-register">سجلي الآن</a>
@@ -125,19 +152,18 @@
                 </div>
             </div>
 
-            <!-- إنستغرام - الكود الصحيح الجديد -->
+            <!-- إنستغرام - Fouita Widget الصحيح -->
             <div>
                 <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
                     <i data-lucide="instagram" class="text-pink-500 w-6 h-6"></i>
                     إنستغرام
                 </h3>
                 
-                <!-- Fouita Widget الصحيح -->
                 <div data-key="Instagram Feed" class="ft" id="ftyqh125v"></div>
                 <script src="https://wdg.fouita.com/widgets/0x426c94.js"></script>
                 
                 <div style="font-size: 11px; text-align: center; margin-top: 10px; opacity: 0.7;">
-                    Powered by <a href="https://fouita.com" target="_blank">Fouita</a>
+                    Powered by <a href="https://fouita.com" target="_blank" style="color: inherit;">Fouita</a>
                 </div>
             </div>
         </div>
