@@ -5,72 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مركز التدريب | أكاديمية هيا اسكندراني</title>
    
-    <script src="https://tailwindcss.com"></script>
+    <!-- تحديث روابط المكتبات لضمان التحميل -->
+    <script src="https://cloudflare.com"></script>
     <link href="https://googleapis.com" rel="stylesheet">
-    <script src="https://unpkg.com"></script>
+    <script src="https://jsdelivr.net"></script>
    
     <style>
-        :root {
-            --dxn-green: #1b4d3e;
-            --gold: #d4af37;
-            --soft-white: #fdfdfb;
-        }
+        :root { --dxn-green: #1b4d3e; --gold: #d4af37; --soft-white: #fdfdfb; }
         * { font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
         h1, h2, h3 { font-family: 'Amiri', serif !important; }
         body { background-color: #f4f7f6; color: #333; padding-top: 70px; }
-       
-        .nav-glass {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .step-card {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem;
-            border: 1px solid #eef2f3;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+        .nav-glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #e5e7eb; }
+        .step-card { background: white; border-radius: 24px; padding: 2rem; border: 1px solid #eef2f3; transition: all 0.3s ease; position: relative; overflow: hidden; }
         .step-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .step-number {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            font-size: 5rem;
-            font-weight: 900;
-            color: rgba(27, 77, 62, 0.05);
-            z-index: 0;
-        }
-
-        .video-shorts-wrapper {
-            max-width: 350px;
-            margin: 0 auto 1.5rem auto;
-            background: #1a1a1a;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 9/16;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .video-standard-wrapper {
-            background: #1a1a1a;
-            border-radius: 16px;
-            overflow: hidden;
-            aspect-ratio: 16/9;
-            margin-bottom: 1.5rem;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        .step-number { position: absolute; top: -10px; left: -10px; font-size: 5rem; font-weight: 900; color: rgba(27, 77, 62, 0.05); z-index: 0; }
+        .video-shorts-wrapper { max-width: 350px; margin: 0 auto 1.5rem auto; background: #1a1a1a; border-radius: 20px; overflow: hidden; aspect-ratio: 9/16; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .video-standard-wrapper { background: #1a1a1a; border-radius: 16px; overflow: hidden; aspect-ratio: 16/9; margin-bottom: 1.5rem; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
@@ -89,13 +40,12 @@
     <header class="py-12 px-6 text-center bg-white border-b border-gray-100 mb-12">
         <div class="max-w-3xl mx-auto">
             <h1 class="text-4xl font-bold text-[#1b4d3e] mb-4">مرحباً بكِ في رحلة النجاح</h1>
-            <p class="text-gray-500">خطة العمل التدريبية المكونة من 3 مراحل لنقلكِ من "مستهلكة" إلى "رائدة أعمال عالمية".</p>
+            <p class="text-gray-500">خطة العمل التدريبية المكونة من 3 مراحل.</p>
         </div>
     </header>
 
     <main class="max-w-5xl mx-auto px-6 space-y-12 pb-20">
-
-        <!-- المرحلة الأولى -->
+        <!-- المرحلة 1 -->
         <section class="step-card group">
             <span class="step-number">01</span>
             <div class="relative z-10">
@@ -105,22 +55,15 @@
                     </div>
                     <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الأولى: البداية الصحيحة</h2>
                 </div>
-                <p class="text-gray-600 mb-6">البداية من المنتجات الحقيقية.</p>
-               
                 <div class="video-shorts-wrapper">
-                    <iframe 
-                        src="https://youtube-nocookie.com" 
-                        title="المرحلة الأولى - البداية الصحيحة"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen 
-                        loading="lazy">
-                    </iframe>
+                    <iframe src="https://youtube-nocookie.com" 
+                            allowfullscreen 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
 
-        <!-- المرحلة الثانية -->
+        <!-- المرحلة 2 -->
         <section class="step-card group border-r-4 border-[#d4af37]">
             <span class="step-number">02</span>
             <div class="relative z-10">
@@ -130,27 +73,15 @@
                     </div>
                     <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الثانية: الاستهلاك الذكي</h2>
                 </div>
-                <p class="text-gray-600 mb-6">لماذا نستخدم هذه المنتجات؟ هيا تشرح لكِ كيف بدأت بتغيير "البقالة" لمنتجات عضوية.</p>
-               
                 <div class="video-shorts-wrapper">
-                    <iframe 
-                        src="https://youtube-nocookie.com" 
-                        title="المرحلة الثانية - الاستهلاك الذكي" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
-                </div>
-                <div class="flex flex-wrap justify-center gap-3">
-                    <a href="../health-guide/" class="bg-gray-100 text-gray-700 px-6 py-2 rounded-xl text-sm flex items-center gap-2 transition-colors hover:bg-[#d4af37] hover:text-white">
-                        <i data-lucide="book-open" class="w-4 h-4"></i> مراجعة الدليل الصحي
-                    </a>
+                    <iframe src="https://youtube-nocookie.com" 
+                            allowfullscreen 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
 
-        <!-- المرحلة الثالثة -->
+        <!-- المرحلة 3 -->
         <section class="step-card group">
             <span class="step-number">03</span>
             <div class="relative z-10">
@@ -160,34 +91,22 @@
                     </div>
                     <h2 class="text-2xl font-bold text-[#1b4d3e]">المرحلة الثالثة: مشروعك الاستثماري</h2>
                 </div>
-                <p class="text-gray-600 mb-6">السر الحقيقي: كيف تحولين هذا الاستهلاك إلى دخل متنامٍ وعالمي؟ شرح خطة العمل والبيزنس.</p>
-               
                 <div class="video-standard-wrapper">
-                    <iframe 
-                        src="https://youtube-nocookie.com" 
-                        title="المرحلة الثالثة - مشروعك الاستثماري" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
+                    <iframe src="https://youtube-nocookie.com" 
+                            allowfullscreen 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
-
-        <div class="text-center py-12 bg-white rounded-[40px] shadow-sm border border-dashed border-gold/30">
-            <h3 class="font-bold text-lg mb-2">هل لديكِ استفسار حول أحد الدروس؟</h3>
-            <p class="text-gray-500 text-sm mb-6 px-6">هيا وفريق الدعم متواجدون لمساعدتكِ في فهم خطة العمل بشكل أعمق.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://wa.me" class="bg-[#25D366] text-white px-8 py-3 rounded-2xl font-bold flex items-center gap-2 text-sm shadow-lg transition-transform hover:scale-105">
-                    <i data-lucide="message-circle"></i> تواصل مع هيا
-                </a>
-            </div>
-        </div>
     </main>
 
     <script>
-        lucide.createIcons();
+        // التأكد من عمل الأيقونات
+        window.onload = function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        };
     </script>
 </body>
 </html>
