@@ -4,19 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>منصة هيا اسكندراني | عالم دكسن</title>
-  
+ 
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#1b4d3e" />
-  
-  <!-- iOS PWA Support -->
+ 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest"></script>
-
   <style>
     :root { --dxn-green: #1b4d3e; --gold: #d4af37; --soft-white: #fdfdfb; }
     * { font-family: 'Vazirmatn', sans-serif; box-sizing: border-box; }
@@ -41,9 +38,9 @@
     .nav-pill:hover { border-color: #d4af37; transform: translateY(-1px); }
     .nav-pill-register { background: #c8102e; color: #fff; border-color: #c8102e; }
     .hero-section {
-      background: linear-gradient(to bottom, rgba(10, 31, 25, 0.7), rgba(10, 31, 25, 0.9)), url('icons/haya-award.jpg');
+      background: linear-gradient(to bottom, rgba(10, 31, 25, 0.75), rgba(10, 31, 25, 0.9)), url('icons/haya-award.jpg');
       background-size: cover; background-position: center 20%;
-      min-height: 60vh; display: flex; align-items: center; justify-content: center;
+      min-height: 52vh; display: flex; align-items: center; justify-content: center;
       text-align: center; color: white;
     }
     .step-container {
@@ -57,12 +54,22 @@
       text-decoration: none; color: #333; font-size: 0.85rem; text-align: center;
     }
     .mini-card:hover { border-color: var(--gold); transform: translateY(-3px); background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    
+
+    /* تنسيق الصورة الجديدة */
+    .motivational-image {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      margin: 40px 0 20px;
+    }
+
     #install-btn {
       position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
       z-index: 100; background: var(--dxn-green); color: white;
       padding: 12px 24px; border-radius: 50px; border: 2px solid var(--gold);
-      font-weight: bold; display: inline-flex; align-items: center; gap: 8px; 
+      font-weight: bold; display: inline-flex; align-items: center; gap: 8px;
       cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       transition: all 0.3s;
     }
@@ -83,25 +90,36 @@
     </nav>
   </div>
 
-  <!-- زر تثبيت التطبيق اليدوي -->
   <button id="install-btn" style="display: none;">
     <i data-lucide="smartphone"></i> تثبيت التطبيق
   </button>
 
   <header class="hero-section">
-    <div class="px-6">
+    <div class="px-6 max-w-3xl">
       <h1 class="text-5xl md:text-7xl font-bold mb-4">عالم <span class="text-[#d4af37]">هيا اسكندراني</span></h1>
-      <p class="text-xl italic opacity-90">مشوارنا بيبدأ بصحة.. وبيكبر لرزقة بركة</p>
+      <p class="text-2xl italic mb-6">رائدة أعمال في مشروع DXN</p>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed opacity-95">
+        مرحباً بكِ في المنصة الرسمية لهيا اسكندراني<br>
+        هنا تجدين كل ما تحتاجينه لرحلتك في DXN: من تحسين الصحة والاستهلاك الذكي، إلى المشاركة الطبيعية، وبناء مشروع مستدام يجمع بين الرزق والبركة.
+      </p>
     </div>
   </header>
 
   <main class="max-w-5xl mx-auto py-12 px-6">
-   
+
+    <div class="text-center mb-14 max-w-2xl mx-auto">
+      <p class="text-gray-600 text-lg">
+        منصة متكاملة صممتها هيا اسكندراني خصيصاً لمساعدة النساء على اكتشاف فوائد منتجات DXN الطبيعية، 
+        وتحويل تجربتهن الصحية إلى فرصة عمل مربحة بطريقة أخلاقية ومستدامة.
+      </p>
+    </div>
+
     <div class="step-container" id="step1">
       <div class="flex items-center mb-4">
         <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4">١</span>
         <h3 class="text-2xl font-bold text-[#1b4d3e]">الاستبدال الذكي</h3>
       </div>
+      <p class="text-gray-600 mb-6 text-center">ابدئي رحلتك باستبدال بعض العادات اليومية بمنتجات DXN الطبيعية عالية الجودة</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <a href="./product-catalog/index.html" class="mini-card"><i data-lucide="book-open" class="mb-2"></i><span>كتالوج المنتجات</span></a>
         <a href="./top-products/index.html" class="mini-card"><i data-lucide="star" class="mb-2"></i><span>باقات هيا الذهبية</span></a>
@@ -115,6 +133,7 @@
         <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4">٢</span>
         <h3 class="text-2xl font-bold text-[#1b4d3e]">المشاركة الصادقة</h3>
       </div>
+      <p class="text-gray-600 mb-6 text-center">تعلمي كيف تشاركين تجربتك بثقة وصدق دون ضغط أو إحراج</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <a href="./intro/index.html" class="mini-card"><i data-lucide="play" class="mb-2"></i><span>قصة البداية</span></a>
         <a href="./stories/index.html" class="mini-card"><i data-lucide="heart" class="mb-2"></i><span>خواتنا اللي نجحوا</span></a>
@@ -128,6 +147,7 @@
         <span class="bg-[#d4af37] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold ml-4">٣</span>
         <h3 class="text-2xl font-bold text-[#1b4d3e]">بناء المشروع</h3>
       </div>
+      <p class="text-gray-600 mb-6 text-center">حوّلي صحتك وتجربتك إلى مشروع حقيقي يحقق لك دخلاً إضافياً واستقلالاً مالياً</p>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
         <a href="./business/index.html" class="mini-card"><i data-lucide="briefcase" class="mb-2"></i><span>دكسن كمشروع</span></a>
         <a href="./training/index.html" class="mini-card"><i data-lucide="graduation-cap" class="mb-2"></i><span>مركز التدريب</span></a>
@@ -139,58 +159,45 @@
         <a href="./support/index.html" class="mini-card"><i data-lucide="help-circle" class="mb-2"></i><span>الدعم الفني</span></a>
       </div>
     </div>
+
+    <!-- الصورة الجديدة بعد القسم الثالث -->
+    <img src="icons/haya-award.jpg" alt="أهلاً بكم في عالم هيا" class="motivational-image">
+
   </main>
 
-  <footer class="bg-[#0a1f19] text-white py-12 text-center">
-    <p class="brand-name text-4xl text-[#d4af37]">هيا اسكندراني</p>
-    <p class="opacity-50 text-xs mt-2">© 2026 جميع الحقوق محفوظة</p>
+  <footer class="bg-[#0a1f19] text-white py-14 text-center">
+    <p class="brand-name text-4xl text-[#d4af37] mb-2">هيا اسكندراني</p>
+    <p class="opacity-75">رائدة أعمال في DXN • منصة متكاملة للصحة والرزق الحلال</p>
+    <p class="opacity-50 text-xs mt-8">© 2026 جميع الحقوق محفوظة</p>
   </footer>
 
   <script>
     lucide.createIcons();
 
-    // تسجيل Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js')
-          .then(registration => {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          })
-          .catch(err => {
-            console.log('ServiceWorker registration failed: ', err);
-          });
+        navigator.serviceWorker.register('./service-worker.js');
       });
     }
 
-    // كود زر التثبيت اليدوي (Install Prompt)
     let deferredPrompt;
     const installBtn = document.getElementById('install-btn');
-
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      installBtn.style.display = 'inline-flex';   // إظهار الزر
+      installBtn.style.display = 'inline-flex';
     });
-
     installBtn.addEventListener('click', () => {
       if (deferredPrompt) {
         deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the install prompt');
-          } else {
-            console.log('User dismissed the install prompt');
-          }
+        deferredPrompt.userChoice.then(() => {
           deferredPrompt = null;
           installBtn.style.display = 'none';
         });
       }
     });
-
-    // إخفاء الزر بعد التثبيت
     window.addEventListener('appinstalled', () => {
       installBtn.style.display = 'none';
-      console.log('PWA was installed');
     });
   </script>
 </body>
