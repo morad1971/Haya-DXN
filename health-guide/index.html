@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دليلك للصحة مع هيا | رحلة استعادة الحيوية</title>
   
+    <link rel="icon" type="image/png" sizes="192x192" href="../icons/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#1b4d3e">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -83,6 +89,23 @@
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
+        /* تنسيق مشغل اليوتيوب ليكون متجاوباً */
+        .video-container {
+            position: relative;
+            padding-bottom: 177.77%; /* نسبة 9:16 للفيديوهات القصيرة Shorts */
+            height: 0;
+            overflow: hidden;
+            max-width: 400px; /* تحديد عرض مناسب للفيديوهات الطولية */
+            margin: 0 auto;
+            border-radius: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body class="bg-[#fdfdfb] text-gray-800 pb-20">
@@ -127,12 +150,21 @@
 
         <section class="mb-24 text-center">
             <h2 class="text-3xl font-bold text-gray-800 mb-8">شاركي هيا جولتها في قلب عالم دكسن - الأردن</h2>
-            <div class="max-w-3xl mx-auto rounded-[30px] overflow-hidden shadow-2xl border-8 border-white relative">
-                <video controls class="w-full">
-                    <source src="./icons/office-visit.mp4" type="video/mp4">
-                    متصفحك لا يدعم تشغيل الفيديو.
-                </video>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-4 rounded-[30px] shadow-xl border-4 border-white">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/msshGq4x1nw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-[30px] shadow-xl border-4 border-white">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/oyGvP3uTCOc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
+
             <p class="mt-6 text-gray-500 italic flex items-center justify-center gap-2">
                 <i data-lucide="map-pin" class="w-4 h-4 text-red-500"></i>
                 مقر الشركة الرسمي - الدوار الثامن، عمّان
