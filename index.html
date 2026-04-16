@@ -54,14 +54,15 @@
     }
     .mini-card:hover { border-color: var(--gold); transform: translateY(-3px); background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-    /* تحسين عرض الصورة Promise.jpeg */
+    /* تنسيق الصورة Promise.jpeg - المعدل حسب شكل الصورة */
     .motivational-image {
       width: 100%;
-      max-height: 520px;           /* زيادة الارتفاع قليلاً لتبدو أفضل */
-      object-fit: cover;           /* يحافظ على نسبة الصورة بدون تشويه */
+      max-height: 420px;           /* حجم مناسب وواضح */
+      object-fit: cover;
       border-radius: 24px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      margin: 50px 0 30px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      margin: 50px 0 40px;
+      display: block;
     }
 
     #install-btn {
@@ -159,7 +160,9 @@
     </div>
 
     <!-- الصورة Promise.jpeg بعد القسم الثالث -->
-    <img src="icons/Promise.jpeg" alt="وعد هيا" class="motivational-image">
+    <img src="icons/Promise.jpeg" 
+         alt="أهلاً بكم في عالم هيا" 
+         class="motivational-image">
 
   </main>
 
