@@ -3,126 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مساعد هيا الذكي | دعم مباشر</title>
+    <title>اسألي هيا | استشاراتك الشخصية</title>
+   
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+   
     <style>
         :root {
-            --dxn: #1b4d3e;
+            --dxn-green: #1b4d3e;
             --gold: #d4af37;
+            --wa-green: #25D366;
         }
+        * { font-family: 'Vazirmatn', sans-serif; box-sizing: border-box; }
+        h1 { font-family: 'Amiri', serif !important; }
+       
         body {
-            font-family: 'Vazirmatn', sans-serif;
-            background: #fdfdfb;
+            background: #f8fafc;
             min-height: 100vh;
+            padding: 20px;
         }
-        .photo-frame {
-            width: 110px;
-            height: 110px;
-            border: 6px solid var(--gold);
-            border-radius: 9999px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            margin: 0 auto;
         }
-        .support-option {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .header-image {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            border: 4px solid #f1f5f9;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
-        .support-option:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 25px rgba(27, 77, 62, 0.1);
-            border-color: var(--gold);
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
         }
-        .option-icon {
+        .cat-option {
+            background: #f1f5f9;
+            padding: 14px 8px;
+            border-radius: 18px;
+            text-align: center;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: 2px solid transparent;
             transition: all 0.3s ease;
+            color: #64748b;
+            font-weight: 700;
         }
-        .support-option:hover .option-icon {
-            background-color: var(--dxn);
+        .cat-option.active {
+            border-color: var(--gold);
+            background: #fffdf2;
+            color: var(--dxn-green);
+            transform: scale(1.05);
+        }
+        .input-field {
+            width: 100%;
+            padding: 16px 20px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            outline: none;
+            margin-bottom: 16px;
+            text-align: right;
+            font-size: 1rem;
+        }
+        .input-field:focus {
+            border-color: var(--gold);
+            background: white;
+        }
+        .ask-btn {
+            width: 100%;
+            background: var(--wa-green);
             color: white;
-            transform: scale(1.08);
+            padding: 18px;
+            border-radius: 22px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+        .ask-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin-top: 60px;
+            padding-top: 35px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 18px 0;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--dxn-green);
+            font-size: 1.05rem;
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 14px;
+            color: #475569;
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+        .faq-sign {
+            font-size: 1.6rem;
+            color: #94a3b8;
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center p-6">
-
-    <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl overflow-hidden border-t-8 border-gold">
-        
-        <!-- Header مع الصورة بجانب النص -->
-        <div class="bg-gradient-to-br from-[#1b4d3e] to-[#0f2a22] p-8">
-            <div class="flex items-center gap-5">
-                <!-- إطار الصورة -->
-                <div class="photo-frame flex-shrink-0">
-                    <img src="icons/back.jpeg" 
-                         alt="هيا اسكندراني" 
-                         class="w-full h-full object-cover">
-                </div>
-                
-                <!-- النص -->
-                <div class="flex-1 text-white">
-                    <h1 class="text-3xl font-black tracking-tight leading-tight">مساعد هيا المباشر</h1>
-                    <p class="text-white/80 mt-2 text-lg">تواصلي معي فورًا عبر الواتساب</p>
-                </div>
-            </div>
+<body>
+    <div class="glass-card">
+        <!-- الصورة الأصلية -->
+        <div class="text-center mb-10">
+            <img src="icons/back.jpeg" alt="هيا اسكندراني" class="header-image">
+            <h1 class="text-3xl font-bold text-[#1b4d3e] mb-2">اسألي هيا</h1>
+            <p class="text-gray-500">مساحة آمنة لكل استفساراتكِ الصحية والمهنية</p>
         </div>
 
-        <!-- خيارات التواصل -->
-        <div class="p-7 space-y-5 bg-white">
+        <form id="askForm">
+            <label class="block text-xs font-bold text-gray-400 mb-3 mr-2">اختاري موضوع السؤال:</label>
+            <div class="category-grid">
+                <div class="cat-option active" onclick="selectCat(this, 'صحية')">استشارة صحية</div>
+                <div class="cat-option" onclick="selectCat(this, 'فرصة عمل')">فرصة عمل</div>
+                <div class="cat-option" onclick="selectCat(this, 'منتجات')">منتجات</div>
+            </div>
+            <input type="hidden" id="selectedCategory" value="صحية">
+           
+            <input type="text" id="userName" required placeholder="اسمكِ الكريم" class="input-field">
+            <input type="tel" id="userPhone" required placeholder="رقم هاتفك (للتواصل)" class="input-field">
+            <textarea id="userMsg" rows="4" required placeholder="اكتبي سؤالكِ هنا بكل وضوح..." class="input-field"></textarea>
             
-            <a href="https://wa.me/962780484425?text=أهلاً هيا، أرغب في الاستفسار عن كيفية الانضمام للفريق والبدء بالعمل معكم."
-               target="_blank" 
-               class="support-option flex items-center p-5 rounded-3xl border border-gray-100 bg-white group">
-                <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
-                    <i data-lucide="user-plus" class="w-8 h-8 text-[#1b4d3e]"></i>
-                </div>
-                <div class="mr-5 flex-1">
-                    <h3 class="font-bold text-xl text-dxn">تسجيل عضوية جديدة</h3>
-                    <p class="text-gray-500 text-sm mt-1">استفسار عن الانضمام للفريق</p>
-                </div>
-                <i data-lucide="chevron-left" class="w-6 h-6 text-gray-400 group-hover:text-gold transition-colors"></i>
-            </a>
+            <button type="submit" class="ask-btn">
+                إرسال عبر واتساب
+            </button>
+        </form>
 
-            <a href="https://wa.me/962780484425?text=أهلاً هيا، أود الاستفسار عن أسعار وتوفر بعض منتجات DXN."
-               target="_blank" 
-               class="support-option flex items-center p-5 rounded-3xl border border-gray-100 bg-white group">
-                <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
-                    <i data-lucide="shopping-cart" class="w-8 h-8 text-[#1b4d3e]"></i>
-                </div>
-                <div class="mr-5 flex-1">
-                    <h3 class="font-bold text-xl text-dxn">طلب منتجات دكسن</h3>
-                    <p class="text-gray-500 text-sm mt-1">أسعار - توفر - توصيل</p>
-                </div>
-                <i data-lucide="chevron-left" class="w-6 h-6 text-gray-400 group-hover:text-gold transition-colors"></i>
-            </a>
-
-            <a href="https://wa.me/962780484425?text=أهلاً هيا، لدي سؤال بخصوص منتجات دكسن أو طريقة العمل."
-               target="_blank" 
-               class="support-option flex items-center p-5 rounded-3xl border border-gray-100 bg-white group">
-                <div class="option-icon bg-green-50 p-4 rounded-2xl shadow-sm">
-                    <i data-lucide="help-circle" class="w-8 h-8 text-[#1b4d3e]"></i>
-                </div>
-                <div class="mr-5 flex-1">
-                    <h3 class="font-bold text-xl text-dxn">استفسار عام</h3>
-                    <p class="text-gray-500 text-sm mt-1">أي سؤال آخر عن المنتجات أو العمل</p>
-                </div>
-                <i data-lucide="chevron-left" class="w-6 h-6 text-gray-400 group-hover:text-gold transition-colors"></i>
-            </a>
-
-        </div>
-    </div>
-
-    <!-- زر العودة -->
-    <div class="mt-10">
-        <a href="../" 
-           class="flex items-center gap-3 text-gray-500 hover:text-dxn transition-all font-medium group">
-            <div class="w-9 h-9 rounded-2xl bg-white shadow flex items-center justify-center group-hover:rotate-180 transition-transform">
-                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        <!-- قسم الأسئلة الشائعة (10 أسئلة) -->
+        <div class="faq-section">
+            <h2 class="text-2xl font-bold text-[#1b4d3e] mb-8 text-center">الأسئلة الشائعة</h2>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">ما هي أنواع الاستشارات التي تقدمينها؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">أقدم استشارات صحية، نصائح حول منتجات DXN، فرص العمل والتسويق، وبناء الفريق.</div>
             </div>
-            <span class="text-sm">العودة لمنظومة هيا الرئيسية</span>
-        </a>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">كم يستغرق الرد على استشارتي؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">عادة أرد خلال 24 ساعة، وغالباً خلال ساعات قليلة إذا كان السؤال واضحاً.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">هل الاستشارة مجانية؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">نعم، جميع الاستشارات الأولية مجانية تماماً.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">هل يمكنني السؤال عن منتج معين من DXN؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">بالتأكيد، يمكنك السؤال عن أي منتج مثل الريشي، السبيرولينا، النوني، القهوة وغيرها.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">كيف أبدأ في DXN كعضوة جديدة؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">أساعدك بخطة واضحة تبدأ من الاستهلاك الصحيح ثم المشاركة الطبيعية وبناء فريقك.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">هل تقدمين استشارات عن التسويق والمبيعات؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">نعم، أقدم نصائح عملية حول أساليب البيع الطبيعية بدون ضغط.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">هل يمكنني التواصل معكِ مباشرة؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">نعم، يمكنك التواصل معي عبر الواتساب أو من خلال هذه الصفحة.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">ما هي أفضل طريقة لاستهلاك منتجات DXN؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">أساعدكِ بوضع برنامج يومي مناسب لحالتك الصحية وأهدافك.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">هل هناك استشارات للرجال أيضاً؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">نعم، الاستشارات متاحة للجميع رجالاً ونساءً.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">كيف أحقق دخل إضافي من DXN؟ <span class="faq-sign">+</span></div>
+                <div class="faq-answer">أقدم لك خطة واقعية لبناء فريق وتحقيق دخل شهري مستمر.</div>
+            </div>
+        </div>
+
+        <!-- رابط العودة الصحيح -->
+        <div class="text-center mt-12">
+            <a href="https://morad1971.github.io/Haya-DXN/" 
+               class="inline-flex items-center gap-2 text-gray-500 hover:text-[#d4af37] font-medium">
+                ← العودة للرئيسية
+            </a>
+        </div>
     </div>
 
     <script>
-        lucide.createIcons();
+        function selectCat(el, val) {
+            document.querySelectorAll('.cat-option').forEach(opt => opt.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('selectedCategory').value = val;
+        }
+
+        function toggleFaq(el) {
+            el.classList.toggle('open');
+        }
+
+        document.getElementById('askForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const category = document.getElementById('selectedCategory').value;
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('userPhone').value.trim();
+            const message = document.getElementById('userMsg').value.trim();
+            
+            if (!name || !phone || !message) {
+                alert("يرجى ملء جميع الحقول");
+                return;
+            }
+
+            const fullMessage = `مرحباً هيا، أنا ${name}.%0Aعندي استشارة (${category}) بخصوص:%0A${message}%0Aرقم هاتفي: ${phone}`;
+            const whatsappUrl = `https://wa.me/962780484425?text=${fullMessage}`;
+            window.open(whatsappUrl, '_blank');
+        });
     </script>
 </body>
 </html>
